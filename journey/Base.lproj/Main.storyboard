@@ -116,6 +116,10 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WTT-9t-Dlt" customClass="GMSMapView">
+                                <rect key="frame" x="34" y="226" width="250" height="306"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -124,6 +128,7 @@
                     <connections>
                         <outlet property="headerImageView" destination="ezz-b2-3Qb" id="Kzc-21-Csf"/>
                         <outlet property="headerNameLabel" destination="jIo-le-KnY" id="nMD-P9-gGF"/>
+                        <outlet property="mapView_" destination="WTT-9t-Dlt" id="SaC-TK-rlC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

@@ -11,6 +11,7 @@
 
 @interface ViewController : UIViewController
 
+@property (weak, nonatomic) IBOutlet GMSMapView *mapView_;
 @property (nonatomic, strong) IBOutlet UILabel *headerNameLabel;
 @property (nonatomic, strong) IBOutlet UIImageView *headerImageView;
 
