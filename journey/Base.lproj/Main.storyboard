@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bU8-hq-4RU">
-                                <rect key="frame" x="166" y="513" width="43" height="30"/>
+                                <rect key="frame" x="166" y="403" width="43" height="30"/>
                                 <state key="normal" title="Log In">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -26,7 +26,7 @@
                                 </connections>
                             </button>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="j3G-64-gkm">
-                                <rect key="frame" x="177" y="569" width="20" height="20"/>
+                                <rect key="frame" x="177" y="449" width="20" height="20"/>
                             </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -34,12 +34,12 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="activityIndicator" destination="j3G-64-gkm" id="a8x-ic-OCV"/>
-                        <segue destination="BYZ-38-t0r" kind="push" identifier="loggedIn" id="nII-pD-5OV"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="loggedIn" id="nII-pD-5OV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2el-tX-KIx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="146.5" y="-588.5"/>
+            <point key="canvasLocation" x="146.5" y="-598.5"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
