@@ -82,7 +82,7 @@
                     <navigationItem key="navigationItem" title="Pick your contacts" id="NMo-U8-HPp">
                         <barButtonItem key="rightBarButtonItem" title="Done" id="wq8-7n-xik">
                             <connections>
-                                <segue destination="BYZ-38-t0r" kind="show" id="ouR-62-e0i"/>
+                                <segue destination="BYZ-38-t0r" kind="show" identifier="doneLoggingIn" id="ouR-62-e0i"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

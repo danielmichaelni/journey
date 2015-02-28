@@ -13,6 +13,8 @@
 
 @interface ViewController ()
 
+@property (strong, nonatomic) IBOutlet UITextView *selectedFriendsView;
+
 @end
 
 @implementation ViewController
@@ -36,6 +38,29 @@
     // Do any additional setup after loading the view, typically from a nib.
     
     [self _loadData];
+    [self findFriendAndCellPhone];
+}
+
+- (void)findFriendAndCellPhone
+{
+    NSMutableArray *contacts = [[NSMutableArray alloc] init];
+    contacts = [[PFUser currentUser] objectForKey:@"contactList"];
+    
+    PFQuery *query = [PFUser query];
+    [query whereKey:@"facebookId" containedIn:contacts];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            if (objects.count!=0) {
+                for (PFObject *object in objects) {
+                    //NSLog(@"%@", object.objectId);
+                    NSLog(@"%@", object[@"cellPhone"]);
+                }
+            }
+        } else {
+            NSLog(@"Error: %@ %@", error, [error userInfo]);
+        }
+        
+    }];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -67,20 +92,23 @@
             NSString *facebookID = userData[@"id"];
             
             
-            NSMutableDictionary *userProfile = [NSMutableDictionary dictionaryWithCapacity:7];
+            NSMutableDictionary *userProfile = [NSMutableDictionary dictionaryWithCapacity:40];
             
             if (facebookID) {
                 userProfile[@"facebookId"] = facebookID;
+                [[PFUser currentUser] setObject:facebookID forKey:@"facebookId"];
             }
             
             NSString *name = userData[@"name"];
             if (name) {
                 userProfile[@"name"] = name;
+                [[PFUser currentUser] setObject:name forKey:@"name"];
             }
             
             NSString *location = userData[@"location"][@"name"];
             if (location) {
                 userProfile[@"location"] = location;
+                [[PFUser currentUser] setObject:location forKey:@"location"];
             }
             
             NSString *gender = userData[@"gender"];
@@ -99,6 +127,8 @@
             }
             
             userProfile[@"pictureURL"] = [NSString stringWithFormat:@"https://graph.facebook.com/%@/picture?type=large&return_ssl_resources=1", facebookID];
+            
+            [[PFUser currentUser] setObject:userProfile[@"pictureURL"] forKey:@"pictureURL"];
             
             [[PFUser currentUser] setObject:userProfile forKey:@"profile"];
             [[PFUser currentUser] saveInBackground];

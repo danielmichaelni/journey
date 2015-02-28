@@ -11,6 +11,7 @@
 #import <ParseFacebookUtils/PFFacebookUtils.h>
 #import <FacebookSDK/FacebookSDK.h>
 #import "FriendPickerViewController.h"
+#import "ViewController.h"
 
 @interface FriendPickerViewController ()
 
@@ -18,9 +19,6 @@
 @property (retain, nonatomic) FBFriendPickerViewController *friendPickerController;
 @property (retain, nonatomic) UISearchBar *searchBar;
 @property (retain, nonatomic) NSString *searchText;
-
-
-//- (void)fillTextBoxAndDismiss:(NSString *)text;
 
 @end
 
@@ -41,8 +39,11 @@
 - (void) viewDidUnload
 {
     self.friendPickerController = nil;
+    
     self.selectedFriendsView = nil;
     self.searchBar = nil;
+    self.friendPickerController.doneButton = nil;
+    self.friendPickerController.cancelButton = nil;
 }
 
 - (IBAction)pickFriendsButtonClick:(id)sender {
@@ -50,7 +51,7 @@
     // if the session is open, then load the data for our view controller
     if (!FBSession.activeSession.isOpen) {
         // if the session is closed, then we open it here, and establish a handler for state changes
-        [FBSession openActiveSessionWithReadPermissions:@[@"public_profile", @"user_friends"]
+        [FBSession openActiveSessionWithReadPermissions:@[@"public_profile", @"user_friends", @"friends_about_me"]
                                            allowLoginUI:YES
                                       completionHandler:^(FBSession *session,
                                                           FBSessionState state,
@@ -68,8 +69,6 @@
                                       }];
         return;
     }
-    
-    NSLog(@"GOT HERE!!");
     
     FBRequest* friendsRequest = [FBRequest requestWithGraphPath:@"me/friends?fields=picture,name,username,location,first_name,last_name" parameters:nil HTTPMethod:@"GET"];
     [friendsRequest startWithCompletionHandler: ^(FBRequestConnection *connection, NSDictionary* result, NSError *error) {
@@ -90,76 +89,55 @@
     
     [self.friendPickerController loadData];
     [self.friendPickerController clearSelection];
+    self.friendPickerController.allowsMultipleSelection = TRUE;
+    self.friendPickerController.delegate = self;
+
+    self.friendPickerController.doneButton = [[UIBarButtonItem alloc] initWithTitle:@"Done" style:UIBarButtonItemStyleDone target:self action:nil];
     
+    [self.navigationController pushViewController: self.friendPickerController animated:YES];
+    /*
     [self presentViewController:self.friendPickerController animated:YES completion:^(void){
         [self addSearchBarToFriendPickerView];
     }];
+    */
 }
-/*
-- (void)_loadFriendPicker {
-    if (!FBSession.activeSession.isOpen) {
-        // if the session is closed, then we open it here, and establish a handler for state changes
-        [FBSession openActiveSessionWithReadPermissions:nil
-                                           allowLoginUI:YES
-                                      completionHandler:^(FBSession *session,
-                                                          FBSessionState state,
-                                                          NSError *error) {
-                                          if (error) {
-                                              UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Sorry, there was an error"
-                                                                                                  message:error.localizedDescription
-                                                                                                 delegate:nil
-                                                                                        cancelButtonTitle:@"OK"
-                                                                                        otherButtonTitles:nil];
-                                              [alertView show];
-                                          } else if (session.isOpen) {
-                                              NSLog(@"good");
-                                          }
-                                      }];
-        return;
-    }
-    
-    if (self.friendPickerController == nil) {
-        NSLog(@"It is");
-        // Create friend picker, and get data loaded into it.
-        self.friendPickerController = [[FBFriendPickerViewController alloc] init];
-        self.friendPickerController.title = @"Pick Friends";
-        self.friendPickerController.delegate = self;
-    }
-    
-    [self.friendPickerController loadData];
-    [self.friendPickerController clearSelection];
-    [self presentViewController:self.friendPickerController animated:YES completion:^(void){
-        [self addSearchBarToFriendPickerView];
-    }];
-}
-*/
+
 #pragma Facebook Friends View
 
 - (void)facebookViewControllerDoneWasPressed:(id)sender {
     NSMutableString *text = [[NSMutableString alloc] init];
-    
+    NSMutableArray *contacts =[[NSMutableArray alloc] init];
     // we pick up the users from the selection, and create a string that we use to update the text view
     // at the bottom of the display; note that self.selection is a property inherited from our base class
     for (id<FBGraphUser> user in self.friendPickerController.selection) {
         if ([text length]) {
-            [text appendString:@" @"];
+            [text appendString:@", "];
         }
         [text appendString:user.name];
+        [contacts addObject:user.objectID];
     }
     
-    //[self fillTextBoxAndDismiss:text.length > 0 ? text : @"<None>"];
+    [[PFUser currentUser] setObject:contacts forKey:@"contactList"];
+    [[PFUser currentUser] saveInBackground];
+    
+    
+    self.selectedFriendsView.text = text;
+    
+    [self.navigationController popViewControllerAnimated:YES];
+    // transition
+    //[self performSegueWithIdentifier:@"doneLoggingIn" sender:self];
 }
 
 - (void)facebookViewControllerCancelWasPressed:(id)sender {
-    //[self fillTextBoxAndDismiss:@""];
     NSLog(@"This was preseed!");
-    [self.friendPickerController  dismissViewControllerAnimated:YES completion:nil];
+    //[self.friendPickerController  dismissViewControllerAnimated:YES completion:nil];
+    [self.navigationController popViewControllerAnimated:YES];
 }
+
 
 #pragma Search Bar
 - (void)addSearchBarToFriendPickerView
 {
-    NSLog(@"Addsearchbar");
     if (self.searchBar == nil) {
         CGFloat searchBarHeight = 44.0;
         self.searchBar =
@@ -202,8 +180,6 @@
 - (BOOL)friendPickerViewController:(FBFriendPickerViewController *)friendPicker
                  shouldIncludeUser:(id<FBGraphUser>)user
 {
-    
-    NSLog(@"This was called");
     /*
     // If there is a search query, filter the friend list based on this.
     if (self.searchText && ![self.searchText isEqualToString:@""]) {
@@ -224,6 +200,7 @@
     */
     return YES;
 }
+
 
 
 @end
