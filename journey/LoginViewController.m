@@ -57,7 +57,7 @@
 
 - (IBAction)loginButtonTouchHandler:(id)sender  {
     // Set permissions required from the facebook user account
-    NSArray *permissionsArray = @[ @"user_about_me", @"user_relationships", @"user_birthday", @"user_location", @"email", @"user_friends"];
+    NSArray *permissionsArray = @[ @"user_about_me", @"user_relationships", @"user_birthday", @"user_location", @"email", @"user_friends", @"email"];
 
     // Login PFUser using Facebook
     [PFFacebookUtils logInWithPermissions:permissionsArray block:^(PFUser *user, NSError *error) {
@@ -93,7 +93,6 @@
 #pragma mark UserDetailsViewController
 
 - (void)_presentUserDetailsViewControllerAnimated:(BOOL)animated {
-    ViewController *initialViewController = [[ViewController alloc] initWithNibName:@"ViewController" bundle:nil];
     //[self.navigationController pushViewController:initialViewController animated:animated];
     //[self.navigationController presentViewController:initialViewController animated:false completion:nil];
     [self performSegueWithIdentifier:@"loggedIn" sender:self];
