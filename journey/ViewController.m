@@ -142,6 +142,13 @@
             
             userProfile[@"pictureURL"] = [NSString stringWithFormat:@"https://graph.facebook.com/%@/picture?type=large&return_ssl_resources=1", facebookID];
             
+            
+            NSString *email = userData[@"email"];
+            if (email) {
+                userProfile[@"email"] = email;
+                [[PFUser currentUser] setObject:email forKey:@"email"];
+            }
+            
             [[PFUser currentUser] setObject:userProfile[@"pictureURL"] forKey:@"pictureURL"];
             
             [[PFUser currentUser] setObject:userProfile forKey:@"profile"];
