@@ -5,13 +5,13 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>1D24CFC0-9DE2-4641-A83A-14C93CED3F86</string>
+	<string>0E4BC0A3-3180-46D4-AD8D-264BCAB9FFE6</string>
 	<key>IDESourceControlProjectName</key>
 	<string>journey</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>BE10D6013D2C05AF68BF1036D07F11F2DE1B4ED9</key>
-		<string>https://github.com/danielmichaelni/journey.git</string>
+		<string>github.com:danielmichaelni/journey.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>journey.xcodeproj</string>
@@ -21,7 +21,7 @@
 		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>https://github.com/danielmichaelni/journey.git</string>
+	<string>github.com:danielmichaelni/journey.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
