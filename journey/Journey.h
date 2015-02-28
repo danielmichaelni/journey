@@ -15,6 +15,7 @@
 @property (strong, nonatomic) GMSCameraPosition *destination;
 @property (strong, nonatomic) NSTimer *timer;
 
+- (id) initWithDestination:(GMSCameraPosition *)destination;
 - (id) initWithDestination:(GMSCameraPosition *)destination andTimer:(NSTimer *)timer;
 
 @end
