@@ -15,20 +15,21 @@
 
 @end
 
-@implementation ViewController
+@implementation ViewController {
+    GMSMapView *mapView_;
+}
+
 
 - (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         self.title = @"Profile";
     }
-    NSLog(@"Got here.");
     return self;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    NSLog(@"Got here 2.");
     // Add logout navigation bar button
     UIBarButtonItem *logoutButton = [[UIBarButtonItem alloc] initWithTitle:@"Log Out"
                                                                      style:UIBarButtonItemStyleBordered
@@ -36,6 +37,28 @@
                                                                     action:@selector(logoutButtonAction:)];
     self.navigationItem.leftBarButtonItem = logoutButton;
     // Do any additional setup after loading the view, typically from a nib.
+    
+    
+    // Map Set-up!
+    GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:-33.86
+                                                            longitude:151.20
+                                                                 zoom:6];
+    mapView_ = [GMSMapView mapWithFrame:CGRectZero camera:camera];
+    mapView_.myLocationEnabled = YES;
+    mapView_.settings.myLocationButton = YES;
+    NSLog(@"User's location: %@", mapView_.myLocation);
+    
+    self.view.autoresizesSubviews = YES;
+    
+    UIView *old_view = self.view;
+    
+    UIView *new_view = [[UIView alloc] initWithFrame: self.view.frame];
+    
+    self.view = new_view;
+    
+    [self.view addSubview:old_view];
+    
+    [self.view addSubview:mapView_];
     
     [self _loadData];
 }
@@ -48,7 +71,6 @@
 - (void)logoutButtonAction:(id)sender {
     // Logout user, this automatically clears the cache
     [PFUser logOut];
-    
     // Return to login view controller
     [self.navigationController popToRootViewControllerAnimated:YES];
 }
@@ -109,7 +131,6 @@
             [self _updateProfileData];
         } else if ([[[[error userInfo] objectForKey:@"error"] objectForKey:@"type"]
                     isEqualToString: @"OAuthException"]) { // Since the request failed, we can check if it was due to an invalid session
-            NSLog(@"The facebook session was invalidated");
             [self logoutButtonAction:nil];
         } else {
             NSLog(@"Some other error: %@", error);
