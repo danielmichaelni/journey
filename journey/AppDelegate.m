@@ -24,6 +24,9 @@
                   clientKey:@"sUrEE1CCtcE6LVCqSni8nXBg69TYeOyt54Aqzn5F"];
     
     [PFFacebookUtils initializeFacebook];
+    
+    [GMSServices provideAPIKey:@"AIzaSyA967lZf-JIWj8xFX1YqOUQGtW8jqOQu0A"];
+    
     /*
     UIUserNotificationType userNotificationTypes = (UIUserNotificationTypeAlert |
                                                     UIUserNotificationTypeBadge |

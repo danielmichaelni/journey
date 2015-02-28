@@ -15,7 +15,10 @@
 
 @end
 
-@implementation ViewController
+@implementation ViewController {
+    GMSMapView *mapView_;
+}
+
 
 - (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -34,6 +37,28 @@
                                                                     action:@selector(logoutButtonAction:)];
     self.navigationItem.leftBarButtonItem = logoutButton;
     // Do any additional setup after loading the view, typically from a nib.
+    
+    
+    // Map Set-up!
+    GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:-33.86
+                                                            longitude:151.20
+                                                                 zoom:6];
+    mapView_ = [GMSMapView mapWithFrame:CGRectZero camera:camera];
+    mapView_.myLocationEnabled = YES;
+    mapView_.settings.myLocationButton = YES;
+    NSLog(@"User's location: %@", mapView_.myLocation);
+    
+    self.view.autoresizesSubviews = YES;
+    
+    UIView *old_view = self.view;
+    
+    UIView *new_view = [[UIView alloc] initWithFrame: self.view.frame];
+    
+    self.view = new_view;
+    
+    [self.view addSubview:old_view];
+    
+    [self.view addSubview:mapView_];
     
     [self _loadData];
 }
