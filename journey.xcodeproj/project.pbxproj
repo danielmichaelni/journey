@@ -100,10 +100,10 @@
 		A40F49A11AA1803000D96183 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		A40F49A31AA1803700D96183 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		A40F49A51AA1821700D96183 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
-		A4465CFF1AA223B20066FFE8 /* CellPhoneViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CellPhoneViewController.h; path = ../CellPhoneViewController.h; sourceTree = "<group>"; };
 		A4465D001AA223E20066FFE8 /* CellPhoneViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CellPhoneViewController.m; sourceTree = "<group>"; };
 		A4465D091AA231630066FFE8 /* FriendPickerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FriendPickerViewController.h; sourceTree = "<group>"; };
 		A4465D0A1AA2316C0066FFE8 /* FriendPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendPickerViewController.m; sourceTree = "<group>"; };
+		A4465D101AA26BE90066FFE8 /* CellPhoneViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CellPhoneViewController.h; sourceTree = "<group>"; };
 		A4B3A9381AA187C20068CDE0 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		A4B3A9391AA187C20068CDE0 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -189,7 +189,7 @@
 				A4465D051AA230C90066FFE8 /* Login */,
 				A4B3A9381AA187C20068CDE0 /* LoginViewController.h */,
 				A4B3A9391AA187C20068CDE0 /* LoginViewController.m */,
-				A4465CFF1AA223B20066FFE8 /* CellPhoneViewController.h */,
+				A4465D101AA26BE90066FFE8 /* CellPhoneViewController.h */,
 				A4465D001AA223E20066FFE8 /* CellPhoneViewController.m */,
 				A4465D091AA231630066FFE8 /* FriendPickerViewController.h */,
 				A4465D0A1AA2316C0066FFE8 /* FriendPickerViewController.m */,
