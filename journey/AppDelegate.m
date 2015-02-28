@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import <Parse/Parse.h>
 #import <ParseFacebookUtils/PFFacebookUtils.h>
+#import "Communication.h"
 
 
 @interface AppDelegate ()
@@ -22,6 +23,16 @@
     // Override point for customization after application launch.
     [Parse setApplicationId:@"ZpuXzvuAPi4SChpYQEMaMZGFo4VtF9eMZtvBoGzv"
                   clientKey:@"sUrEE1CCtcE6LVCqSni8nXBg69TYeOyt54Aqzn5F"];
+    
+    if (NO) { //Testing
+        [Communication SendSMS:@"3012727051" withMessage:@"Good Morning"];
+        NSMutableArray *array = [NSMutableArray array];
+        [array addObject:[NSString stringWithFormat:@"charlespippin@gmail.com"]];
+        [array addObject:[NSString stringWithFormat:@"ikachan48@gmail.com"]];
+        //[Communication SendBulkSMS:array withMessage:@"HELLO"];
+        [Communication SendEmail:@"ikachan48@gmail.com" withSubject:@"NEW" withMessage:@"yehhlooh"];
+        [Communication SendBulkEmail:array withSubject:@"Bulk Test" withMessage:@"not important"];
+    }
     
     [PFFacebookUtils initializeFacebook];
     /*

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1885DEE21AA20DA6005AE98A /* Communication.m in Sources */ = {isa = PBXBuildFile; fileRef = 1885DEE11AA20DA6005AE98A /* Communication.m */; };
 		562A9CEA1AA17D7800BDEBA6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 562A9CE91AA17D7800BDEBA6 /* main.m */; };
 		562A9CED1AA17D7800BDEBA6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 562A9CEC1AA17D7800BDEBA6 /* AppDelegate.m */; };
 		562A9CF01AA17D7800BDEBA6 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 562A9CEF1AA17D7800BDEBA6 /* ViewController.m */; };
@@ -45,6 +46,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1885DEE11AA20DA6005AE98A /* Communication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Communication.m; sourceTree = "<group>"; };
+		1885DEE31AA20DB6005AE98A /* Communication.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Communication.h; sourceTree = "<group>"; };
 		562A9CE41AA17D7800BDEBA6 /* journey.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = journey.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		562A9CE81AA17D7800BDEBA6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		562A9CE91AA17D7800BDEBA6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -146,6 +149,8 @@
 				562A9CF41AA17D7800BDEBA6 /* Images.xcassets */,
 				562A9CF61AA17D7800BDEBA6 /* LaunchScreen.xib */,
 				562A9CE71AA17D7800BDEBA6 /* Supporting Files */,
+				1885DEE11AA20DA6005AE98A /* Communication.m */,
+				1885DEE31AA20DB6005AE98A /* Communication.h */,
 			);
 			path = journey;
 			sourceTree = "<group>";
@@ -301,6 +306,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A4B3A93A1AA187C20068CDE0 /* LoginViewController.m in Sources */,
+				1885DEE21AA20DA6005AE98A /* Communication.m in Sources */,
 				562A9CF01AA17D7800BDEBA6 /* ViewController.m in Sources */,
 				562A9CED1AA17D7800BDEBA6 /* AppDelegate.m in Sources */,
 				562A9CEA1AA17D7800BDEBA6 /* main.m in Sources */,
