@@ -10,14 +10,18 @@
 
 #import <Parse/Parse.h>
 #import <ParseFacebookUtils/PFFacebookUtils.h>
+#import <Foundation/Foundation.h>
+#import <CoreLocation/CoreLocation.h>
+
 
 @interface ViewController ()
 
-@property (strong, nonatomic) IBOutlet UITextView *selectedFriendsView;
-
 @end
 
-@implementation ViewController
+@implementation ViewController {
+    GMSMapView *mapView_;
+}
+
 
 - (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -36,6 +40,16 @@
                                                                     action:@selector(logoutButtonAction:)];
     self.navigationItem.leftBarButtonItem = logoutButton;
     // Do any additional setup after loading the view, typically from a nib.
+    
+    
+    
+    // Map Set-up!
+
+    mapView_.myLocationEnabled = YES;
+    mapView_.settings.myLocationButton = YES;
+    NSLog(@"User's location: %@", mapView_.myLocation);
+    
+    self.view.autoresizesSubviews = YES;
     
     [self _loadData];
     [self findFriendAndCellPhone];
