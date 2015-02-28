@@ -10,6 +10,8 @@
 
 @interface ViewController : UIViewController
 
+@property (nonatomic, strong) IBOutlet UILabel *headerNameLabel;
+@property (nonatomic, strong) IBOutlet UIImageView *headerImageView;
 
 @end
 
