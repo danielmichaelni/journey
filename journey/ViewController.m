@@ -22,13 +22,11 @@
     if (self) {
         self.title = @"Profile";
     }
-    NSLog(@"Got here.");
     return self;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    NSLog(@"Got here 2.");
     // Add logout navigation bar button
     UIBarButtonItem *logoutButton = [[UIBarButtonItem alloc] initWithTitle:@"Log Out"
                                                                      style:UIBarButtonItemStyleBordered
@@ -48,7 +46,6 @@
 - (void)logoutButtonAction:(id)sender {
     // Logout user, this automatically clears the cache
     [PFUser logOut];
-    
     // Return to login view controller
     [self.navigationController popToRootViewControllerAnimated:YES];
 }
@@ -109,7 +106,6 @@
             [self _updateProfileData];
         } else if ([[[[error userInfo] objectForKey:@"error"] objectForKey:@"type"]
                     isEqualToString: @"OAuthException"]) { // Since the request failed, we can check if it was due to an invalid session
-            NSLog(@"The facebook session was invalidated");
             [self logoutButtonAction:nil];
         } else {
             NSLog(@"Some other error: %@", error);

@@ -34,7 +34,7 @@
 - (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        self.title = @"Facebook Profile";
+        self.title = @"Profile";
     }
     return self;
 }
@@ -44,7 +44,6 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-
     // Check if user is cached and linked to Facebook, if so, bypass login
     if ([PFUser currentUser] && [PFFacebookUtils isLinkedWithUser:[PFUser currentUser]]) {
         [self _presentUserDetailsViewControllerAnimated:NO];
@@ -61,14 +60,11 @@
     // Login PFUser using Facebook
     [PFFacebookUtils logInWithPermissions:permissionsArray block:^(PFUser *user, NSError *error) {
         [_activityIndicator stopAnimating]; // Hide loading indicator
-
         if (!user) {
             NSString *errorMessage = nil;
             if (!error) {
-                NSLog(@"Uh oh. The user cancelled the Facebook login.");
                 errorMessage = @"Uh oh. The user cancelled the Facebook login.";
             } else {
-                NSLog(@"Uh oh. An error occurred: %@", error);
                 errorMessage = [error localizedDescription];
             }
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Log In Error"
@@ -79,15 +75,13 @@
             [alert show];
         } else {
             if (user.isNew) {
-                NSLog(@"User with facebook signed up and logged in!");
             } else {
-                NSLog(@"User with facebook logged in!");
             }
             [self performSegueWithIdentifier:@"loggedIn" sender:self];
-            // [self _presentUserDetailsViewControllerAnimated:YES];
         }
     }];
 
+    self.activityIndicator.hidden = false;
     [_activityIndicator startAnimating]; // Show loading indicator until login is finished
 }
 
@@ -96,7 +90,6 @@
 
 - (void)_presentUserDetailsViewControllerAnimated:(BOOL)animated {
     ViewController *initialViewController = [[ViewController alloc] initWithNibName:@"ViewController" bundle:nil];
-    
     [self.navigationController pushViewController:initialViewController animated:animated];
 }
 
