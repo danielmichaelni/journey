@@ -31,6 +31,8 @@
 		A40F49A21AA1803000D96183 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A40F49A11AA1803000D96183 /* libz.dylib */; };
 		A40F49A41AA1803700D96183 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A40F49A31AA1803700D96183 /* libsqlite3.dylib */; };
 		A40F49A61AA1821700D96183 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A40F49A51AA1821700D96183 /* FacebookSDK.framework */; };
+		A4465D011AA223E20066FFE8 /* CellPhoneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4465D001AA223E20066FFE8 /* CellPhoneViewController.m */; };
+		A4465D0B1AA2316C0066FFE8 /* FriendPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4465D0A1AA2316C0066FFE8 /* FriendPickerViewController.m */; };
 		A4B3A93A1AA187C20068CDE0 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4B3A9391AA187C20068CDE0 /* LoginViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -75,6 +77,10 @@
 		A40F49A11AA1803000D96183 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		A40F49A31AA1803700D96183 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		A40F49A51AA1821700D96183 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
+		A4465CFF1AA223B20066FFE8 /* CellPhoneViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CellPhoneViewController.h; path = ../CellPhoneViewController.h; sourceTree = "<group>"; };
+		A4465D001AA223E20066FFE8 /* CellPhoneViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CellPhoneViewController.m; sourceTree = "<group>"; };
+		A4465D091AA231630066FFE8 /* FriendPickerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FriendPickerViewController.h; sourceTree = "<group>"; };
+		A4465D0A1AA2316C0066FFE8 /* FriendPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendPickerViewController.m; sourceTree = "<group>"; };
 		A4B3A9381AA187C20068CDE0 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		A4B3A9391AA187C20068CDE0 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -138,8 +144,13 @@
 			children = (
 				562A9CEB1AA17D7800BDEBA6 /* AppDelegate.h */,
 				562A9CEC1AA17D7800BDEBA6 /* AppDelegate.m */,
+				A4465D051AA230C90066FFE8 /* Login */,
 				A4B3A9381AA187C20068CDE0 /* LoginViewController.h */,
 				A4B3A9391AA187C20068CDE0 /* LoginViewController.m */,
+				A4465CFF1AA223B20066FFE8 /* CellPhoneViewController.h */,
+				A4465D001AA223E20066FFE8 /* CellPhoneViewController.m */,
+				A4465D091AA231630066FFE8 /* FriendPickerViewController.h */,
+				A4465D0A1AA2316C0066FFE8 /* FriendPickerViewController.m */,
 				562A9CEE1AA17D7800BDEBA6 /* ViewController.h */,
 				562A9CEF1AA17D7800BDEBA6 /* ViewController.m */,
 				562A9CF11AA17D7800BDEBA6 /* Main.storyboard */,
@@ -198,6 +209,13 @@
 				A40F49A11AA1803000D96183 /* libz.dylib */,
 			);
 			path = "parse-library-1.6.3";
+			sourceTree = "<group>";
+		};
+		A4465D051AA230C90066FFE8 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Login;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -302,6 +320,8 @@
 			files = (
 				A4B3A93A1AA187C20068CDE0 /* LoginViewController.m in Sources */,
 				562A9CF01AA17D7800BDEBA6 /* ViewController.m in Sources */,
+				A4465D0B1AA2316C0066FFE8 /* FriendPickerViewController.m in Sources */,
+				A4465D011AA223E20066FFE8 /* CellPhoneViewController.m in Sources */,
 				562A9CED1AA17D7800BDEBA6 /* AppDelegate.m in Sources */,
 				562A9CEA1AA17D7800BDEBA6 /* main.m in Sources */,
 			);

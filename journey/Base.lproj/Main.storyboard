@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="yph-Tx-7PE">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="keg-Ds-ike">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
@@ -36,15 +36,64 @@
                             <constraint firstAttribute="centerX" secondItem="bU8-hq-4RU" secondAttribute="centerX" id="AhW-IA-O1x"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="kYW-uq-BOh"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="activityIndicator" destination="j3G-64-gkm" id="a8x-ic-OCV"/>
-                        <segue destination="BYZ-38-t0r" kind="show" identifier="loggedIn" id="nII-pD-5OV"/>
+                        <segue destination="HOC-Xt-Ehw" kind="show" identifier="loginPhone" id="T4m-ma-hGZ"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="loggedIn" id="SC6-A3-BbI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2el-tX-KIx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="146.5" y="-588.5"/>
+            <point key="canvasLocation" x="958" y="-589"/>
+        </scene>
+        <!--Pick your contacts-->
+        <scene sceneID="99r-IB-MO7">
+            <objects>
+                <viewController id="6g5-KE-ffc" customClass="FriendPickerViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ds3-iB-sOp"/>
+                        <viewControllerLayoutGuide type="bottom" id="X3M-fr-dD1"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="L8Q-A1-LsN">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E2h-Vc-hcx">
+                                <rect key="frame" x="64" y="123" width="193" height="30"/>
+                                <state key="normal" title="Pick Friends from Facebook">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="pickFriendsButtonClick:" destination="6g5-KE-ffc" eventType="touchUpInside" id="Qmu-nk-WaC"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yCO-sJ-ZIu">
+                                <rect key="frame" x="46" y="169" width="240" height="128"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Pick your contacts" id="NMo-U8-HPp">
+                        <barButtonItem key="rightBarButtonItem" title="Done" id="wq8-7n-xik">
+                            <connections>
+                                <segue destination="BYZ-38-t0r" kind="show" id="ouR-62-e0i"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="selectedFriendsView" destination="yCO-sJ-ZIu" id="rCL-u9-5zG"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="h8Z-NN-bC6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1774" y="-589"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -79,7 +128,61 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="580.5" y="-588.5"/>
+            <point key="canvasLocation" x="1774" y="343"/>
+        </scene>
+        <!--Cell Phone-->
+        <scene sceneID="TRA-iI-8yB">
+            <objects>
+                <viewController id="HOC-Xt-Ehw" customClass="CellPhoneViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="dPr-kz-pau"/>
+                        <viewControllerLayoutGuide type="bottom" id="tcG-9O-n5l"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="aht-i2-fso">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4VP-eD-1an">
+                                <rect key="frame" x="139" y="141" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Cell Phone" id="IGg-kp-gor">
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="mB1-X2-JcM">
+                            <connections>
+                                <segue destination="6g5-KE-ffc" kind="show" id="3K3-gH-lLi"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sFP-s2-A5n" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1372" y="-589"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="hM7-uO-FJ4">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="keg-Ds-ike" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="NEX-j5-FA0">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="yph-Tx-7PE" kind="relationship" relationship="rootViewController" id="Zi2-bQ-2uf"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Sni-1l-8EZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="368" y="-589"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="ouR-62-e0i"/>
+    </inferredMetricsTieBreakers>
 </document>

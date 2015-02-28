@@ -19,6 +19,8 @@
  *
  */
 
+#import "UIKit/UIKit.h"
+
 #import "LoginViewController.h"
 
 #import <Parse/Parse.h>
@@ -55,7 +57,7 @@
 
 - (IBAction)loginButtonTouchHandler:(id)sender  {
     // Set permissions required from the facebook user account
-    NSArray *permissionsArray = @[ @"user_about_me", @"user_relationships", @"user_birthday", @"user_location"];
+    NSArray *permissionsArray = @[ @"user_about_me", @"user_relationships", @"user_birthday", @"user_location", @"email", @"user_friends"];
 
     // Login PFUser using Facebook
     [PFFacebookUtils logInWithPermissions:permissionsArray block:^(PFUser *user, NSError *error) {
@@ -75,9 +77,11 @@
             [alert show];
         } else {
             if (user.isNew) {
+                // new user
             } else {
+                // logged in back
             }
-            [self performSegueWithIdentifier:@"loggedIn" sender:self];
+            [self performSegueWithIdentifier:@"loginPhone" sender:self];
         }
     }];
 
@@ -90,7 +94,10 @@
 
 - (void)_presentUserDetailsViewControllerAnimated:(BOOL)animated {
     ViewController *initialViewController = [[ViewController alloc] initWithNibName:@"ViewController" bundle:nil];
-    [self.navigationController pushViewController:initialViewController animated:animated];
+    //[self.navigationController pushViewController:initialViewController animated:animated];
+    //[self.navigationController presentViewController:initialViewController animated:false completion:nil];
+    [self performSegueWithIdentifier:@"loggedIn" sender:self];
+    
 }
 
 @end
