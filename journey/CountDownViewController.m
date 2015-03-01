@@ -131,9 +131,14 @@ static BOOL is_cancelled;
         if (distance > 550) {
             NSLog(@"Outside of radius.");
             
-            [Communication contactFriends:self.journey];
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Alert" message:@"Are you still want to send the alert to your contacts?" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:nil] ;
+            // optional - add more buttons:
+            [alert addButtonWithTitle:@"Yes"];
+            
+            [alert show];
         } else {
             NSLog(@"Inside of radius.");
+            [self performSegueWithIdentifier:@"toSuccessViewControllerSegue" sender:self];
         }
   
         NSLog(@"time expired");
@@ -149,6 +154,18 @@ static BOOL is_cancelled;
     // Pass the selected object to the new view controller.
 }
 */
+
+- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
+    if (buttonIndex == 0) {
+        // cancel button
+        NSLog(@"Cancelled!");
+        [self performSegueWithIdentifier:@"toSuccessViewControllerSegue" sender:self];
+    } else if (buttonIndex == 1) {
+        // Yes
+        NSLog(@"send messages!");
+        [Communication contactFriends:self.journey];
+    }
+}
 
 - (IBAction)finishJourneyButton:(UIButton *)sender {
     [cancelled_lock lock];
