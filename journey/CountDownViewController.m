@@ -19,6 +19,9 @@
 static NSLock *cancelled_lock;
 static BOOL is_cancelled;
 
+static NSLock *response_cancelled_lock;
+static BOOL is_response_cancelled;
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.hidesBackButton = YES;
@@ -137,11 +140,14 @@ static BOOL is_cancelled;
         if (distance > 550) {
             NSLog(@"Outside of radius.");
             
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Alert" message:@"Are you still want to send the alert to your contacts?" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:nil] ;
+            self.alert = [[UIAlertView alloc] initWithTitle:@"Alert" message:@"Are you still want to send the alert to your contacts?" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:nil] ;
             // optional - add more buttons:
-            [alert addButtonWithTitle:@"Yes"];
+            [self.alert addButtonWithTitle:@"Yes"];
             
-            [alert show];
+            [self.alert show];
+            
+            [NSTimer scheduledTimerWithTimeInterval:10.0 target:self selector:@selector(sendMessages) userInfo:nil repeats:NO];
+            
         } else {
             NSLog(@"Inside of radius.");
             [self performSegueWithIdentifier:@"toSuccessViewControllerSegue" sender:self];
@@ -164,12 +170,25 @@ static BOOL is_cancelled;
 - (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
     if (buttonIndex == 0) {
         // cancel button
+        [response_cancelled_lock lock];
+        is_response_cancelled = YES;
+        [response_cancelled_lock unlock];
         NSLog(@"Cancelled!");
         [self performSegueWithIdentifier:@"toSuccessViewControllerSegue" sender:self];
     } else if (buttonIndex == 1) {
         // Yes
         NSLog(@"send messages!");
         [Communication contactFriends:self.journey];
+        [self performSegueWithIdentifier:@"toFailureViewControllerSegue" sender:self];
+    }
+}
+
+- (void)sendMessages {
+    if(!is_response_cancelled) {
+//        NSLog(@"send messages!");
+//        [Communication contactFriends:self.journey];
+//        [self performSegueWithIdentifier:@"toFailureViewControllerSegue" sender:self];
+        [self.alert dismissWithClickedButtonIndex:1 animated:YES];
     }
 }
 

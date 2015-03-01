@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="keg-Ds-ike">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="keg-Ds-ike">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -235,8 +235,8 @@
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="Untitled.png" translatesAutoresizingMaskIntoConstraints="NO" id="RGH-CR-Pwh">
                                 <rect key="frame" x="-91" y="-7" width="512" height="512"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gm6-vs-Vhi">
-                                <rect key="frame" x="67" y="475" width="187" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gm6-vs-Vhi">
+                                <rect key="frame" x="67" y="390" width="187" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <state key="normal" title="Finish Journey">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -249,20 +249,69 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="centerX" secondItem="Gm6-vs-Vhi" secondAttribute="centerX" id="AWR-tL-fqh"/>
                             <constraint firstAttribute="centerY" secondItem="3qr-PS-M6n" secondAttribute="centerY" constant="56.5" id="C0X-bW-UBl"/>
                             <constraint firstAttribute="centerX" secondItem="3qr-PS-M6n" secondAttribute="centerX" id="RUS-E5-jNr"/>
-                            <constraint firstItem="2BQ-MI-6fS" firstAttribute="top" secondItem="Gm6-vs-Vhi" secondAttribute="bottom" constant="60" id="oWC-jp-AkK"/>
+                            <constraint firstItem="2BQ-MI-6fS" firstAttribute="top" secondItem="Gm6-vs-Vhi" secondAttribute="bottom" constant="104" id="o4V-As-s4v"/>
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="finishJourneyOutlet" destination="Gm6-vs-Vhi" id="eA8-EH-xuy"/>
                         <outlet property="timeLabel" destination="3qr-PS-M6n" id="gEU-dH-oG0"/>
+                        <segue destination="iuZ-Gg-Hh9" kind="show" identifier="toFailureViewControllerSegue" id="fZu-BO-txA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kSJ-A3-CdF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2654" y="1005"/>
+        </scene>
+        <!--Failure View Controller-->
+        <scene sceneID="iG3-mh-0l7">
+            <objects>
+                <viewController id="iuZ-Gg-Hh9" customClass="FailureViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jp0-ZG-Eih"/>
+                        <viewControllerLayoutGuide type="bottom" id="QIe-hL-soa"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="2xf-Ko-7ga">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yPs-xE-V01">
+                                <rect key="frame" x="16" y="101" width="288" height="213"/>
+                                <string key="text">We have notified your emergency contacts that you have not arrived at your destination within the specified time. Please reach out to your friends as soon as possible.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QGE-sy-fRa">
+                                <rect key="frame" x="72" y="478" width="176" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <state key="normal" title="Return Home">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="returnHomeButton:" destination="XuN-dc-dWe" eventType="touchUpInside" id="jyn-Q2-Hq9"/>
+                                    <segue destination="keg-Ds-ike" kind="show" identifier="returnHomeFromFailureSegue" id="NeF-eg-q6K"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="QIe-hL-soa" firstAttribute="top" secondItem="QGE-sy-fRa" secondAttribute="bottom" constant="60" id="8ge-1L-GNE"/>
+                            <constraint firstAttribute="centerX" secondItem="QGE-sy-fRa" secondAttribute="centerX" id="fpN-ut-wEj"/>
+                        </constraints>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="failureLabel" destination="yPs-xE-V01" id="Op0-R0-fHt"/>
+                        <outlet property="returnHomeOutlet" destination="QGE-sy-fRa" id="tIe-QI-xqB"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MVJ-YL-kvC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="635" y="306"/>
         </scene>
         <!--Success View Controller-->
         <scene sceneID="EsY-yJ-6GV">
@@ -311,7 +360,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2lC-nC-NYE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3034" y="1004"/>
+            <point key="canvasLocation" x="3090" y="696"/>
         </scene>
         <!--Title-->
         <scene sceneID="mqW-eY-Ei8">
@@ -499,6 +548,7 @@
         <image name="fb_login_button.jpg" width="3921" height="720"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="NeF-eg-q6K"/>
         <segue reference="ouR-62-e0i"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.10613306660000001" green="0.16214250690000001" blue="0.5" alpha="1" colorSpace="calibratedRGB"/>

@@ -17,6 +17,7 @@
 @property (strong, nonatomic) NSTimer *countDownTimer;
 @property (nonatomic) int secondsCount;
 @property (strong, nonatomic) IBOutlet UIButton *finishJourneyOutlet;
+@property (strong, nonatomic) UIAlertView *alert;
 
 - (IBAction)finishJourneyButton:(UIButton *)sender;
 
