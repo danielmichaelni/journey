@@ -25,6 +25,8 @@
 		563301AC1AA245BC009CF7BF /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 563301AB1AA245BC009CF7BF /* libc++.dylib */; };
 		563301AE1AA245C3009CF7BF /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 563301AD1AA245C3009CF7BF /* libicucore.dylib */; };
 		563301B01AA245D2009CF7BF /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 563301AF1AA245D2009CF7BF /* OpenGLES.framework */; };
+		569AB9361AA2C8E500C5FE5B /* wildcard.m in Sources */ = {isa = PBXBuildFile; fileRef = 569AB9351AA2C8E500C5FE5B /* wildcard.m */; };
+		56D3D03C1AA2C5C600B1A851 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56D3D03B1AA2C5C600B1A851 /* MapKit.framework */; };
 		66BB729C1AA278480033CE70 /* Journey.m in Sources */ = {isa = PBXBuildFile; fileRef = 66BB729B1AA278480033CE70 /* Journey.m */; };
 		66BB729F1AA278520033CE70 /* TimerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 66BB729E1AA278520033CE70 /* TimerViewController.m */; };
 		66BB72AD1AA28BC80033CE70 /* textLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 66BB72AC1AA28BC80033CE70 /* textLogo.png */; };
@@ -89,6 +91,9 @@
 		563301AB1AA245BC009CF7BF /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
 		563301AD1AA245C3009CF7BF /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
 		563301AF1AA245D2009CF7BF /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		569AB9341AA2C88800C5FE5B /* wildcard.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = wildcard.h; sourceTree = "<group>"; };
+		569AB9351AA2C8E500C5FE5B /* wildcard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = wildcard.m; sourceTree = "<group>"; };
+		56D3D03B1AA2C5C600B1A851 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		66BB729A1AA278480033CE70 /* Journey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Journey.h; sourceTree = "<group>"; };
 		66BB729B1AA278480033CE70 /* Journey.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Journey.m; sourceTree = "<group>"; };
 		66BB729D1AA278520033CE70 /* TimerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimerViewController.h; sourceTree = "<group>"; };
@@ -128,6 +133,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				56D3D03C1AA2C5C600B1A851 /* MapKit.framework in Frameworks */,
+				A40F49961AA17FD500D96183 /* CoreLocation.framework in Frameworks */,
 				A40F49A01AA1802900D96183 /* SystemConfiguration.framework in Frameworks */,
 				A40F49981AA17FD800D96183 /* QuartzCore.framework in Frameworks */,
 				563301B01AA245D2009CF7BF /* OpenGLES.framework in Frameworks */,
@@ -137,7 +144,6 @@
 				563301AA1AA245B4009CF7BF /* ImageIO.framework in Frameworks */,
 				563301A81AA245AE009CF7BF /* GLKit.framework in Frameworks */,
 				563301A61AA245A2009CF7BF /* CoreText.framework in Frameworks */,
-				A40F49961AA17FD500D96183 /* CoreLocation.framework in Frameworks */,
 				563301A41AA24596009CF7BF /* CoreData.framework in Frameworks */,
 				563301A21AA24590009CF7BF /* AVFoundation.framework in Frameworks */,
 				A40F49A41AA1803700D96183 /* libsqlite3.dylib in Frameworks */,
@@ -170,6 +176,7 @@
 		562A9CDB1AA17D7800BDEBA6 = {
 			isa = PBXGroup;
 			children = (
+				56D3D03B1AA2C5C600B1A851 /* MapKit.framework */,
 				562A9CE61AA17D7800BDEBA6 /* journey */,
 				562A9D001AA17D7900BDEBA6 /* journeyTests */,
 				562A9CE51AA17D7800BDEBA6 /* Products */,
@@ -199,6 +206,8 @@
 				A4B3A9391AA187C20068CDE0 /* LoginViewController.m */,
 				A4465D101AA26BE90066FFE8 /* CellPhoneViewController.h */,
 				A4465D001AA223E20066FFE8 /* CellPhoneViewController.m */,
+				569AB9341AA2C88800C5FE5B /* wildcard.h */,
+				569AB9351AA2C8E500C5FE5B /* wildcard.m */,
 				A4465D091AA231630066FFE8 /* FriendPickerViewController.h */,
 				A4465D0A1AA2316C0066FFE8 /* FriendPickerViewController.m */,
 				562A9CEE1AA17D7800BDEBA6 /* ViewController.h */,
@@ -400,6 +409,7 @@
 			files = (
 				66BB729C1AA278480033CE70 /* Journey.m in Sources */,
 				A4B3A93A1AA187C20068CDE0 /* LoginViewController.m in Sources */,
+				569AB9361AA2C8E500C5FE5B /* wildcard.m in Sources */,
 				A40A64961AA293D500A91BC4 /* SettingsPageViewController.m in Sources */,
 				1885DEE21AA20DA6005AE98A /* Communication.m in Sources */,
 				66BB729F1AA278520033CE70 /* TimerViewController.m in Sources */,

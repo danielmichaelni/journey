@@ -34,4 +34,6 @@
 }
 */
 
+- (IBAction)finishJourneyButton:(UIButton *)sender {
+}
 @end

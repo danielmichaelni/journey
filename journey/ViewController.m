@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "TimerViewController.h"
+#import "Communication.h"
 
 #import <Parse/Parse.h>
 #import <ParseFacebookUtils/PFFacebookUtils.h>
@@ -19,9 +20,7 @@
 
 @end
 
-@implementation ViewController {
-    GMSMapView *mapView_;
-}
+@implementation ViewController
 
 
 - (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
@@ -45,28 +44,46 @@
     
     
     // Map Set-up!
-
-    mapView_.myLocationEnabled = YES;
-    mapView_.settings.myLocationButton = YES;
-    NSLog(@"User's location: %@", mapView_.myLocation);
     
-    self.view.autoresizesSubviews = YES;
-    [self findFriendAndCellPhone];
+    
+    self.locationManager = [[CLLocationManager alloc] init];
+    
+    self.locationManager.delegate = self;
+    
+    [self.locationManager requestAlwaysAuthorization];
+    
+    self.mapView.showsUserLocation = YES;
+    
+    WildcardGestureRecognizer *tapInterceptor = [[WildcardGestureRecognizer alloc] init];
+    tapInterceptor.touchesBeganCallback = ^(NSSet * touches, UIEvent * event) {
+        NSLog(@"Touch.");
+    };
+    [self.mapView addGestureRecognizer:tapInterceptor];
+    
+    
 }
 
-- (void)findFriendAndCellPhone
+- (void)contactFriends
 {
+
+    PFObject *current = [PFUser currentUser];
     NSMutableArray *contacts = [[NSMutableArray alloc] init];
-    contacts = [[PFUser currentUser] objectForKey:@"contactList"];
+    contacts = [current objectForKey:@"contactList"];
+    BOOL emailsEnabled = current[@"enableEmails"];
+    BOOL textEnabled = current[@"enableTexts"];
     
     PFQuery *query = [PFUser query];
     [query whereKey:@"facebookId" containedIn:contacts];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
             if (objects.count!=0) {
-                for (PFObject *object in objects) {
-                    //NSLog(@"%@", object.objectId);
-                    NSLog(@"%@", object[@"cellPhone"]);
+                for (PFObject *contact in objects) {
+                    if (textEnabled) {
+                        [Communication SendSMS:contact from:current];
+                    }
+                    if (emailsEnabled) {
+                        [Communication SendEmail:contact from:current];
+                    }
                 }
             }
         } else {

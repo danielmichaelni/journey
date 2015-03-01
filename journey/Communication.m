@@ -13,44 +13,49 @@
 
 @implementation Communication
 
-+ (void)SendSMS:(NSString *)phone withMessage:(NSString *)message {
++ (void)SendSMS:(PFObject *)contact from:(PFObject *)current {
+    
+    NSString *name = contact[@"name"];
+    NSString *phone = contact[@"cellPhone"];
+    NSString *email = contact[@"email"];
+    NSLog(@"%@ %@ %@", name, phone, email);
+    
     [PFCloud callFunctionInBackground:@"SMS"
                        withParameters:@{
-                                        @"phonenum": phone,
-                                        @"message": message
+                                        @"phonenum": contact[@"cellPhone"],
+                                        @"email": contact[@"email"],
+                                        @"username": current[@"name"],
+                                        @"friendname": contact[@"name"],
+                                        @"destination": @"",
+                                        @"source": @"",
+                                        @"time": @"",
                                         }
                                 block:^(NSString *result, NSError *error) {
                                     if (error) {
                                         NSLog(@"ERROR: %@",error);
                                     } else {
-                                        NSLog(@"%@ [%@]", result, phone);
+                                        NSLog(@"%@ [%@]", result, contact[@"cellPhone"]);
                                     }
                                 }];
 }
-+ (void)SendBulkSMS: (NSMutableArray *)phones withMessage:(NSString *)message {
-    for(NSString *phone in phones) {
-        [self SendSMS:phone withMessage:message];
-    }
-}
-+ (void)SendEmail:(NSString *)email withSubject:(NSString *)subject withMessage:(NSString *)message {
++ (void)SendEmail:(PFObject *)contact from:(PFObject *)current {
     [PFCloud callFunctionInBackground:@"Email"
                        withParameters:@{
-                                        @"email": email,
-                                        @"message": message,
-                                        @"subject": subject
+                                        @"phonenum": contact[@"cellPhone"],
+                                        @"email": contact[@"email"],
+                                        @"username": current[@"name"],
+                                        @"friendname": contact[@"name"],
+                                        @"destination": @"",
+                                        @"source": @"",
+                                        @"time": @"",
                                         }
                                 block:^(NSString *result, NSError *error) {
                                     if (error) {
                                         NSLog(@"ERROR: %@",error);
                                     } else {
-                                        NSLog(@"%@ [%@]", result, email);
+                                        NSLog(@"%@ [%@]", result, contact[@"email"]);
                                     }
                                 }];
-}
-+ (void)SendBulkEmail: (NSMutableArray *)emails withSubject:(NSString *)subject withMessage:(NSString *)message {
-    for(NSString *email in emails) {
-        [self SendEmail:email withSubject:subject withMessage:message];
-    }
 }
 
 

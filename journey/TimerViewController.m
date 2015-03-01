@@ -71,4 +71,12 @@
     NSLog(@"Timer expired");
 }
 
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if([segue.identifier isEqualToString:@"startJourneySegue"]) {
+        CountDownViewController *destinationViewController = segue.destinationViewController;
+        self.journey = [[Journey alloc] init];
+        destinationViewController.journey = self.journey;
+    }
+}
+
 @end

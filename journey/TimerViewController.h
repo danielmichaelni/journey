@@ -7,6 +7,7 @@
 //
 
 #import "Journey.h"
+#import "CountDownViewController.h"
 
 #import <UIKit/UIKit.h>
 
