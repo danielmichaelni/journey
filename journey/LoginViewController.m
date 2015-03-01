@@ -30,6 +30,18 @@
 
 @implementation LoginViewController
 
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    UIImage *textLogoImage = [UIImage imageNamed:@"textLogo.png"];
+    CGFloat width = [[UIScreen mainScreen] bounds].size.width;
+    float scale = textLogoImage.size.width / width;
+    UIImage *scaledTextLogoImage = [UIImage imageWithCGImage:[textLogoImage CGImage] scale:scale orientation:textLogoImage.imageOrientation];
+    self.textLogoImageView = [[UIImageView alloc] initWithImage:scaledTextLogoImage];
+    self.textLogoImageView.contentMode = UIViewContentModeScaleAspectFit;
+    [self.view addSubview:self.textLogoImageView];
+    [self.textLogoImageView.superview sendSubviewToBack:self.textLogoImageView];
+}
+
 #pragma mark -
 #pragma mark Init
 

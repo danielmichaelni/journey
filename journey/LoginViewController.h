@@ -23,6 +23,8 @@
 
 @interface LoginViewController : UIViewController
 
+@property (strong, nonatomic) IBOutlet UIImageView *textLogoImageView;
+
 - (IBAction)loginButtonTouchHandler:(id)sender;
 
 @end
