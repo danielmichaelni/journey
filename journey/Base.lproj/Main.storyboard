@@ -224,7 +224,11 @@
                         <barButtonItem id="BaD-V0-sN3"/>
                     </toolbarItems>
                     <navigationItem key="navigationItem" title="Title" id="7iK-TS-Z2F">
-                        <barButtonItem key="rightBarButtonItem" title="Save" id="Dnv-SO-dFv"/>
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="Dnv-SO-dFv">
+                            <connections>
+                                <action selector="saveChanges:" destination="7qZ-d3-6cW" id="KsY-zX-333"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>

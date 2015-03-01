@@ -19,6 +19,7 @@
 @property (strong, nonatomic) IBOutlet UIButton *changeFriendsList;
 @property (strong, nonatomic) IBOutlet UISwitch *enableEmails;
 @property (strong, nonatomic) IBOutlet UISwitch *enableTexts;
+- (IBAction)saveChanges:(id)sender;
 
 @end
 
