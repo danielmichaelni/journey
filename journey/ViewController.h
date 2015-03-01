@@ -18,6 +18,7 @@
 @property (strong, nonatomic) CLLocationManager *locationManager;
 
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
+//@property (strong, nonatomic) NSTimer *hawaiiTimer;
 @property (strong, nonatomic) IBOutlet UILabel *instructionLabel;
 
 @property (nonatomic, strong) Journey *journey;

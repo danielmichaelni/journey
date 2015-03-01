@@ -9,13 +9,14 @@
 #import "Journey.h"
 #import <UIKit/UIKit.h>
 
-@interface CountDownViewController : UIViewController
+@interface CountDownViewController : UIViewController <CLLocationManagerDelegate, UIAlertViewDelegate>
 
 @property (strong, nonatomic) IBOutlet UILabel *timeLabel;
 
 @property (strong, nonatomic) Journey *journey;
 @property (strong, nonatomic) NSTimer *countDownTimer;
 @property (nonatomic) int secondsCount;
+@property (strong, nonatomic) IBOutlet UIButton *finishJourneyOutlet;
 
 - (IBAction)finishJourneyButton:(UIButton *)sender;
 

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="keg-Ds-ike">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="keg-Ds-ike">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -24,7 +24,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" alpha="0.80000000000000004" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bU8-hq-4RU">
-                                <rect key="frame" x="35" y="340" width="250" height="46"/>
+                                <rect key="frame" x="68" y="353" width="185" height="38"/>
                                 <color key="backgroundColor" red="0.52941176470588236" green="0.52941176470588236" blue="0.52941176470588236" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                 <state key="normal" image="fb_login_button.jpg">
@@ -43,6 +43,8 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="kYW-uq-BOh"/>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="loginWithFacebook" destination="bU8-hq-4RU" id="Nsy-VS-bRg"/>
@@ -68,7 +70,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E2h-Vc-hcx">
-                                <rect key="frame" x="16" y="142" width="288" height="33"/>
+                                <rect key="frame" x="16" y="115" width="288" height="33"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <state key="normal" title="SELECT FACEBOOK CONTACTS">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -78,27 +80,27 @@
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="yCO-sJ-ZIu">
-                                <rect key="frame" x="16" y="493" width="288" height="46"/>
+                                <rect key="frame" x="16" y="428" width="288" height="111"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="i5Y-Cu-Psr">
-                                <rect key="frame" x="16" y="285" width="288" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="phone" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="O4M-V1-4VT">
-                                <rect key="frame" x="16" y="323" width="288" height="30"/>
+                                <rect key="frame" x="16" y="269" width="288" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="phonePad" keyboardAppearance="alert" returnKeyType="done"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ADD ADDITIONAL CONTACT" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EVG-jW-hR9">
-                                <rect key="frame" x="43" y="256" width="224" height="21"/>
+                                <rect key="frame" x="48" y="190" width="224" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.058823529411764705" green="0.16862745098039217" blue="0.25098039215686274" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="i5Y-Cu-Psr">
+                                <rect key="frame" x="16" y="231" width="288" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="emailAddress" keyboardAppearance="alert" returnKeyType="done"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -191,14 +193,15 @@
                             <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zMA-aT-pT3">
                                 <rect key="frame" x="0.0" y="176" width="320" height="216"/>
                             </pickerView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tRr-Ma-Vwb">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tRr-Ma-Vwb">
                                 <rect key="frame" x="67" y="478" width="187" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <state key="normal" title="Start Journey">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="olK-Iz-5Ub" kind="show" identifier="startJourneySegue" id="Dln-xx-MYO"/>
+                                    <action selector="startJourneyButton:" destination="Jz7-1h-IVC" eventType="touchUpInside" id="KMn-bN-36q"/>
+                                    <segue destination="olK-Iz-5Ub" kind="presentation" identifier="toCountDownViewControllerSegue" id="6fz-57-gW3"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Adjust Time Estimate" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fv6-RZ-Bit">
@@ -209,10 +212,18 @@
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="tRr-Ma-Vwb" secondAttribute="centerX" id="KR9-YP-DLr"/>
+                            <constraint firstItem="DEd-VO-y3D" firstAttribute="top" secondItem="tRr-Ma-Vwb" secondAttribute="bottom" constant="60" id="iCx-dy-avJ"/>
+                        </constraints>
                     </view>
+                    <toolbarItems/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="picker" destination="zMA-aT-pT3" id="dl9-WS-6Zv"/>
+                        <outlet property="startJourneyOutlet" destination="tRr-Ma-Vwb" id="47e-ul-NKy"/>
+                        <outlet property="timeInstructionLabel" destination="fv6-RZ-Bit" id="3U6-EQ-UJE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nww-3N-jc3" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -231,13 +242,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3qr-PS-M6n">
-                                <rect key="frame" x="83" y="202" width="153" height="73"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3qr-PS-M6n">
+                                <rect key="frame" x="16" y="190" width="288" height="127"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="50"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gm6-vs-Vhi">
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="Untitled.png" translatesAutoresizingMaskIntoConstraints="NO" id="RGH-CR-Pwh">
+                                <rect key="frame" x="-91" y="-7" width="512" height="512"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gm6-vs-Vhi">
                                 <rect key="frame" x="67" y="475" width="187" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <state key="normal" title="Finish Journey">
@@ -245,13 +259,20 @@
                                 </state>
                                 <connections>
                                     <action selector="finishJourneyButton:" destination="olK-Iz-5Ub" eventType="touchUpInside" id="UFF-RB-F6m"/>
+                                    <segue destination="XuN-dc-dWe" kind="presentation" identifier="toSuccessViewControllerSegue" id="L1E-yy-xce"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerY" secondItem="3qr-PS-M6n" secondAttribute="centerY" constant="56.5" id="C0X-bW-UBl"/>
+                            <constraint firstAttribute="centerX" secondItem="3qr-PS-M6n" secondAttribute="centerX" id="RUS-E5-jNr"/>
+                            <constraint firstItem="2BQ-MI-6fS" firstAttribute="top" secondItem="Gm6-vs-Vhi" secondAttribute="bottom" constant="60" id="oWC-jp-AkK"/>
+                        </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
+                        <outlet property="finishJourneyOutlet" destination="Gm6-vs-Vhi" id="eA8-EH-xuy"/>
                         <outlet property="timeLabel" destination="3qr-PS-M6n" id="gEU-dH-oG0"/>
                     </connections>
                 </viewController>
@@ -259,10 +280,10 @@
             </objects>
             <point key="canvasLocation" x="2654" y="1005"/>
         </scene>
-        <!--View Controller-->
+        <!--Success View Controller-->
         <scene sceneID="EsY-yJ-6GV">
             <objects>
-                <viewController id="XuN-dc-dWe" sceneMemberID="viewController">
+                <viewController id="XuN-dc-dWe" customClass="SuccessViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="4Qf-Fa-hlP"/>
                         <viewControllerLayoutGuide type="bottom" id="5FZ-GP-qMj"/>
@@ -270,13 +291,43 @@
                     <view key="view" contentMode="scaleToFill" id="0fT-bY-UXr">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="spI-R5-kwN">
+                                <rect key="frame" x="72" y="478" width="176" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <state key="normal" title="Return Home">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="returnHomeButton:" destination="XuN-dc-dWe" eventType="touchUpInside" id="iaG-Li-Oeb"/>
+                                    <segue destination="keg-Ds-ike" kind="show" identifier="returnHomeSegue" id="0WY-j9-JiM"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="We were glad to acompany on your safe journey home!" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pO4-sY-f0z">
+                                <rect key="frame" x="15" y="134" width="288" height="76"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="5FZ-GP-qMj" firstAttribute="top" secondItem="spI-R5-kwN" secondAttribute="bottom" constant="60" id="2vP-g2-fAG"/>
+                            <constraint firstAttribute="centerY" secondItem="pO4-sY-f0z" secondAttribute="centerY" constant="112" id="ZHt-0R-Z40"/>
+                            <constraint firstAttribute="centerX" secondItem="spI-R5-kwN" secondAttribute="centerX" id="fiE-1a-lkk"/>
+                            <constraint firstItem="pO4-sY-f0z" firstAttribute="leading" secondItem="0fT-bY-UXr" secondAttribute="leadingMargin" constant="-1" id="oRg-qD-heO"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="pO4-sY-f0z" secondAttribute="trailing" constant="1" id="yCi-07-I4H"/>
+                        </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="returnHomeOutlet" destination="spI-R5-kwN" id="pDJ-td-Mjy"/>
+                        <outlet property="successLabel" destination="pO4-sY-f0z" id="gh2-am-DiW"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2lC-nC-NYE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3128" y="1004"/>
+            <point key="canvasLocation" x="3034" y="1004"/>
         </scene>
         <!--Title-->
         <scene sceneID="mqW-eY-Ei8">
@@ -426,6 +477,8 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="keg-Ds-ike" sceneMemberID="viewController">
                     <toolbarItems/>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="NEX-j5-FA0">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -437,14 +490,15 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sni-1l-8EZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="368" y="-589"/>
+            <point key="canvasLocation" x="442" y="-589"/>
         </scene>
     </scenes>
     <resources>
+        <image name="Untitled.png" width="512" height="512"/>
         <image name="fb_login_button.jpg" width="3921" height="720"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ouR-62-e0i"/>
+        <segue reference="SC6-A3-BbI"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.10613306660000001" green="0.16214250690000001" blue="0.5" alpha="1" colorSpace="calibratedRGB"/>
 </document>
