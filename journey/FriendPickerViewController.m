@@ -38,6 +38,9 @@
     //UIColor *tintColor = [UIColor colorWithRed:15.0/255.0 green:43.0/255.0 blue:64.0/255.0 alpha:1];
     self.friendPickerButton.layer.borderWidth= 3.0f;
     self.friendPickerButton.layer.borderColor= [[UIColor blackColor] CGColor];
+    
+    self.addPhoneTextField.delegate = self;
+    self.addEmailTextField.delegate = self;
 }
 
 - (void) viewDidUnload
@@ -205,6 +208,35 @@
     return YES;
 }
 
+- (BOOL)textViewShouldBeginEditing:(UITextView *)textView
+{
+    if(textView.tag == 0) {
+        textView.text = @"";
+        textView.textColor = [UIColor whiteColor];
+        textView.tag = 1;
+    }
+    return YES;
+}
+
+- (void)textViewDidEndEditing:(UITextView *)textView
+{
+    if([textView.text length] == 0)
+    {
+        textView.textColor = [UIColor lightGrayColor];
+        textView.tag = 0;
+    }
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [textField resignFirstResponder];
+    return NO;
+}
+
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    [self.addEmailTextField resignFirstResponder];
+    [self.addPhoneTextField resignFirstResponder];
+}
 
 
 @end

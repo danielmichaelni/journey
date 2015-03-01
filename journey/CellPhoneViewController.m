@@ -19,6 +19,8 @@
 {
     [super viewDidLoad];
     self.navigationItem.hidesBackButton = YES;
+    
+    self.cellPhoneTextField.delegate = self;
 }
 
 - (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender
@@ -43,6 +45,37 @@
     }
     
     return TRUE;
+}
+
+
+
+- (BOOL)textViewShouldBeginEditing:(UITextView *)textView
+{
+    if(textView.tag == 0) {
+        textView.text = @"";
+        textView.textColor = [UIColor whiteColor];
+        textView.tag = 1;
+    }
+    return YES;
+}
+
+- (void)textViewDidEndEditing:(UITextView *)textView
+{
+    if([textView.text length] == 0)
+    {
+        textView.textColor = [UIColor lightGrayColor];
+        textView.tag = 0;
+    }
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [textField resignFirstResponder];
+    return NO;
+}
+
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    [self.cellPhoneTextField resignFirstResponder];
 }
 
 @end
