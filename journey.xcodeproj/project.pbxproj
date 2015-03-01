@@ -54,6 +54,18 @@
 		A40F49A61AA1821700D96183 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A40F49A51AA1821700D96183 /* FacebookSDK.framework */; };
 		A4465D011AA223E20066FFE8 /* CellPhoneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4465D001AA223E20066FFE8 /* CellPhoneViewController.m */; };
 		A4465D0B1AA2316C0066FFE8 /* FriendPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4465D0A1AA2316C0066FFE8 /* FriendPickerViewController.m */; };
+		A4B073601AA33D320049C489 /* Icon-120.png in Resources */ = {isa = PBXBuildFile; fileRef = A4B073541AA33D320049C489 /* Icon-120.png */; };
+		A4B073611AA33D320049C489 /* Icon-152.png in Resources */ = {isa = PBXBuildFile; fileRef = A4B073551AA33D320049C489 /* Icon-152.png */; };
+		A4B073621AA33D320049C489 /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = A4B073561AA33D320049C489 /* Icon-72.png */; };
+		A4B073631AA33D320049C489 /* Icon-76.png in Resources */ = {isa = PBXBuildFile; fileRef = A4B073571AA33D320049C489 /* Icon-76.png */; };
+		A4B073641AA33D320049C489 /* Icon-Small-100.png in Resources */ = {isa = PBXBuildFile; fileRef = A4B073581AA33D320049C489 /* Icon-Small-100.png */; };
+		A4B073651AA33D320049C489 /* Icon-Small-50.png in Resources */ = {isa = PBXBuildFile; fileRef = A4B073591AA33D320049C489 /* Icon-Small-50.png */; };
+		A4B073661AA33D320049C489 /* Icon-Small.png in Resources */ = {isa = PBXBuildFile; fileRef = A4B0735A1AA33D320049C489 /* Icon-Small.png */; };
+		A4B073671AA33D320049C489 /* Icon-Small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A4B0735B1AA33D320049C489 /* Icon-Small@2x.png */; };
+		A4B073681AA33D320049C489 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = A4B0735C1AA33D320049C489 /* Icon.png */; };
+		A4B073691AA33D320049C489 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A4B0735D1AA33D320049C489 /* Icon@2x.png */; };
+		A4B0736A1AA33D320049C489 /* Tab-bar-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = A4B0735E1AA33D320049C489 /* Tab-bar-icon.png */; };
+		A4B0736B1AA33D320049C489 /* toolbar-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = A4B0735F1AA33D320049C489 /* toolbar-icon.png */; };
 		A4B3A93A1AA187C20068CDE0 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4B3A9391AA187C20068CDE0 /* LoginViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -130,6 +142,18 @@
 		A4465D091AA231630066FFE8 /* FriendPickerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FriendPickerViewController.h; sourceTree = "<group>"; };
 		A4465D0A1AA2316C0066FFE8 /* FriendPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendPickerViewController.m; sourceTree = "<group>"; };
 		A4465D101AA26BE90066FFE8 /* CellPhoneViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CellPhoneViewController.h; sourceTree = "<group>"; };
+		A4B073541AA33D320049C489 /* Icon-120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-120.png"; sourceTree = "<group>"; };
+		A4B073551AA33D320049C489 /* Icon-152.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-152.png"; sourceTree = "<group>"; };
+		A4B073561AA33D320049C489 /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72.png"; sourceTree = "<group>"; };
+		A4B073571AA33D320049C489 /* Icon-76.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-76.png"; sourceTree = "<group>"; };
+		A4B073581AA33D320049C489 /* Icon-Small-100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small-100.png"; sourceTree = "<group>"; };
+		A4B073591AA33D320049C489 /* Icon-Small-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small-50.png"; sourceTree = "<group>"; };
+		A4B0735A1AA33D320049C489 /* Icon-Small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small.png"; sourceTree = "<group>"; };
+		A4B0735B1AA33D320049C489 /* Icon-Small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small@2x.png"; sourceTree = "<group>"; };
+		A4B0735C1AA33D320049C489 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
+		A4B0735D1AA33D320049C489 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
+		A4B0735E1AA33D320049C489 /* Tab-bar-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Tab-bar-icon.png"; sourceTree = "<group>"; };
+		A4B0735F1AA33D320049C489 /* toolbar-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "toolbar-icon.png"; sourceTree = "<group>"; };
 		A4B3A9381AA187C20068CDE0 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		A4B3A9391AA187C20068CDE0 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -228,7 +252,8 @@
 				A40A64951AA293D500A91BC4 /* SettingsPageViewController.m */,
 				668251611AA2DABB00AD28E3 /* CountDownViewController.h */,
 				668251621AA2DABB00AD28E3 /* CountDownViewController.m */,
-				562A9CF41AA17D7800BDEBA6 /* Images.xcassets */,
+				A4B073531AA33D320049C489 /* icon */,
+				A4B0736C1AA33F0A0049C489 /* New Group */,
 				562A9CF61AA17D7800BDEBA6 /* LaunchScreen.xib */,
 				562A9CE71AA17D7800BDEBA6 /* Supporting Files */,
 				1885DEE31AA20DB6005AE98A /* Communication.h */,
@@ -321,6 +346,33 @@
 			name = Login;
 			sourceTree = "<group>";
 		};
+		A4B073531AA33D320049C489 /* icon */ = {
+			isa = PBXGroup;
+			children = (
+				A4B073541AA33D320049C489 /* Icon-120.png */,
+				A4B073551AA33D320049C489 /* Icon-152.png */,
+				A4B073561AA33D320049C489 /* Icon-72.png */,
+				A4B073571AA33D320049C489 /* Icon-76.png */,
+				A4B073581AA33D320049C489 /* Icon-Small-100.png */,
+				A4B073591AA33D320049C489 /* Icon-Small-50.png */,
+				A4B0735A1AA33D320049C489 /* Icon-Small.png */,
+				A4B0735B1AA33D320049C489 /* Icon-Small@2x.png */,
+				A4B0735C1AA33D320049C489 /* Icon.png */,
+				A4B0735D1AA33D320049C489 /* Icon@2x.png */,
+				A4B0735E1AA33D320049C489 /* Tab-bar-icon.png */,
+				A4B0735F1AA33D320049C489 /* toolbar-icon.png */,
+			);
+			path = icon;
+			sourceTree = "<group>";
+		};
+		A4B0736C1AA33F0A0049C489 /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+				562A9CF41AA17D7800BDEBA6 /* Images.xcassets */,
+			);
+			name = "New Group";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -401,12 +453,24 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A4B073601AA33D320049C489 /* Icon-120.png in Resources */,
+				A4B0736B1AA33D320049C489 /* toolbar-icon.png in Resources */,
+				A4B073621AA33D320049C489 /* Icon-72.png in Resources */,
 				562A9CF31AA17D7800BDEBA6 /* Main.storyboard in Resources */,
+				A4B073671AA33D320049C489 /* Icon-Small@2x.png in Resources */,
+				A4B0736A1AA33D320049C489 /* Tab-bar-icon.png in Resources */,
+				A4B073681AA33D320049C489 /* Icon.png in Resources */,
 				668251661AA2F3D100AD28E3 /* nevis.ttf in Resources */,
 				668251681AA2FAA900AD28E3 /* Hero Light.otf in Resources */,
 				562A9CF81AA17D7800BDEBA6 /* LaunchScreen.xib in Resources */,
+				A4B073641AA33D320049C489 /* Icon-Small-100.png in Resources */,
+				A4B073631AA33D320049C489 /* Icon-76.png in Resources */,
+				A4B073661AA33D320049C489 /* Icon-Small.png in Resources */,
+				A4B073651AA33D320049C489 /* Icon-Small-50.png in Resources */,
 				562A9CF51AA17D7800BDEBA6 /* Images.xcassets in Resources */,
+				A4B073691AA33D320049C489 /* Icon@2x.png in Resources */,
 				6682516A1AA30C9300AD28E3 /* fb_login_button.jpg in Resources */,
+				A4B073611AA33D320049C489 /* Icon-152.png in Resources */,
 				563301A01AA24540009CF7BF /* GoogleMaps.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
