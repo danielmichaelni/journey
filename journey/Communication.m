@@ -18,8 +18,9 @@
     PFObject *current = [PFUser currentUser];
     NSMutableArray *contacts = [[NSMutableArray alloc] init];
     contacts = [current objectForKey:@"contactList"];
-    BOOL emailsEnabled = current[@"enableEmails"];
-    BOOL textEnabled = current[@"enableTexts"];
+    bool emailsEnabled = [[current objectForKey: @"enableEmails"] boolValue];
+    bool textEnabled = [[current objectForKey: @"enableTexts"] boolValue];
+    bool phoneCallEnabled = [[current objectForKey: @"enableCalls"] boolValue];
     
     PFQuery *query = [PFUser query];
     [query whereKey:@"facebookId" containedIn:contacts];
@@ -31,11 +32,14 @@
                     NSString *phone = contact[@"cellPhone"];
                     NSString *email = contact[@"email"];
                     NSLog(@"%@ %@ %@", name, phone, email);
-                    if (textEnabled) {
+                    if (textEnabled == true) {
                         [Communication SendSMS:contact from:current on:journey];
                     }
-                    if (emailsEnabled) {
+                    if (emailsEnabled == true) {
                         [Communication SendEmail:contact from:current on:journey];
+                    }
+                    if (phoneCallEnabled == true) {
+                        [Communication makeCall:contact from:current on:journey];
                     }
                 }
             }
@@ -96,45 +100,30 @@
     }
 }
 
-+ (void) makeCall:(NSString*) message
-                  toNumber:(NSString*)number
-{
-    [self makeCallAndPlayTts:message toNumber:number withAppId:@"479435" withAppKey:@"ed6d08fe0ee069d0d0f89a52f3"];
++ (void) makeCall:(PFObject *)contact from:(PFObject *)current on:(Journey *)journey{
+    if (contact[@"cellPhone"] && current[@"name"] && contact[@"name"]){
+        NSString *gender = current[@"gender"] ? current[@"gender"] : @"";
+        [PFCloud callFunctionInBackground:@"PhoneCall"
+                           withParameters:@{
+                                            @"phonenum": contact[@"cellPhone"],
+                                            @"username": current[@"name"],
+                                            @"friendname": contact[@"name"],
+                                            @"gender":gender,
+                                            @"destination": journey.destinationString,
+                                            @"source": journey.sourceString,
+                                            @"time": [NSNumber numberWithInt:journey.minutesCount],
+                                            }
+                                    block:^(NSString *result, NSError *error) {
+                                        if (error) {
+                                            NSLog(@"ERROR: %@",error);
+                                        } else {
+                                            NSLog(@"%@", result);
+                                        }
+                                    }];
+    } else {
+        NSLog(@"ERROR: User missing parameters");
+    }
 }
-
-
-
-+(void) makeCallAndPlayTts:(NSString*) message
-                  toNumber:(NSString*)number
-                 withAppId:(NSString*)appId
-                withAppKey:(NSString*)appKey
-{
-    NSError* error = nil;
-    NSURL *restURL =
-    [NSURL URLWithString:
-     [NSString stringWithFormat:@"http://hackathonapi.inin.com/api/%@/call/callandplaytts", appId]];
-    
-    
-    
-    NSMutableURLRequest *restRequest = [NSMutableURLRequest requestWithURL:restURL];
-    
-    [restRequest setValue:appKey forHTTPHeaderField:@"Api-Key"];
-    NSDictionary *data = @{ @"number" : number,
-                            @"message" : message };
-    
-    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:data
-                                                       options:NSJSONWritingPrettyPrinted
-                                                         error:&error];
-    
-    [restRequest setHTTPBody:jsonData];
-    [restRequest setHTTPMethod:@"POST"];
-    
-    
-    NSHTTPURLResponse* response;
-    
-    [NSURLConnection sendSynchronousRequest:restRequest  returningResponse:&response error:&error];
-}
-
 
 @end
 

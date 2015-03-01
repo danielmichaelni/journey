@@ -21,6 +21,7 @@
 @property (strong, nonatomic) IBOutlet UISwitch *enableTexts;
 - (IBAction)saveChanges:(id)sender;
 - (IBAction)changeFriends:(id)sender;
+@property (strong, nonatomic) IBOutlet UISwitch *enableCalls;
 
 @end
 
