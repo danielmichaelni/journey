@@ -58,4 +58,7 @@
 {
     //self.enableEmails
 }
+
+- (IBAction)changeFriends:(id)sender {
+}
 @end
