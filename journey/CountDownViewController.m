@@ -54,6 +54,7 @@ static BOOL is_cancelled;
     locationManager.delegate = self;
     
     [locationManager requestAlwaysAuthorization];
+    [locationManager startUpdatingLocation];
     
     
     CLLocation *loc_a = [[CLLocation alloc] initWithLatitude:self.journey.destination.latitude longitude:self.journey.destination.longitude];
