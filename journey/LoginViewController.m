@@ -42,11 +42,7 @@
         }
     }
     [super viewDidLoad];
-<<<<<<< HEAD
     /*
-=======
-    
->>>>>>> 95aaae9f6f790542cb30410d279b35b79b74971d
     UIImage *textLogoImage = [UIImage imageNamed:@"textLogo.png"];
     CGFloat width = [[UIScreen mainScreen] bounds].size.width;
     float scale = textLogoImage.size.width / width;
@@ -121,7 +117,7 @@
                 [self performSegueWithIdentifier:@"loginPhone" sender:self];
             } else {
                 // logged in back loggedIn
-                [self performSegueWithIdentifier:@"loginPhone" sender:self];
+                [self performSegueWithIdentifier:@"loggedIn" sender:self];
             }
         }
     }];
