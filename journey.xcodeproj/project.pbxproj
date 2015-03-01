@@ -25,6 +25,7 @@
 		563301AC1AA245BC009CF7BF /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 563301AB1AA245BC009CF7BF /* libc++.dylib */; };
 		563301AE1AA245C3009CF7BF /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 563301AD1AA245C3009CF7BF /* libicucore.dylib */; };
 		563301B01AA245D2009CF7BF /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 563301AF1AA245D2009CF7BF /* OpenGLES.framework */; };
+		5690AAC81AA34321005CF45F /* Untitled.png in Resources */ = {isa = PBXBuildFile; fileRef = 5690AAC71AA34321005CF45F /* Untitled.png */; };
 		569AB9361AA2C8E500C5FE5B /* wildcard.m in Sources */ = {isa = PBXBuildFile; fileRef = 569AB9351AA2C8E500C5FE5B /* wildcard.m */; };
 		56D3D03C1AA2C5C600B1A851 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56D3D03B1AA2C5C600B1A851 /* MapKit.framework */; };
 		668251631AA2DABB00AD28E3 /* CountDownViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 668251621AA2DABB00AD28E3 /* CountDownViewController.m */; };
@@ -105,6 +106,7 @@
 		563301AB1AA245BC009CF7BF /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
 		563301AD1AA245C3009CF7BF /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
 		563301AF1AA245D2009CF7BF /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		5690AAC71AA34321005CF45F /* Untitled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Untitled.png; path = icon/Untitled.png; sourceTree = "<group>"; };
 		569AB9341AA2C88800C5FE5B /* wildcard.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = wildcard.h; sourceTree = "<group>"; };
 		569AB9351AA2C8E500C5FE5B /* wildcard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = wildcard.m; sourceTree = "<group>"; };
 		56D3D03B1AA2C5C600B1A851 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
@@ -265,6 +267,7 @@
 		562A9CE71AA17D7800BDEBA6 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				5690AAC71AA34321005CF45F /* Untitled.png */,
 				668251691AA30C9300AD28E3 /* fb_login_button.jpg */,
 				562A9CE81AA17D7800BDEBA6 /* Info.plist */,
 				562A9CE91AA17D7800BDEBA6 /* main.m */,
@@ -461,6 +464,7 @@
 				A4B0736A1AA33D320049C489 /* Tab-bar-icon.png in Resources */,
 				A4B073681AA33D320049C489 /* Icon.png in Resources */,
 				668251661AA2F3D100AD28E3 /* nevis.ttf in Resources */,
+				5690AAC81AA34321005CF45F /* Untitled.png in Resources */,
 				668251681AA2FAA900AD28E3 /* Hero Light.otf in Resources */,
 				562A9CF81AA17D7800BDEBA6 /* LaunchScreen.xib in Resources */,
 				A4B073641AA33D320049C489 /* Icon-Small-100.png in Resources */,
