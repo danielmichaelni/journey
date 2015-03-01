@@ -13,9 +13,8 @@
 @interface Journey : NSObject
 
 @property (strong, nonatomic) GMSCameraPosition *destination;
-@property (strong, nonatomic) NSTimer *timer;
+@property (nonatomic) int minutesCount;
 
 - (id) initWithDestination:(GMSCameraPosition *)destination;
-- (id) initWithDestination:(GMSCameraPosition *)destination andTimer:(NSTimer *)timer;
 
 @end

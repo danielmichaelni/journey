@@ -166,7 +166,6 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="startJourneyButton:" destination="Jz7-1h-IVC" eventType="touchUpInside" id="j5n-p8-k6i"/>
                                     <segue destination="olK-Iz-5Ub" kind="show" identifier="startJourneySegue" id="Dln-xx-MYO"/>
                                 </connections>
                             </button>
@@ -221,6 +220,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kSJ-A3-CdF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2654" y="1005"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="EsY-yJ-6GV">
+            <objects>
+                <viewController id="XuN-dc-dWe" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="4Qf-Fa-hlP"/>
+                        <viewControllerLayoutGuide type="bottom" id="5FZ-GP-qMj"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="0fT-bY-UXr">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2lC-nC-NYE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3128" y="1004"/>
         </scene>
         <!--Title-->
         <scene sceneID="mqW-eY-Ei8">
