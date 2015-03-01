@@ -20,6 +20,7 @@
 @property (strong, nonatomic) IBOutlet UISwitch *enableEmails;
 @property (strong, nonatomic) IBOutlet UISwitch *enableTexts;
 - (IBAction)saveChanges:(id)sender;
+- (IBAction)changeFriends:(id)sender;
 
 @end
 

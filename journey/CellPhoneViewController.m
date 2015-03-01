@@ -9,3 +9,6 @@
 #import <Foundation/Foundation.h>
 #import "CellPhoneViewController.h"
 
+@implementation CellPhoneViewController
+
+@end

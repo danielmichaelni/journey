@@ -73,7 +73,6 @@
 
     // Login PFUser using Facebook
     [PFFacebookUtils logInWithPermissions:permissionsArray block:^(PFUser *user, NSError *error) {
-        [_activityIndicator stopAnimating]; // Hide loading indicator
         if (!user) {
             NSString *errorMessage = nil;
             if (!error) {
@@ -90,20 +89,15 @@
         } else {
             if (user.isNew) {
                 // new user
-                bool enable = true;
-                /*
-                [[PFUser currentUser] setObject:contacts forKey:@"contactList"];
+                [[PFUser currentUser] setValue:[NSNumber numberWithBool:YES] forKey:@"enableEmails"];
+                [[PFUser currentUser] setValue:[NSNumber numberWithBool:YES]  forKey:@"enableTexts"];
                 [[PFUser currentUser] saveInBackground];
-                 */
             } else {
                 // logged in back
             }
             [self performSegueWithIdentifier:@"loginPhone" sender:self];
         }
     }];
-
-    self.activityIndicator.hidden = false;
-    [_activityIndicator startAnimating]; // Show loading indicator until login is finished
 }
 
 #pragma mark -
