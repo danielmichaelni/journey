@@ -16,24 +16,20 @@
                     <color key="textColor" red="0.89411764705882357" green="0.89411764705882357" blue="0.92156862745098034" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <imageView userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="imageLogo.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="Xlb-hX-nWZ">
-                    <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
-                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="HAVE A SAFE TRIP" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A9O-oi-7S5">
+                    <rect key="frame" x="129" y="167" width="222" height="73"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                    <color key="textColor" red="0.89411764705882357" green="0.89411764705882357" blue="0.89411764705882357" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
-            <color key="backgroundColor" red="0.12156862745098039" green="0.013826069078947368" blue="0.32941176470588235" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" red="0.078431372549019607" green="0.078431372549019607" blue="0.078431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="Xlb-hX-nWZ" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="25c-oR-CPL"/>
-                <constraint firstItem="Xlb-hX-nWZ" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Joa-bB-Y71"/>
                 <constraint firstAttribute="bottom" secondItem="8ie-xW-0ye" secondAttribute="bottom" constant="20" id="Kzo-t9-V3l"/>
                 <constraint firstItem="8ie-xW-0ye" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" symbolic="YES" id="MfP-vx-nX0"/>
-                <constraint firstItem="Xlb-hX-nWZ" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="QUb-2G-a76"/>
-                <constraint firstAttribute="centerX" secondItem="Xlb-hX-nWZ" secondAttribute="centerX" id="TKx-cu-IaI"/>
-                <constraint firstAttribute="centerX" secondItem="Xlb-hX-nWZ" secondAttribute="centerX" id="Xcm-3V-sKt"/>
-                <constraint firstItem="Xlb-hX-nWZ" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="YRn-Pa-Rq2"/>
                 <constraint firstAttribute="centerX" secondItem="8ie-xW-0ye" secondAttribute="centerX" id="ZEH-qu-HZ9"/>
-                <constraint firstAttribute="centerX" secondItem="Xlb-hX-nWZ" secondAttribute="centerX" id="a4f-3E-Rhw"/>
-                <constraint firstItem="Xlb-hX-nWZ" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="dlG-hH-yih"/>
-                <constraint firstAttribute="trailing" secondItem="Xlb-hX-nWZ" secondAttribute="trailing" id="eb1-M0-eob"/>
+                <constraint firstAttribute="centerX" secondItem="A9O-oi-7S5" secondAttribute="centerX" id="dXE-TW-mgd"/>
+                <constraint firstAttribute="centerY" secondItem="A9O-oi-7S5" secondAttribute="centerY" constant="36.5" id="wpT-Q4-o6c"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
@@ -45,7 +41,4 @@
             <point key="canvasLocation" x="523" y="254"/>
         </view>
     </objects>
-    <resources>
-        <image name="imageLogo.jpg" width="400" height="768"/>
-    </resources>
 </document>

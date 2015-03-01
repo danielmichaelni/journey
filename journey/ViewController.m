@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "TimerViewController.h"
 
 #import <Parse/Parse.h>
 #import <ParseFacebookUtils/PFFacebookUtils.h>
@@ -50,8 +51,6 @@
     NSLog(@"User's location: %@", mapView_.myLocation);
     
     self.view.autoresizesSubviews = YES;
-    
-    [self _loadData];
     [self findFriendAndCellPhone];
 }
 
@@ -90,11 +89,6 @@
 }
 
 - (void)_loadData {
-    // If the user is already logged in, display any previously cached values before we get the latest from Facebook.
-    if ([PFUser currentUser]) {
-        [self _updateProfileData];
-    }
-    
     // Send request to Facebook
     FBRequest *request = [FBRequest requestForMe];
     [request startWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
@@ -153,8 +147,7 @@
             
             [[PFUser currentUser] setObject:userProfile forKey:@"profile"];
             [[PFUser currentUser] saveInBackground];
-            
-            [self _updateProfileData];
+
         } else if ([[[[error userInfo] objectForKey:@"error"] objectForKey:@"type"]
                     isEqualToString: @"OAuthException"]) { // Since the request failed, we can check if it was due to an invalid session
             [self logoutButtonAction:nil];
@@ -165,34 +158,11 @@
 }
 
 
-// Set received values if they are not nil and reload the table
-- (void)_updateProfileData {
-    
-    // Set the name in the header view label
-    NSString *name = [PFUser currentUser][@"profile"][@"name"];
-    if (name) {
-        self.headerNameLabel.text = name;
-    }
-    
-    NSString *userProfilePhotoURLString = [PFUser currentUser][@"profile"][@"pictureURL"];
-    // Download the user's facebook profile picture
-    if (userProfilePhotoURLString) {
-        NSURL *pictureURL = [NSURL URLWithString:userProfilePhotoURLString];
-        NSURLRequest *urlRequest = [NSURLRequest requestWithURL:pictureURL];
-        
-        [NSURLConnection sendAsynchronousRequest:urlRequest
-                                           queue:[NSOperationQueue mainQueue]
-                               completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
-                                   if (connectionError == nil && data != nil) {
-                                       self.headerImageView.image = [UIImage imageWithData:data];
-                                       
-                                       // Add a nice corner radius to the image
-                                       self.headerImageView.layer.cornerRadius = 8.0f;
-                                       self.headerImageView.layer.masksToBounds = YES;
-                                   } else {
-                                       NSLog(@"Failed to load profile photo.");
-                                   }
-                               }];
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if([segue.identifier isEqualToString:@"selectDestinationSegue"]) {
+        TimerViewController *destinationViewController = segue.destinationViewController;
+        self.journey = [[Journey alloc] init];
+        destinationViewController.journey = self.journey;
     }
 }
 
