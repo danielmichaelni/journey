@@ -352,22 +352,22 @@
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="decimalPad" keyboardAppearance="alert" returnKeyType="done"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enable emails" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rNr-IS-D2k">
-                                <rect key="frame" x="50" y="325" width="107" height="21"/>
+                                <rect key="frame" x="46" y="314" width="106.5" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enable texts" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LZh-ca-D20">
-                                <rect key="frame" x="50" y="379" width="95" height="21"/>
+                                <rect key="frame" x="46" y="357" width="95" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OPT-Mm-l80">
-                                <rect key="frame" x="220" y="320" width="51" height="31"/>
+                                <rect key="frame" x="220" y="309" width="51" height="31"/>
                             </switch>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="L6W-Tn-twH">
-                                <rect key="frame" x="220" y="374" width="51" height="31"/>
+                                <rect key="frame" x="220" y="352" width="51" height="31"/>
                             </switch>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vZB-uR-9JV">
                                 <rect key="frame" x="121" y="104" width="78" height="80"/>
@@ -376,8 +376,17 @@
                                     <constraint firstAttribute="width" constant="78" id="dMc-VX-Qqx"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v2c-6d-5ms">
-                                <rect key="frame" x="16" y="440" width="288" height="30"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enable calls" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TXl-wz-adB">
+                                <rect key="frame" x="46" y="399" width="92" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Dpo-Yv-sPe">
+                                <rect key="frame" x="220" y="394" width="51" height="31"/>
+                            </switch>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v2c-6d-5ms">
+                                <rect key="frame" x="16" y="450" width="288" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <state key="normal" title="CHANGE FRIENDS"/>
                                 <connections>
@@ -387,24 +396,31 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="LZh-ca-D20" firstAttribute="leading" secondItem="TxX-eW-nsJ" secondAttribute="leadingMargin" constant="34" id="0zi-ET-gYZ"/>
+                            <constraint firstItem="v2c-6d-5ms" firstAttribute="leading" secondItem="TxX-eW-nsJ" secondAttribute="leadingMargin" id="1Kx-kp-vge"/>
                             <constraint firstItem="vZB-uR-9JV" firstAttribute="top" secondItem="6Lj-7g-NYp" secondAttribute="bottom" constant="40" id="1sV-1x-SQj"/>
                             <constraint firstItem="OyA-4f-lt7" firstAttribute="leading" secondItem="TxX-eW-nsJ" secondAttribute="leadingMargin" id="2Cs-Xd-3Pm"/>
                             <constraint firstItem="K5l-34-0lT" firstAttribute="trailing" secondItem="TxX-eW-nsJ" secondAttribute="trailingMargin" id="2Fz-ec-nE6"/>
-                            <constraint firstItem="rNr-IS-D2k" firstAttribute="leading" secondItem="TxX-eW-nsJ" secondAttribute="leadingMargin" constant="34" id="4cj-dC-6wm"/>
+                            <constraint firstItem="rNr-IS-D2k" firstAttribute="leading" secondItem="TxX-eW-nsJ" secondAttribute="leadingMargin" constant="30" id="3rV-Vn-EEm"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="OPT-Mm-l80" secondAttribute="trailing" constant="35" id="67y-95-GdM"/>
                             <constraint firstItem="OPT-Mm-l80" firstAttribute="top" secondItem="K5l-34-0lT" secondAttribute="bottom" constant="33" id="AYr-oE-a6R"/>
                             <constraint firstItem="OyA-4f-lt7" firstAttribute="top" secondItem="vZB-uR-9JV" secondAttribute="bottom" constant="35" id="DzL-np-MZm"/>
-                            <constraint firstItem="rNr-IS-D2k" firstAttribute="top" secondItem="K5l-34-0lT" secondAttribute="bottom" constant="38" id="Kaz-jj-dd9"/>
+                            <constraint firstItem="TXl-wz-adB" firstAttribute="top" secondItem="LZh-ca-D20" secondAttribute="bottom" constant="21.5" id="Fnc-2w-qC0"/>
+                            <constraint firstItem="Dpo-Yv-sPe" firstAttribute="top" secondItem="L6W-Tn-twH" secondAttribute="bottom" constant="11" id="GD0-Cy-rfO"/>
+                            <constraint firstItem="v2c-6d-5ms" firstAttribute="trailing" secondItem="TxX-eW-nsJ" secondAttribute="trailingMargin" id="HCw-oO-zyW"/>
                             <constraint firstItem="OyA-4f-lt7" firstAttribute="trailing" secondItem="TxX-eW-nsJ" secondAttribute="trailingMargin" id="Koh-7A-Vo9"/>
+                            <constraint firstItem="TXl-wz-adB" firstAttribute="leading" secondItem="TxX-eW-nsJ" secondAttribute="leadingMargin" constant="30" id="LB8-XQ-cBX"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Dpo-Yv-sPe" secondAttribute="trailing" constant="35" id="ObN-F1-h7m"/>
                             <constraint firstItem="K5l-34-0lT" firstAttribute="top" secondItem="OyA-4f-lt7" secondAttribute="bottom" constant="8" id="Ruq-kW-uBZ"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="L6W-Tn-twH" secondAttribute="trailing" constant="35" id="Syr-VJ-ckk"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="L6W-Tn-twH" secondAttribute="trailing" constant="35" id="YIv-as-O3y"/>
+                            <constraint firstItem="L6W-Tn-twH" firstAttribute="top" secondItem="OPT-Mm-l80" secondAttribute="bottom" constant="12" id="a5O-as-M4h"/>
                             <constraint firstItem="vZB-uR-9JV" firstAttribute="centerX" secondItem="TxX-eW-nsJ" secondAttribute="centerX" id="bG6-fK-Rao"/>
                             <constraint firstAttribute="trailingMargin" secondItem="OPT-Mm-l80" secondAttribute="trailing" constant="35" id="bwr-Xp-1vQ"/>
-                            <constraint firstItem="v2c-6d-5ms" firstAttribute="top" secondItem="L6W-Tn-twH" secondAttribute="bottom" constant="35" id="dEX-An-vv7"/>
-                            <constraint firstItem="L6W-Tn-twH" firstAttribute="top" secondItem="OPT-Mm-l80" secondAttribute="bottom" constant="23" id="jAy-h9-xs9"/>
-                            <constraint firstItem="LZh-ca-D20" firstAttribute="top" secondItem="rNr-IS-D2k" secondAttribute="bottom" constant="33" id="kgG-FG-QpE"/>
-                            <constraint firstItem="vZB-uR-9JV" firstAttribute="centerX" secondItem="v2c-6d-5ms" secondAttribute="centerX" id="nSM-KR-RCZ"/>
+                            <constraint firstItem="rNr-IS-D2k" firstAttribute="top" secondItem="K5l-34-0lT" secondAttribute="bottom" constant="27" id="fn2-7J-vJO"/>
                             <constraint firstItem="K5l-34-0lT" firstAttribute="leading" secondItem="TxX-eW-nsJ" secondAttribute="leadingMargin" id="ocW-HW-nBz"/>
+                            <constraint firstItem="v2c-6d-5ms" firstAttribute="top" secondItem="Dpo-Yv-sPe" secondAttribute="bottom" constant="25" id="otq-Bb-Htt"/>
+                            <constraint firstItem="LZh-ca-D20" firstAttribute="leading" secondItem="TxX-eW-nsJ" secondAttribute="leadingMargin" constant="30" id="y8K-Sd-gai"/>
+                            <constraint firstItem="OPT-Mm-l80" firstAttribute="top" secondItem="K5l-34-0lT" secondAttribute="bottom" constant="22" id="z8w-Y5-Sy0"/>
+                            <constraint firstItem="LZh-ca-D20" firstAttribute="top" secondItem="rNr-IS-D2k" secondAttribute="bottom" constant="22.5" id="zbg-Ir-K0Q"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
@@ -419,6 +435,7 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="changeFriendsList" destination="v2c-6d-5ms" id="wTd-3D-zbk"/>
+                        <outlet property="enableCalls" destination="Dpo-Yv-sPe" id="Lrv-PC-lqe"/>
                         <outlet property="enableEmails" destination="OPT-Mm-l80" id="lBw-EL-nt5"/>
                         <outlet property="enableTexts" destination="L6W-Tn-twH" id="Jib-TT-6Js"/>
                         <outlet property="profilePhoto" destination="vZB-uR-9JV" id="UzF-6m-1g4"/>

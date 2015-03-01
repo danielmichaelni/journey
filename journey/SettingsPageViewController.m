@@ -29,6 +29,8 @@
     
     [self.enableTexts setOnTintColor:[UIColor colorWithRed:25.0/255.0 green:74.0/255.0 blue:99.0/255.0 alpha:1]];
     
+    [self.enableCalls setOnTintColor:[UIColor colorWithRed:25.0/255.0 green:74.0/255.0 blue:99.0/255.0 alpha:1]];
+    
     
     bool chosenBool = [[[PFUser currentUser] objectForKey: @"enableEmails"] boolValue];
     if(chosenBool == false) {
@@ -40,16 +42,21 @@
         [self.enableTexts setOn:NO animated:YES];
     };
     
+    chosenBool = [[[PFUser currentUser] objectForKey: @"enableCalls"] boolValue];
+    if(chosenBool == false) {
+        [self.enableCalls setOn:NO animated:YES];
+    };
+    
     self.updatePhone.delegate = self;
     self.updateEmail.delegate = self;
     
-    
+    /*
     UILocalNotification* localNotification = [[UILocalNotification alloc] init];
     localNotification.fireDate = [NSDate dateWithTimeIntervalSinceNow:10];
     localNotification.alertBody = @"Your alert message";
     localNotification.timeZone = [NSTimeZone defaultTimeZone];
     [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];    
-
+     */
     [self _updateProfileData];
 }
 
@@ -97,6 +104,8 @@
     [[PFUser currentUser] setValue:[NSNumber numberWithBool:chosen]  forKey:@"enableEmails"];
     chosen = self.enableTexts.on;
     [[PFUser currentUser] setValue:[NSNumber numberWithBool:chosen]  forKey:@"enableTexts"];
+    chosen = self.enableCalls.on;
+    [[PFUser currentUser] setValue:[NSNumber numberWithBool:chosen]  forKey:@"enableCalls"];
     
     NSString *currentPhone = [PFUser currentUser][@"cellPhone"];
     NSString *upPhone = self.updatePhone.text;
