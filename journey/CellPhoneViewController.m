@@ -15,6 +15,11 @@
 
 @implementation CellPhoneViewController
 
+-(void)viewDidLoad
+{
+    [super viewDidLoad];
+}
+
 - (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender
 {
     if([identifier isEqualToString:@"loginPhone"]) {

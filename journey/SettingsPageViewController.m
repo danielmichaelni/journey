@@ -28,29 +28,27 @@
     
     [self.enableTexts setOnTintColor:[UIColor colorWithRed:25.0/255.0 green:74.0/255.0 blue:99.0/255.0 alpha:1]];
     
-    /*
-    NSNumber *numChosen = [PFUser currentUser][@"enableEmails"];
-    BOOL chosen = [NSNumber numberWithBool:numChosen];
-    if(chosen == FALSE) {
+    
+    bool chosenBool = [[[PFUser currentUser] objectForKey: @"enableEmails"] boolValue];
+    if(chosenBool == false) {
         [self.enableEmails setOn:NO animated:YES];
     };
     
-    chosen = [PFUser currentUser][@"enableTexts"];
-    if(chosen == FALSE) {
+    chosenBool = [[[PFUser currentUser] objectForKey: @"enableTexts"] boolValue];
+    if(chosenBool == false) {
         [self.enableTexts setOn:NO animated:YES];
     };
-    */
     
     self.updatePhone.delegate = self;
     self.updateEmail.delegate = self;
     
-    /*
+    
     UILocalNotification* localNotification = [[UILocalNotification alloc] init];
     localNotification.fireDate = [NSDate dateWithTimeIntervalSinceNow:10];
     localNotification.alertBody = @"Your alert message";
     localNotification.timeZone = [NSTimeZone defaultTimeZone];
     [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];    
-    */
+
     [self _updateProfileData];
 }
 
