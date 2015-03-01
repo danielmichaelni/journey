@@ -49,7 +49,11 @@
     if(self.secondsCount == 0) {
         [self.countDownTimer invalidate];
         self.countDownTimer = nil;
-//        [Communication contactFriends:self.journey];
+        
+        if (YES){ //TODO: check GEOLOCATION
+            [Communication contactFriends:self.journey];
+        }
+  
         NSLog(@"time expired");
     }
 }
@@ -67,7 +71,6 @@
 - (IBAction)finishJourneyButton:(UIButton *)sender {
     [self.countDownTimer invalidate];
     self.countDownTimer = nil;
-    [Communication contactFriends:self.journey];
     NSLog(@"cancelled timer");
 }
 @end
