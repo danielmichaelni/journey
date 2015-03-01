@@ -13,6 +13,8 @@
 
 @property (nonatomic) CLLocationCoordinate2D source;
 @property (nonatomic) CLLocationCoordinate2D destination;
+@property (strong, nonatomic) NSString *sourceString;
+@property (strong, nonatomic) NSString *destinationString;
 @property (nonatomic) int minutesCount;
 
 - (id) initWithSource:(CLLocationCoordinate2D)source andDestination:(CLLocationCoordinate2D) destination;

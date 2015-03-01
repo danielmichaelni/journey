@@ -46,11 +46,7 @@
 		<string>armv7</string>
 	</array>
 	<key>UIStatusBarHidden</key>
-<<<<<<< HEAD
 	<false/>
-=======
-	<true/>
->>>>>>> 95aaae9f6f790542cb30410d279b35b79b74971d
 	<key>UIStatusBarStyle</key>
 	<string>UIStatusBarStyleLightContent</string>
 	<key>UISupportedInterfaceOrientations</key>
@@ -63,11 +59,6 @@
 		<string>UIInterfaceOrientationPortraitUpsideDown</string>
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
-	</array>
-	<key>UIAppFonts</key>
-	<array>
-		<string>nevis.ttf</string>
-		<string>Hero Light.otf</string>
 	</array>
 </dict>
 </plist>

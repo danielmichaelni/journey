@@ -24,10 +24,6 @@
     [Parse setApplicationId:@"ZpuXzvuAPi4SChpYQEMaMZGFo4VtF9eMZtvBoGzv"
                   clientKey:@"sUrEE1CCtcE6LVCqSni8nXBg69TYeOyt54Aqzn5F"];
     
-    if (NO) { //Testing
-        [Communication SendSMS:[PFUser currentUser] from:[PFUser currentUser]];
-        [Communication SendEmail:[PFUser currentUser] from:[PFUser currentUser]];
-    }
     
     [PFFacebookUtils initializeFacebook];
     
