@@ -47,14 +47,14 @@
 }
 
 + (void)SendSMS:(PFObject *)contact from:(PFObject *)current on:(Journey *)journey {
-    
-
     if (contact[@"cellPhone"] && current[@"name"] && contact[@"name"]){
+        NSString *gender = current[@"gender"] ? current[@"gender"] : @"";
         [PFCloud callFunctionInBackground:@"SMS"
                            withParameters:@{
                                             @"phonenum": contact[@"cellPhone"],
                                             @"username": current[@"name"],
                                             @"friendname": contact[@"name"],
+                                            @"gender":gender,
                                             @"destination": journey.destinationString,
                                             @"source": journey.sourceString,
                                             @"time": [NSNumber numberWithInt:journey.minutesCount],
@@ -73,11 +73,13 @@
 }
 + (void)SendEmail:(PFObject *)contact from:(PFObject *) current on:(Journey *)journey {
     if (contact[@"email"] && current[@"name"] && contact[@"name"]){
+        NSString *gender = current[@"gender"] ? current[@"gender"] : @"";
         [PFCloud callFunctionInBackground:@"Email"
                            withParameters:@{
                                             @"email": contact[@"email"],
                                             @"username": current[@"name"],
                                             @"friendname": contact[@"name"],
+                                            @"gender":gender,
                                             @"destination": journey.destinationString,
                                             @"source": journey.sourceString,
                                             @"time": [NSNumber numberWithInt:journey.minutesCount],
