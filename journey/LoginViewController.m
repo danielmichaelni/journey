@@ -31,7 +31,18 @@
 @implementation LoginViewController
 
 - (void)viewDidLoad {
+    
+    for (NSString* family in [UIFont familyNames])
+    {
+        NSLog(@"%@", family);
+        
+        for (NSString* name in [UIFont fontNamesForFamilyName: family])
+        {
+            NSLog(@"  %@", name);
+        }
+    }
     [super viewDidLoad];
+    
     UIImage *textLogoImage = [UIImage imageNamed:@"textLogo.png"];
     CGFloat width = [[UIScreen mainScreen] bounds].size.width;
     float scale = textLogoImage.size.width / width;
