@@ -9,7 +9,7 @@
 #import "Journey.h"
 #import <UIKit/UIKit.h>
 
-@interface CountDownViewController : UIViewController
+@interface CountDownViewController : UIViewController <CLLocationManagerDelegate>
 
 @property (strong, nonatomic) IBOutlet UILabel *timeLabel;
 
