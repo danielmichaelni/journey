@@ -10,7 +10,8 @@
 
 @implementation Journey
 
-- (id) initWithDestination:(GMSCameraPosition *)destination {
+- (id) initWithSource:(CLLocationCoordinate2D)source andDestination:(CLLocationCoordinate2D) destination {
+    self.source = source;
     self.destination = destination;
     
     return self;

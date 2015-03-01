@@ -108,25 +108,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J6h-04-GA2">
-                                <rect key="frame" x="62" y="518" width="197" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                <state key="normal" title="Select Destination">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="Jz7-1h-IVC" kind="show" identifier="selectDestinationSegue" id="seO-eb-umv"/>
-                                </connections>
-                            </button>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="qOY-8W-nnE">
                                 <rect key="frame" x="0.0" y="193" width="320" height="309"/>
                             </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstAttribute="centerX" secondItem="J6h-04-GA2" secondAttribute="centerX" id="VGx-pC-CpQ"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="J6h-04-GA2" secondAttribute="bottom" constant="20" id="yLw-nD-bNF"/>
-                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="pZo-eZ-wtm">
                         <barButtonItem key="rightBarButtonItem" title="Settings" id="GqP-gM-esv">
@@ -138,6 +124,7 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="mapView" destination="qOY-8W-nnE" id="gek-Ug-8s6"/>
+                        <segue destination="Jz7-1h-IVC" kind="show" identifier="toTimerViewControllerSegue" id="uGS-2z-UgQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -392,6 +379,6 @@
         <image name="fb_login_button.jpg" width="210" height="39"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="SC6-A3-BbI"/>
+        <segue reference="ouR-62-e0i"/>
     </inferredMetricsTieBreakers>
 </document>

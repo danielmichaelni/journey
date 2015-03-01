@@ -20,6 +20,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    NSLog(@"source: <%f, %f>", self.journey.source.latitude, self.journey.source.longitude);
+    NSLog(@"destination: <%f, %f>", self.journey.destination.latitude, self.journey.destination.longitude);
 
     _pickerData = [NSMutableArray array];
     for(int i = 1; i < 61; i++) {

@@ -33,6 +33,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     // Add logout navigation bar button
     UIBarButtonItem *logoutButton = [[UIBarButtonItem alloc] initWithTitle:@"Log Out"
                                                                      style:UIBarButtonItemStyleBordered
@@ -67,8 +68,10 @@
             UITouch *touch = array.lastObject;
             if (touch.tapCount == 2) {
                 // NSLog(@"DOUBLE");
-                CLLocationCoordinate2D coord = [self.mapView convertPoint:[touch locationInView:self.mapView] toCoordinateFromView:self.view];
-                NSLog(@"%f, %f", coord.latitude, coord.longitude);
+                CLLocationCoordinate2D srcCoord = [[CLLocation alloc] initWithLatitude:12 longitude:12].coordinate;
+                CLLocationCoordinate2D dstCoord = [self.mapView convertPoint:[touch locationInView:self.mapView] toCoordinateFromView:self.view];
+                self.journey = [[Journey alloc] initWithSource:srcCoord andDestination:dstCoord];
+                [self performSegueWithIdentifier:@"toTimerViewControllerSegue" sender:self];
             }
         }
     };
@@ -192,9 +195,8 @@
 
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if([segue.identifier isEqualToString:@"selectDestinationSegue"]) {
+    if([segue.identifier isEqualToString:@"toTimerViewControllerSegue"]) {
         TimerViewController *destinationViewController = segue.destinationViewController;
-        self.journey = [[Journey alloc] init];
         destinationViewController.journey = self.journey;
     }
 }
