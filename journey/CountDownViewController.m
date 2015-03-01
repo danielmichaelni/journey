@@ -16,6 +16,9 @@
 
 @implementation CountDownViewController
 
+static NSLock *cancelled_lock;
+static BOOL is_cancelled;
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.hidesBackButton = YES;
@@ -44,8 +47,6 @@
     int minutes = self.secondsCount / 60;
     int seconds = self.secondsCount % 60;
     
-    
-    
     // DON"T FORGET THIS PARRT!!!!!
     
     CLLocationManager *locationManager = [[CLLocationManager alloc] init];
@@ -62,12 +63,10 @@
     double distance = [loc_a getDistanceFrom:loc_b];
     
     NSLog(@"%f", distance);
+    NSLog(@"%d", self.cancelled);
     
     
 //    NSLog(@"Destination: %f %f\nCurrent: %f %f", self.journey.destination.latitude, self.journey.destination.longitude, locationManager.location.coordinate.latitude, locationManager.location.coordinate.longitude);
-    
-    
-    
     
     
     
@@ -86,21 +85,30 @@
         
         if (distance < 550) {
             NSLog(@"You just got home!");
-            [self.countDownTimer invalidate];
-            self.countDownTimer = nil;
+            if(self.countDownTimer) {
+                [self.countDownTimer invalidate];
+                self.countDownTimer = nil;
+            }
         }
     }
 
-    
+    if(is_cancelled) {
+        if(self.countDownTimer) {
+            [self.countDownTimer invalidate];
+            self.countDownTimer = nil;
+            NSLog(@"timer actually cancelled");
+        }
+    }
     
     // CHECKING IF LOST
     NSString *timerOutput = [NSString stringWithFormat:@"%2d:%02d", minutes, seconds];
     self.timeLabel.text = timerOutput;
     
     if(self.secondsCount == 0) {
-        [self.countDownTimer invalidate];
-        self.countDownTimer = nil;
-        
+        if(self.countDownTimer) {
+            [self.countDownTimer invalidate];
+            self.countDownTimer = nil;
+        }
         
 //        double distancex = pow((self.journey.destination.latitude - locationManager.location.coordinate.latitude), 2);
 //        double distancey = pow((self.journey.destination.longitude - locationManager.location.coordinate.longitude), 2);
@@ -140,8 +148,13 @@
 */
 
 - (IBAction)finishJourneyButton:(UIButton *)sender {
-    [self.countDownTimer invalidate];
-    self.countDownTimer = nil;
-    NSLog(@"cancelled timer");
+    [cancelled_lock lock];
+    is_cancelled = YES;
+    [cancelled_lock unlock];
+    if(self.countDownTimer) {
+        [self.countDownTimer invalidate];
+        self.countDownTimer = nil;
+        NSLog(@"cancelled timer %d");
+    }
 }
 @end
