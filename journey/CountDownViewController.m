@@ -45,10 +45,18 @@
     int seconds = self.secondsCount % 60;
     
     
-    
-
-//    NSLog(@"%f",[[[CLLocation alloc] initWithCoordinate:self.journey.destination altitude:0 horizontalAccuracy:0 verticalAccuracy:100 course:0 speed:0 timestamp:0]  distanceFromLocation:self.journey.locationManager.location]);
-
+    if (!seconds) {
+        double distancex = pow((self.journey.destination.latitude - self.journey.locationManager.location.coordinate.latitude), 2);
+        double distancey = pow((self.journey.destination.latitude - self.journey.locationManager.location.coordinate.latitude), 2);
+        
+        double distance = sqrt((distancex + distancey));
+        
+        if (distance < 75) {
+            NSLog(@"You just got home!");
+            [self.countDownTimer invalidate];
+            self.countDownTimer = nil;
+        }
+    }
 
     
     

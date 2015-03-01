@@ -65,6 +65,10 @@
     self.mapView.region = region;
     
     
+    self.hawaiiTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(checkLocation) userInfo:nil repeats:YES];
+    
+    
+    
     
     // All of this deals in intercepting taps and their consequences.
     
@@ -166,6 +170,15 @@
 }
 
 
+- (void)checkLocation {
+    if (!self.locationManager.location.coordinate.latitude) {
+        MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(self.locationManager.location.coordinate, 600, 600);
+        self.mapView.region = region;
+        
+        [self.hawaiiTimer invalidate];
+        self.hawaiiTimer = nil;
+    }
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
