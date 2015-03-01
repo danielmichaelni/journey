@@ -8,7 +8,6 @@
 
 #import "ViewController.h"
 #import "TimerViewController.h"
-#import "Communication.h"
 
 #import <Parse/Parse.h>
 #import <ParseFacebookUtils/PFFacebookUtils.h>
@@ -80,35 +79,7 @@
     
 }
 
-- (void)contactFriends //pass in destination, source loc, and time
-{
 
-    PFObject *current = [PFUser currentUser];
-    NSMutableArray *contacts = [[NSMutableArray alloc] init];
-    contacts = [current objectForKey:@"contactList"];
-    BOOL emailsEnabled = current[@"enableEmails"];
-    BOOL textEnabled = current[@"enableTexts"];
-    
-    PFQuery *query = [PFUser query];
-    [query whereKey:@"facebookId" containedIn:contacts];
-    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-        if (!error) {
-            if (objects.count!=0) {
-                for (PFObject *contact in objects) {
-                    if (textEnabled) {
-                        [Communication SendSMS:contact from:current];//pass in destination, source loc, and time
-                    }
-                    if (emailsEnabled) {
-                        [Communication SendEmail:contact from:current];//pass in destination, source loc, and time
-                    }
-                }
-            }
-        } else {
-            NSLog(@"Error: %@ %@", error, [error userInfo]);
-        }
-        
-    }];
-}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

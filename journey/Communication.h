@@ -7,6 +7,7 @@
 //
 
 #import <Parse/Parse.h>
+#import "Journey.h"
 
 #ifndef journey_Communication_h
 #define journey_Communication_h
@@ -16,8 +17,9 @@
 
 @interface Communication : NSObject
 
-+ (void)SendSMS:(PFObject *)contact from:(PFObject *)current;
-+ (void)SendEmail:(PFObject *)contact from:(PFObject *)current;
++ (void)contactFriends:(Journey *)journey;
++ (void)SendSMS:(PFObject *)contact from:(PFObject *)current on:(Journey *)journey;
++ (void)SendEmail:(PFObject *)contact from:(PFObject *)current on:(Journey *)journey;
 
 
 @end

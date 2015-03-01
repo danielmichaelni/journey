@@ -13,7 +13,36 @@
 
 @implementation Communication
 
-+ (void)SendSMS:(PFObject *)contact from:(PFObject *)current {
++ (void)contactFriends:(Journey *)journey
+{
+    PFObject *current = [PFUser currentUser];
+    NSMutableArray *contacts = [[NSMutableArray alloc] init];
+    contacts = [current objectForKey:@"contactList"];
+    BOOL emailsEnabled = current[@"enableEmails"];
+    BOOL textEnabled = current[@"enableTexts"];
+    
+    PFQuery *query = [PFUser query];
+    [query whereKey:@"facebookId" containedIn:contacts];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            if (objects.count!=0) {
+                for (PFObject *contact in objects) {
+                    if (textEnabled) {
+                        [Communication SendSMS:contact from:current on:journey];
+                    }
+                    if (emailsEnabled) {
+                        [Communication SendEmail:contact from:current on:journey];
+                    }
+                }
+            }
+        } else {
+            NSLog(@"Error: %@ %@", error, [error userInfo]);
+        }
+        
+    }];
+}
+
++ (void)SendSMS:(PFObject *)contact from:(PFObject *)current on:(Journey *)journey {
     
     NSString *name = contact[@"name"];
     NSString *phone = contact[@"cellPhone"];
@@ -25,9 +54,9 @@
                                             @"phonenum": contact[@"cellPhone"],
                                             @"username": current[@"name"],
                                             @"friendname": contact[@"name"],
-                                            @"destination": @"",
-                                            @"source": @"",
-                                            @"time": @"",
+                                            @"destination": [NSString stringWithFormat:@"(%f, %f)", journey.destination.latitude, journey.destination.longitude],
+                                            @"source": [NSString stringWithFormat:@"(%f, %f)", journey.source.latitude, journey.source.longitude],
+                                            @"time": [NSNumber numberWithInt:journey.minutesCount],
                                             }
                                     block:^(NSString *result, NSError *error) {
                                         if (error) {
@@ -41,16 +70,16 @@
     }
 
 }
-+ (void)SendEmail:(PFObject *)contact from:(PFObject *)current {
++ (void)SendEmail:(PFObject *)contact from:(PFObject *) current on:(Journey *)journey {
     if (contact[@"email"] && current[@"name"] && contact[@"name"]){
         [PFCloud callFunctionInBackground:@"Email"
                            withParameters:@{
                                             @"email": contact[@"email"],
                                             @"username": current[@"name"],
                                             @"friendname": contact[@"name"],
-                                            @"destination": @"",
-                                            @"source": @"",
-                                            @"time": @"",
+                                            @"destination": [NSString stringWithFormat:@"(%f, %f)", journey.destination.latitude, journey.destination.longitude],
+                                            @"source": [NSString stringWithFormat:@"(%f, %f)", journey.source.latitude, journey.source.longitude],
+                                            @"time": [NSNumber numberWithInt:journey.minutesCount],
                                             }
                                     block:^(NSString *result, NSError *error) {
                                         if (error) {
