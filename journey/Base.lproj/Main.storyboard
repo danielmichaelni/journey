@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="keg-Ds-ike">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="keg-Ds-ike">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -69,8 +69,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E2h-Vc-hcx">
-                                <rect key="frame" x="16" y="115" width="288" height="33"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E2h-Vc-hcx">
+                                <rect key="frame" x="16" y="191" width="288" height="33"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <state key="normal" title="SELECT FACEBOOK CONTACTS">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -80,31 +80,18 @@
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="yCO-sJ-ZIu">
-                                <rect key="frame" x="16" y="428" width="288" height="111"/>
+                                <rect key="frame" x="16" y="281" width="288" height="111"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="phone" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="O4M-V1-4VT">
-                                <rect key="frame" x="16" y="269" width="288" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" keyboardType="phonePad" keyboardAppearance="alert" returnKeyType="done"/>
-                            </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ADD ADDITIONAL CONTACT" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EVG-jW-hR9">
-                                <rect key="frame" x="48" y="190" width="224" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.058823529411764705" green="0.16862745098039217" blue="0.25098039215686274" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="i5Y-Cu-Psr">
-                                <rect key="frame" x="16" y="231" width="288" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" keyboardType="emailAddress" keyboardAppearance="alert" returnKeyType="done"/>
-                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="E2h-Vc-hcx" firstAttribute="top" secondItem="ds3-iB-sOp" secondAttribute="bottom" constant="127" id="1Mh-fo-RqC"/>
+                            <constraint firstItem="E2h-Vc-hcx" firstAttribute="trailing" secondItem="L8Q-A1-LsN" secondAttribute="trailingMargin" id="hF9-SN-3dC"/>
                             <constraint firstItem="yCO-sJ-ZIu" firstAttribute="leading" secondItem="L8Q-A1-LsN" secondAttribute="leadingMargin" id="qHX-eW-6UR"/>
+                            <constraint firstItem="E2h-Vc-hcx" firstAttribute="leading" secondItem="L8Q-A1-LsN" secondAttribute="leadingMargin" id="v3j-bW-ELi"/>
                             <constraint firstItem="yCO-sJ-ZIu" firstAttribute="trailing" secondItem="L8Q-A1-LsN" secondAttribute="trailingMargin" id="xqm-av-hrU"/>
                         </constraints>
                     </view>
@@ -117,8 +104,6 @@
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
-                        <outlet property="addEmailTextField" destination="i5Y-Cu-Psr" id="HLz-ui-8gK"/>
-                        <outlet property="addPhoneTextField" destination="O4M-V1-4VT" id="ZU1-ob-rTz"/>
                         <outlet property="friendPickerButton" destination="E2h-Vc-hcx" id="IyQ-Ju-rOW"/>
                         <outlet property="selectedFriendsView" destination="yCO-sJ-ZIu" id="rCL-u9-5zG"/>
                     </connections>
