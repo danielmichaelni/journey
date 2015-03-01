@@ -96,6 +96,7 @@
                         CLPlacemark *placemark = [placemarks objectAtIndex:0];
                         NSString *address = [NSString stringWithFormat:@"%@ %@ %@ %@", [placemark subThoroughfare], [placemark thoroughfare], [placemark locality], [placemark administrativeArea]];
                         NSLog(@"Destination: %@",address);
+                        self.journey.destinationString = address;
                     }
                 }];
                 
@@ -104,6 +105,7 @@
                         CLPlacemark *placemark = [placemarks objectAtIndex:0];
                         NSString *address = [NSString stringWithFormat:@"%@ %@ %@ %@", [placemark subThoroughfare], [placemark thoroughfare], [placemark locality], [placemark administrativeArea]];
                         NSLog(@"Location: %@",address);
+                        self.journey.sourceString = address;
                     }
                 }];
                 
