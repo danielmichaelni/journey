@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="keg-Ds-ike">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="keg-Ds-ike">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Login View Controller-->
@@ -109,10 +108,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WTT-9t-Dlt" customClass="GMSMapView">
-                                <rect key="frame" x="0.0" y="204" width="320" height="306"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J6h-04-GA2">
                                 <rect key="frame" x="98" y="518" width="125" height="30"/>
                                 <state key="normal" title="Select Destination">
@@ -122,14 +117,13 @@
                                     <segue destination="Jz7-1h-IVC" kind="show" identifier="selectDestinationSegue" id="seO-eb-umv"/>
                                 </connections>
                             </button>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="qOY-8W-nnE">
+                                <rect key="frame" x="0.0" y="201" width="320" height="309"/>
+                            </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="WTT-9t-Dlt" secondAttribute="trailing" constant="-16" id="5Lm-hB-HlA"/>
-                            <constraint firstItem="WTT-9t-Dlt" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="H1h-5b-TRR"/>
                             <constraint firstAttribute="centerX" secondItem="J6h-04-GA2" secondAttribute="centerX" id="VGx-pC-CpQ"/>
-                            <constraint firstAttribute="centerX" secondItem="WTT-9t-Dlt" secondAttribute="centerX" id="goa-LX-iOm"/>
-                            <constraint firstAttribute="centerY" secondItem="WTT-9t-Dlt" secondAttribute="centerY" constant="-73" id="ugM-ld-ec8"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="J6h-04-GA2" secondAttribute="bottom" constant="20" id="yLw-nD-bNF"/>
                         </constraints>
                     </view>
@@ -142,7 +136,7 @@
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
-                        <outlet property="mapView_" destination="WTT-9t-Dlt" id="SaC-TK-rlC"/>
+                        <outlet property="mapView" destination="qOY-8W-nnE" id="gek-Ug-8s6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

@@ -13,15 +13,14 @@
 #import <ParseFacebookUtils/PFFacebookUtils.h>
 #import <Foundation/Foundation.h>
 #import <CoreLocation/CoreLocation.h>
+#import <UIKit/UIKit.h>
 
 
 @interface ViewController ()
 
 @end
 
-@implementation ViewController {
-    GMSMapView *mapView_;
-}
+@implementation ViewController
 
 
 - (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
@@ -45,13 +44,23 @@
     
     
     // Map Set-up!
-
-    mapView_.myLocationEnabled = YES;
-    mapView_.settings.myLocationButton = YES;
-    NSLog(@"User's location: %@", mapView_.myLocation);
     
-    self.view.autoresizesSubviews = YES;
-    [self findFriendAndCellPhone];
+    
+    self.locationManager = [[CLLocationManager alloc] init];
+    
+    self.locationManager.delegate = self;
+    
+    [self.locationManager requestAlwaysAuthorization];
+    
+    self.mapView.showsUserLocation = YES;
+    
+    WildcardGestureRecognizer *tapInterceptor = [[WildcardGestureRecognizer alloc] init];
+    tapInterceptor.touchesBeganCallback = ^(NSSet * touches, UIEvent * event) {
+        NSLog(@"Touch.");
+    };
+    [self.mapView addGestureRecognizer:tapInterceptor];
+    
+    
 }
 
 - (void)findFriendAndCellPhone
