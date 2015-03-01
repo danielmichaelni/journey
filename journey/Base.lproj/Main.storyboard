@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="keg-Ds-ike">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="keg-Ds-ike">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
@@ -129,7 +129,13 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="pZo-eZ-wtm"/>
+                    <navigationItem key="navigationItem" id="pZo-eZ-wtm">
+                        <barButtonItem key="rightBarButtonItem" title="Settings" id="GqP-gM-esv">
+                            <connections>
+                                <segue destination="7qZ-d3-6cW" kind="show" id="GzJ-M6-E8p"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="headerImageView" destination="ezz-b2-3Qb" id="Kzc-21-Csf"/>
@@ -140,6 +146,101 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1774" y="343"/>
+        </scene>
+        <!--Title-->
+        <scene sceneID="mqW-eY-Ei8">
+            <objects>
+                <viewController id="7qZ-d3-6cW" customClass="SettingsPageViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="6Lj-7g-NYp"/>
+                        <viewControllerLayoutGuide type="bottom" id="UhJ-EG-fqb"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="TxX-eW-nsJ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vZB-uR-9JV">
+                                <rect key="frame" x="25" y="115" width="80" height="80"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="80" id="tTk-he-rcJ"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Change phone" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x3K-bM-t7U">
+                                <rect key="frame" x="15" y="224" width="113" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Change email" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H6s-7V-VgE">
+                                <rect key="frame" x="18" y="266" width="106" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="K5l-34-0lT">
+                                <rect key="frame" x="141" y="257" width="138" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v2c-6d-5ms">
+                                <rect key="frame" x="108" y="483" width="105" height="30"/>
+                                <state key="normal" title="Change friends">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8kD-jv-eef">
+                                <rect key="frame" x="50" y="20" width="320" height="44"/>
+                                <items>
+                                    <navigationItem title="Title" id="0BK-MD-pap"/>
+                                </items>
+                            </navigationBar>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OyA-4f-lt7">
+                                <rect key="frame" x="141" y="215" width="138" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Enable emails" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rNr-IS-D2k">
+                                <rect key="frame" x="50" y="335" width="107" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Enable texts" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LZh-ca-D20">
+                                <rect key="frame" x="50" y="389" width="95" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OPT-Mm-l80">
+                                <rect key="frame" x="196" y="325" width="51" height="31"/>
+                            </switch>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="L6W-Tn-twH">
+                                <rect key="frame" x="196" y="379" width="51" height="31"/>
+                            </switch>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <toolbarItems>
+                        <barButtonItem id="BaD-V0-sN3"/>
+                    </toolbarItems>
+                    <navigationItem key="navigationItem" title="Title" id="7iK-TS-Z2F">
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="Dnv-SO-dFv"/>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="changeFriendsList" destination="v2c-6d-5ms" id="wTd-3D-zbk"/>
+                        <outlet property="enableEmails" destination="OPT-Mm-l80" id="lBw-EL-nt5"/>
+                        <outlet property="enableTexts" destination="L6W-Tn-twH" id="Jib-TT-6Js"/>
+                        <outlet property="profilePhoto" destination="vZB-uR-9JV" id="UzF-6m-1g4"/>
+                        <outlet property="saveChanges" destination="Dnv-SO-dFv" id="gjU-7O-9VQ"/>
+                        <outlet property="updateEmail" destination="K5l-34-0lT" id="CB2-TG-eeM"/>
+                        <outlet property="updatePhone" destination="OyA-4f-lt7" id="Srx-or-4gh"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="d6e-4N-66G" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2196" y="343"/>
         </scene>
         <!--Cell Phone-->
         <scene sceneID="TRA-iI-8yB">
@@ -165,7 +266,7 @@
                     <navigationItem key="navigationItem" title="Cell Phone" id="IGg-kp-gor">
                         <barButtonItem key="rightBarButtonItem" title="Save" id="mB1-X2-JcM">
                             <connections>
-                                <segue destination="6g5-KE-ffc" kind="show" id="3K3-gH-lLi"/>
+                                <segue destination="6g5-KE-ffc" kind="show" identifier="loginPhone" id="3K3-gH-lLi"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

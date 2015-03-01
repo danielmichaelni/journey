@@ -29,6 +29,7 @@
 		66BB729F1AA278520033CE70 /* TimerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 66BB729E1AA278520033CE70 /* TimerViewController.m */; };
 		66BB72AD1AA28BC80033CE70 /* textLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 66BB72AC1AA28BC80033CE70 /* textLogo.png */; };
 		66BB72AF1AA28BF40033CE70 /* imageLogo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 66BB72AE1AA28BF40033CE70 /* imageLogo.jpg */; };
+		A40A64961AA293D500A91BC4 /* SettingsPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A40A64951AA293D500A91BC4 /* SettingsPageViewController.m */; };
 		A40F49841AA17F2900D96183 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A40F497F1AA17F2900D96183 /* Bolts.framework */; };
 		A40F49851AA17F2900D96183 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A40F49801AA17F2900D96183 /* Parse.framework */; };
 		A40F49861AA17F2900D96183 /* ParseCrashReporting.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A40F49811AA17F2900D96183 /* ParseCrashReporting.framework */; };
@@ -93,6 +94,8 @@
 		66BB729E1AA278520033CE70 /* TimerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimerViewController.m; sourceTree = "<group>"; };
 		66BB72AC1AA28BC80033CE70 /* textLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = textLogo.png; sourceTree = "<group>"; };
 		66BB72AE1AA28BF40033CE70 /* imageLogo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = imageLogo.jpg; sourceTree = "<group>"; };
+		A40A64941AA293C000A91BC4 /* SettingsPageViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SettingsPageViewController.h; sourceTree = "<group>"; };
+		A40A64951AA293D500A91BC4 /* SettingsPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsPageViewController.m; sourceTree = "<group>"; };
 		A40F497F1AA17F2900D96183 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		A40F49801AA17F2900D96183 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		A40F49811AA17F2900D96183 /* ParseCrashReporting.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseCrashReporting.framework; sourceTree = "<group>"; };
@@ -210,6 +213,8 @@
 				66BB729D1AA278520033CE70 /* TimerViewController.h */,
 				66BB729E1AA278520033CE70 /* TimerViewController.m */,
 				562A9CF11AA17D7800BDEBA6 /* Main.storyboard */,
+				A40A64941AA293C000A91BC4 /* SettingsPageViewController.h */,
+				A40A64951AA293D500A91BC4 /* SettingsPageViewController.m */,
 				562A9CF41AA17D7800BDEBA6 /* Images.xcassets */,
 				562A9CF61AA17D7800BDEBA6 /* LaunchScreen.xib */,
 				562A9CE71AA17D7800BDEBA6 /* Supporting Files */,
@@ -383,6 +388,7 @@
 			files = (
 				66BB729C1AA278480033CE70 /* Journey.m in Sources */,
 				A4B3A93A1AA187C20068CDE0 /* LoginViewController.m in Sources */,
+				A40A64961AA293D500A91BC4 /* SettingsPageViewController.m in Sources */,
 				1885DEE21AA20DA6005AE98A /* Communication.m in Sources */,
 				66BB729F1AA278520033CE70 /* TimerViewController.m in Sources */,
 				562A9CF01AA17D7800BDEBA6 /* ViewController.m in Sources */,
