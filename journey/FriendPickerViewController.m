@@ -11,6 +11,7 @@
 #import <ParseFacebookUtils/PFFacebookUtils.h>
 #import <FacebookSDK/FacebookSDK.h>
 #import "FriendPickerViewController.h"
+#import <QuartzCore/QuartzCore.h>
 #import "ViewController.h"
 
 @interface FriendPickerViewController ()
@@ -34,6 +35,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    //UIColor *tintColor = [UIColor colorWithRed:15.0/255.0 green:43.0/255.0 blue:64.0/255.0 alpha:1];
+    self.friendPickerButton.layer.borderWidth= 3.0f;
+    self.friendPickerButton.layer.borderColor= [[UIColor blackColor] CGColor];
 }
 
 - (void) viewDidUnload

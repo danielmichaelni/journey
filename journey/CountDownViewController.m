@@ -7,6 +7,7 @@
 //
 
 #import "CountDownViewController.h"
+#import "Communication.h"
 
 @interface CountDownViewController ()
 
@@ -16,7 +17,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.navigationItem.hidesBackButton = YES;
     // Do any additional setup after loading the view.
+    
     self.secondsCount = self.journey.minutesCount * 60;
     
     int minutes = self.secondsCount / 60;
@@ -24,6 +27,7 @@
     
     NSString *timerOutput = [NSString stringWithFormat:@"%2d:%02d", minutes, seconds];
     self.timeLabel.text = timerOutput;
+    self.timeLabel.font = [UIFont fontWithName:@"Hero-Light" size:50];
     
     self.countDownTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(timerRun) userInfo:nil repeats:YES];
     
@@ -39,12 +43,13 @@
     int minutes = self.secondsCount / 60;
     int seconds = self.secondsCount % 60;
     
-    NSString *timerOutput = [NSString stringWithFormat:@"%2d:%2d", minutes, seconds];
+    NSString *timerOutput = [NSString stringWithFormat:@"%2d:%02d", minutes, seconds];
     self.timeLabel.text = timerOutput;
     
     if(self.secondsCount == 0) {
         [self.countDownTimer invalidate];
         self.countDownTimer = nil;
+//        [Communication contactFriends:self.journey];
         NSLog(@"time expired");
     }
 }
@@ -62,6 +67,7 @@
 - (IBAction)finishJourneyButton:(UIButton *)sender {
     [self.countDownTimer invalidate];
     self.countDownTimer = nil;
+    [Communication contactFriends:self.journey];
     NSLog(@"cancelled timer");
 }
 @end

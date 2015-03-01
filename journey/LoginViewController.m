@@ -31,7 +31,18 @@
 @implementation LoginViewController
 
 - (void)viewDidLoad {
+    
+    for (NSString* family in [UIFont familyNames])
+    {
+        NSLog(@"%@", family);
+        
+        for (NSString* name in [UIFont fontNamesForFamilyName: family])
+        {
+            NSLog(@"  %@", name);
+        }
+    }
     [super viewDidLoad];
+    /*
     UIImage *textLogoImage = [UIImage imageNamed:@"textLogo.png"];
     CGFloat width = [[UIScreen mainScreen] bounds].size.width;
     float scale = textLogoImage.size.width / width;
@@ -40,9 +51,13 @@
     self.textLogoImageView.contentMode = UIViewContentModeScaleAspectFit;
     [self.view addSubview:self.textLogoImageView];
     [self.textLogoImageView.superview sendSubviewToBack:self.textLogoImageView];
+    */
     
     
-    UIColor *tintColor = [UIColor colorWithRed:25.0/255.0 green:74.0/255.0 blue:99.0/255.0 alpha:1];
+    UIColor *tintColor = [UIColor colorWithRed:15.0/255.0 green:43.0/255.0 blue:64.0/255.0 alpha:1];
+    self.view.backgroundColor = tintColor;
+    
+    //UIColor *tintColor = [UIColor colorWithRed:25.0/255.0 green:74.0/255.0 blue:99.0/255.0 alpha:1];
     [self.navigationController.navigationBar setBarStyle:UIBarStyleDefault];
     [self.navigationController.navigationBar setBarTintColor:tintColor];
     [self.navigationController.navigationBar setTranslucent:NO];
@@ -101,7 +116,7 @@
                 [[PFUser currentUser] saveInBackground];
                 [self performSegueWithIdentifier:@"loginPhone" sender:self];
             } else {
-                // logged in back
+                // logged in back loggedIn
                 [self performSegueWithIdentifier:@"loggedIn" sender:self];
             }
         }

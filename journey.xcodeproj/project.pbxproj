@@ -28,6 +28,8 @@
 		569AB9361AA2C8E500C5FE5B /* wildcard.m in Sources */ = {isa = PBXBuildFile; fileRef = 569AB9351AA2C8E500C5FE5B /* wildcard.m */; };
 		56D3D03C1AA2C5C600B1A851 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56D3D03B1AA2C5C600B1A851 /* MapKit.framework */; };
 		668251631AA2DABB00AD28E3 /* CountDownViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 668251621AA2DABB00AD28E3 /* CountDownViewController.m */; };
+		668251661AA2F3D100AD28E3 /* nevis.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 668251651AA2F3D100AD28E3 /* nevis.ttf */; };
+		668251681AA2FAA900AD28E3 /* Hero Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 668251671AA2FA6600AD28E3 /* Hero Light.otf */; };
 		66BB729C1AA278480033CE70 /* Journey.m in Sources */ = {isa = PBXBuildFile; fileRef = 66BB729B1AA278480033CE70 /* Journey.m */; };
 		66BB729F1AA278520033CE70 /* TimerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 66BB729E1AA278520033CE70 /* TimerViewController.m */; };
 		66BB72AD1AA28BC80033CE70 /* textLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 66BB72AC1AA28BC80033CE70 /* textLogo.png */; };
@@ -97,6 +99,8 @@
 		56D3D03B1AA2C5C600B1A851 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		668251611AA2DABB00AD28E3 /* CountDownViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CountDownViewController.h; sourceTree = "<group>"; };
 		668251621AA2DABB00AD28E3 /* CountDownViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CountDownViewController.m; sourceTree = "<group>"; };
+		668251651AA2F3D100AD28E3 /* nevis.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = nevis.ttf; sourceTree = "<group>"; };
+		668251671AA2FA6600AD28E3 /* Hero Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Hero Light.otf"; sourceTree = "<group>"; };
 		66BB729A1AA278480033CE70 /* Journey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Journey.h; sourceTree = "<group>"; };
 		66BB729B1AA278480033CE70 /* Journey.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Journey.m; sourceTree = "<group>"; };
 		66BB729D1AA278520033CE70 /* TimerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimerViewController.h; sourceTree = "<group>"; };
@@ -200,6 +204,7 @@
 		562A9CE61AA17D7800BDEBA6 /* journey */ = {
 			isa = PBXGroup;
 			children = (
+				668251641AA2F3D100AD28E3 /* Fonts */,
 				562A9CEB1AA17D7800BDEBA6 /* AppDelegate.h */,
 				562A9CEC1AA17D7800BDEBA6 /* AppDelegate.m */,
 				66BB729A1AA278480033CE70 /* Journey.h */,
@@ -258,6 +263,15 @@
 				562A9D021AA17D7900BDEBA6 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		668251641AA2F3D100AD28E3 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				668251671AA2FA6600AD28E3 /* Hero Light.otf */,
+				668251651AA2F3D100AD28E3 /* nevis.ttf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 		A40A64971AA2C32300A91BC4 /* frameworks */ = {
@@ -390,6 +404,8 @@
 			files = (
 				66BB72AF1AA28BF40033CE70 /* imageLogo.jpg in Resources */,
 				562A9CF31AA17D7800BDEBA6 /* Main.storyboard in Resources */,
+				668251661AA2F3D100AD28E3 /* nevis.ttf in Resources */,
+				668251681AA2FAA900AD28E3 /* Hero Light.otf in Resources */,
 				66BB72AD1AA28BC80033CE70 /* textLogo.png in Resources */,
 				562A9CF81AA17D7800BDEBA6 /* LaunchScreen.xib in Resources */,
 				562A9CF51AA17D7800BDEBA6 /* Images.xcassets in Resources */,

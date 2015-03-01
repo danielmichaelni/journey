@@ -24,10 +24,6 @@
     [Parse setApplicationId:@"ZpuXzvuAPi4SChpYQEMaMZGFo4VtF9eMZtvBoGzv"
                   clientKey:@"sUrEE1CCtcE6LVCqSni8nXBg69TYeOyt54Aqzn5F"];
     
-    if (NO) { //Testing
-        [Communication SendSMS:[PFUser currentUser] from:[PFUser currentUser]];
-        [Communication SendEmail:[PFUser currentUser] from:[PFUser currentUser]];
-    }
     
     [PFFacebookUtils initializeFacebook];
     
@@ -39,6 +35,14 @@
         // Set icon badge number to zero
         application.applicationIconBadgeNumber = 0;
     }
+    
+    NSDictionary *navbarTitleTextAttributes = [NSDictionary dictionaryWithObjectsAndKeys:
+                                               [UIColor whiteColor],UITextAttributeTextColor,
+                                               [UIColor clearColor], UITextAttributeTextShadowColor,
+                                               [NSValue valueWithUIOffset:UIOffsetMake(-1, 0)], UITextAttributeTextShadowOffset, nil];
+    
+    [[UINavigationBar appearance] setTitleTextAttributes:navbarTitleTextAttributes];
+    
     return YES;
 }
 
