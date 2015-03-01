@@ -16,6 +16,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.navigationItem.hidesBackButton = YES;
     // Do any additional setup after loading the view.
     self.secondsCount = self.journey.minutesCount * 60;
     

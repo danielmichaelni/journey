@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="keg-Ds-ike">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="keg-Ds-ike">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Login View Controller-->
@@ -20,7 +21,8 @@
                                 <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                             </imageView>
                             <button opaque="NO" alpha="0.80000000000000004" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bU8-hq-4RU">
-                                <rect key="frame" x="35" y="418" width="251" height="37"/>
+                                <rect key="frame" x="-39" y="418" width="398" height="39"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                 <state key="normal" image="fb_login_button.jpg">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -40,6 +42,7 @@
                     <navigationItem key="navigationItem" id="kYW-uq-BOh"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
+                        <outlet property="loginWithFacebook" destination="bU8-hq-4RU" id="Nsy-VS-bRg"/>
                         <outlet property="textLogoImageView" destination="yYg-G0-D7h" id="6ol-uk-U0u"/>
                         <segue destination="HOC-Xt-Ehw" kind="show" identifier="loginPhone" id="T4m-ma-hGZ"/>
                         <segue destination="BYZ-38-t0r" kind="show" identifier="loggedIn" id="SC6-A3-BbI"/>
@@ -49,7 +52,7 @@
             </objects>
             <point key="canvasLocation" x="958" y="-589"/>
         </scene>
-        <!--Pick your contacts-->
+        <!--Friend Picker View Controller-->
         <scene sceneID="99r-IB-MO7">
             <objects>
                 <viewController id="6g5-KE-ffc" customClass="FriendPickerViewController" sceneMemberID="viewController">
@@ -61,26 +64,33 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E2h-Vc-hcx">
-                                <rect key="frame" x="64" y="123" width="193" height="30"/>
-                                <state key="normal" title="Pick Friends from Facebook">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E2h-Vc-hcx">
+                                <rect key="frame" x="50" y="156" width="220" height="63"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <state key="normal" title="PICK CONTACTS">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="pickFriendsButtonClick:" destination="6g5-KE-ffc" eventType="touchUpInside" id="Qmu-nk-WaC"/>
                                 </connections>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yCO-sJ-ZIu">
-                                <rect key="frame" x="46" y="169" width="240" height="128"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="yCO-sJ-ZIu">
+                                <rect key="frame" x="16" y="265" width="288" height="128"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="E2h-Vc-hcx" secondAttribute="trailing" constant="34" id="5oy-gb-0Fv"/>
+                            <constraint firstItem="E2h-Vc-hcx" firstAttribute="leading" secondItem="L8Q-A1-LsN" secondAttribute="leadingMargin" constant="34" id="HJs-kt-a5A"/>
+                            <constraint firstItem="E2h-Vc-hcx" firstAttribute="top" secondItem="ds3-iB-sOp" secondAttribute="bottom" constant="92" id="HwK-Sr-aVC"/>
+                            <constraint firstItem="yCO-sJ-ZIu" firstAttribute="leading" secondItem="L8Q-A1-LsN" secondAttribute="leadingMargin" id="qHX-eW-6UR"/>
+                            <constraint firstItem="yCO-sJ-ZIu" firstAttribute="trailing" secondItem="L8Q-A1-LsN" secondAttribute="trailingMargin" id="xqm-av-hrU"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Pick your contacts" id="NMo-U8-HPp">
+                    <navigationItem key="navigationItem" id="NMo-U8-HPp">
                         <barButtonItem key="rightBarButtonItem" title="Done" id="wq8-7n-xik">
                             <connections>
                                 <segue destination="BYZ-38-t0r" kind="show" identifier="doneLoggingIn" id="ouR-62-e0i"/>
@@ -89,6 +99,7 @@
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
+                        <outlet property="friendPickerButton" destination="E2h-Vc-hcx" id="IyQ-Ju-rOW"/>
                         <outlet property="selectedFriendsView" destination="yCO-sJ-ZIu" id="rCL-u9-5zG"/>
                     </connections>
                 </viewController>
@@ -96,7 +107,7 @@
             </objects>
             <point key="canvasLocation" x="1774" y="-589"/>
         </scene>
-        <!--View Controller-->
+        <!--Tap destination-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
@@ -108,14 +119,21 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="qOY-8W-nnE">
-                                <rect key="frame" x="0.0" y="193" width="320" height="309"/>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="qOY-8W-nnE">
+                                <rect key="frame" x="0.0" y="64" width="320" height="513"/>
                             </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="qOY-8W-nnE" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="0zE-TV-ayq"/>
+                            <constraint firstItem="qOY-8W-nnE" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="bKb-0d-oKC"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="qOY-8W-nnE" secondAttribute="trailing" constant="-16" id="l5y-JI-qu3"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="qOY-8W-nnE" secondAttribute="bottom" constant="-9" id="osP-J5-zgL"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="pZo-eZ-wtm">
+                    <navigationItem key="navigationItem" title="Tap destination" id="pZo-eZ-wtm">
                         <barButtonItem key="rightBarButtonItem" title="Settings" id="GqP-gM-esv">
+                            <inset key="imageInsets" minX="-16" minY="0.0" maxX="0.0" maxY="0.0"/>
                             <connections>
                                 <segue destination="7qZ-d3-6cW" kind="show" id="GzJ-M6-E8p"/>
                             </connections>
@@ -239,60 +257,68 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Change email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="K5l-34-0lT">
-                                <rect key="frame" x="25" y="257" width="279" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Change email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="K5l-34-0lT">
+                                <rect key="frame" x="16" y="257" width="288" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" keyboardAppearance="alert" returnKeyType="done"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v2c-6d-5ms">
-                                <rect key="frame" x="108" y="451" width="105" height="30"/>
-                                <state key="normal" title="Change friends">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8kD-jv-eef">
-                                <rect key="frame" x="50" y="20" width="320" height="44"/>
-                                <items>
-                                    <navigationItem title="Title" id="0BK-MD-pap"/>
-                                </items>
-                            </navigationBar>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Change cell phone number" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OyA-4f-lt7">
-                                <rect key="frame" x="25" y="215" width="279" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Change cell phone number" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OyA-4f-lt7">
+                                <rect key="frame" x="16" y="219" width="288" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="decimalPad" keyboardAppearance="alert" returnKeyType="done"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Enable emails" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rNr-IS-D2k">
-                                <rect key="frame" x="50" y="335" width="107" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enable emails" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rNr-IS-D2k">
+                                <rect key="frame" x="50" y="325" width="107" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Enable texts" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LZh-ca-D20">
-                                <rect key="frame" x="50" y="389" width="95" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enable texts" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LZh-ca-D20">
+                                <rect key="frame" x="50" y="379" width="95" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OPT-Mm-l80">
-                                <rect key="frame" x="196" y="325" width="51" height="31"/>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OPT-Mm-l80">
+                                <rect key="frame" x="220" y="320" width="51" height="31"/>
                             </switch>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="L6W-Tn-twH">
-                                <rect key="frame" x="196" y="379" width="51" height="31"/>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="L6W-Tn-twH">
+                                <rect key="frame" x="220" y="374" width="51" height="31"/>
                             </switch>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vZB-uR-9JV">
-                                <rect key="frame" x="25" y="115" width="78" height="80"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vZB-uR-9JV">
+                                <rect key="frame" x="121" y="104" width="78" height="80"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="4S5-Dt-9K0"/>
+                                    <constraint firstAttribute="width" constant="78" id="dMc-VX-Qqx"/>
+                                </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="coP-dm-Z2v">
-                                <rect key="frame" x="108" y="451" width="105" height="30"/>
-                                <state key="normal" title="Change friends">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="changeFriends:" destination="7qZ-d3-6cW" eventType="touchUpInside" id="gJI-Oy-ods"/>
-                                </connections>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v2c-6d-5ms">
+                                <rect key="frame" x="16" y="440" width="288" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <state key="normal" title="CHANGE FRIENDS"/>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="LZh-ca-D20" firstAttribute="leading" secondItem="TxX-eW-nsJ" secondAttribute="leadingMargin" constant="34" id="0zi-ET-gYZ"/>
+                            <constraint firstItem="vZB-uR-9JV" firstAttribute="top" secondItem="6Lj-7g-NYp" secondAttribute="bottom" constant="40" id="1sV-1x-SQj"/>
+                            <constraint firstItem="OyA-4f-lt7" firstAttribute="leading" secondItem="TxX-eW-nsJ" secondAttribute="leadingMargin" id="2Cs-Xd-3Pm"/>
+                            <constraint firstItem="K5l-34-0lT" firstAttribute="trailing" secondItem="TxX-eW-nsJ" secondAttribute="trailingMargin" id="2Fz-ec-nE6"/>
+                            <constraint firstItem="rNr-IS-D2k" firstAttribute="leading" secondItem="TxX-eW-nsJ" secondAttribute="leadingMargin" constant="34" id="4cj-dC-6wm"/>
+                            <constraint firstItem="OPT-Mm-l80" firstAttribute="top" secondItem="K5l-34-0lT" secondAttribute="bottom" constant="33" id="AYr-oE-a6R"/>
+                            <constraint firstItem="OyA-4f-lt7" firstAttribute="top" secondItem="vZB-uR-9JV" secondAttribute="bottom" constant="35" id="DzL-np-MZm"/>
+                            <constraint firstItem="rNr-IS-D2k" firstAttribute="top" secondItem="K5l-34-0lT" secondAttribute="bottom" constant="38" id="Kaz-jj-dd9"/>
+                            <constraint firstItem="OyA-4f-lt7" firstAttribute="trailing" secondItem="TxX-eW-nsJ" secondAttribute="trailingMargin" id="Koh-7A-Vo9"/>
+                            <constraint firstItem="K5l-34-0lT" firstAttribute="top" secondItem="OyA-4f-lt7" secondAttribute="bottom" constant="8" id="Ruq-kW-uBZ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="L6W-Tn-twH" secondAttribute="trailing" constant="35" id="Syr-VJ-ckk"/>
+                            <constraint firstItem="vZB-uR-9JV" firstAttribute="centerX" secondItem="TxX-eW-nsJ" secondAttribute="centerX" id="bG6-fK-Rao"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="OPT-Mm-l80" secondAttribute="trailing" constant="35" id="bwr-Xp-1vQ"/>
+                            <constraint firstItem="v2c-6d-5ms" firstAttribute="top" secondItem="L6W-Tn-twH" secondAttribute="bottom" constant="35" id="dEX-An-vv7"/>
+                            <constraint firstItem="L6W-Tn-twH" firstAttribute="top" secondItem="OPT-Mm-l80" secondAttribute="bottom" constant="23" id="jAy-h9-xs9"/>
+                            <constraint firstItem="LZh-ca-D20" firstAttribute="top" secondItem="rNr-IS-D2k" secondAttribute="bottom" constant="33" id="kgG-FG-QpE"/>
+                            <constraint firstItem="vZB-uR-9JV" firstAttribute="centerX" secondItem="v2c-6d-5ms" secondAttribute="centerX" id="nSM-KR-RCZ"/>
+                            <constraint firstItem="K5l-34-0lT" firstAttribute="leading" secondItem="TxX-eW-nsJ" secondAttribute="leadingMargin" id="ocW-HW-nBz"/>
+                        </constraints>
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Title" id="7iK-TS-Z2F">
@@ -330,14 +356,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fSz-3b-oLh">
-                                <rect key="frame" x="57" y="205" width="207" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" keyboardType="phonePad" keyboardAppearance="alert"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="2221115555" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="fSz-3b-oLh">
+                                <rect key="frame" x="16" y="161" width="288" height="67"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                <textInputTraits key="textInputTraits" keyboardType="phonePad" keyboardAppearance="alert" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                             </textField>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="fSz-3b-oLh" firstAttribute="top" secondItem="dPr-kz-pau" secondAttribute="bottom" constant="124" id="4Od-Rp-Okz"/>
+                            <constraint firstItem="fSz-3b-oLh" firstAttribute="trailing" secondItem="aht-i2-fso" secondAttribute="trailingMargin" id="BeO-go-Xxj"/>
+                            <constraint firstItem="fSz-3b-oLh" firstAttribute="leading" secondItem="aht-i2-fso" secondAttribute="leadingMargin" id="Rqf-Ll-FbN"/>
                             <constraint firstAttribute="centerX" secondItem="fSz-3b-oLh" secondAttribute="centerX" id="UTF-zV-xP3"/>
                         </constraints>
                     </view>
@@ -381,4 +410,5 @@
     <inferredMetricsTieBreakers>
         <segue reference="ouR-62-e0i"/>
     </inferredMetricsTieBreakers>
+    <color key="tintColor" red="0.10613306660000001" green="0.16214250690000001" blue="0.5" alpha="1" colorSpace="calibratedRGB"/>
 </document>

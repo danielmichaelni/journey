@@ -15,6 +15,7 @@
 @interface FriendPickerViewController : UIViewController <FBFriendPickerDelegate, UISearchBarDelegate>
 
 - (IBAction)pickFriendsButtonClick:(id)sender;
+@property (strong, nonatomic) IBOutlet UIButton *friendPickerButton;
 
 @end
 

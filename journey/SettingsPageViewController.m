@@ -23,6 +23,7 @@
 
 -(void)viewDidLoad
 {
+    self.title = @"Settings";
     [super viewDidLoad];
     [self.enableEmails setOnTintColor:[UIColor colorWithRed:25.0/255.0 green:74.0/255.0 blue:99.0/255.0 alpha:1]];
     
@@ -77,7 +78,7 @@
                                        self.profilePhoto.image = [UIImage imageWithData:data];
                                        
                                        // Add a nice corner radius to the image
-                                       self.profilePhoto.layer.cornerRadius = 8.0f;
+                                       self.profilePhoto.layer.cornerRadius = 40.0f;
                                        self.profilePhoto.layer.masksToBounds = YES;
                                    } else {
                                        NSLog(@"Failed to load profile photo.");
