@@ -83,7 +83,6 @@
     [[PFFacebookUtils session] close];
 }
 
-
 - (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification
 {
     UIApplicationState state = [application applicationState];
@@ -101,5 +100,8 @@
     // Set icon badge number to zero
     application.applicationIconBadgeNumber = 0;
 }
+
+
+
 
 @end
