@@ -105,14 +105,86 @@
         } else {
             if (user.isNew) {
                 // new user
+                [self _loadData];
                 [[PFUser currentUser] setValue:[NSNumber numberWithBool:YES] forKey:@"enableEmails"];
                 [[PFUser currentUser] setValue:[NSNumber numberWithBool:YES]  forKey:@"enableTexts"];
+                [[PFUser currentUser] setValue:[NSNumber numberWithBool:NO]  forKey:@"enableCalls"];
                 [[PFUser currentUser] saveInBackground];
                 [self performSegueWithIdentifier:@"loginPhone" sender:self];
             } else {
                 // logged in back loggedIn
                 [self performSegueWithIdentifier:@"loggedIn" sender:self];
             }
+        }
+    }];
+}
+
+
+- (void)_loadData {
+    // Send request to Facebook
+    FBRequest *request = [FBRequest requestForMe];
+    [request startWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
+        // handle response
+        if (!error) {
+            // Parse the data received
+            NSDictionary *userData = (NSDictionary *)result;
+            
+            NSString *facebookID = userData[@"id"];
+            
+            
+            NSMutableDictionary *userProfile = [NSMutableDictionary dictionaryWithCapacity:40];
+            
+            if (facebookID) {
+                userProfile[@"facebookId"] = facebookID;
+                [[PFUser currentUser] setObject:facebookID forKey:@"facebookId"];
+            }
+            
+            NSString *name = userData[@"name"];
+            if (name) {
+                userProfile[@"name"] = name;
+                [[PFUser currentUser] setObject:name forKey:@"name"];
+            }
+            
+            NSString *location = userData[@"location"][@"name"];
+            if (location) {
+                userProfile[@"location"] = location;
+                [[PFUser currentUser] setObject:location forKey:@"location"];
+            }
+            
+            NSString *gender = userData[@"gender"];
+            if (gender) {
+                userProfile[@"gender"] = gender;
+                [[PFUser currentUser] setObject:gender forKey:@"gender"];
+            }
+            
+            NSString *birthday = userData[@"birthday"];
+            if (birthday) {
+                userProfile[@"birthday"] = birthday;
+            }
+            
+            NSString *relationshipStatus = userData[@"relationship_status"];
+            if (relationshipStatus) {
+                userProfile[@"relationship"] = relationshipStatus;
+            }
+            
+            userProfile[@"pictureURL"] = [NSString stringWithFormat:@"https://graph.facebook.com/%@/picture?type=large&return_ssl_resources=1", facebookID];
+            
+            
+            NSString *email = userData[@"email"];
+            if (email) {
+                userProfile[@"email"] = email;
+                [[PFUser currentUser] setObject:email forKey:@"email"];
+            }
+            
+            [[PFUser currentUser] setObject:userProfile[@"pictureURL"] forKey:@"pictureURL"];
+            
+            [[PFUser currentUser] setObject:userProfile forKey:@"profile"];
+            [[PFUser currentUser] saveInBackground];
+            
+        } else if ([[[[error userInfo] objectForKey:@"error"] objectForKey:@"type"]
+                    isEqualToString: @"OAuthException"]) { // Since the request failed, we can check if it was due to an invalid session
+        } else {
+            NSLog(@"Some other error: %@", error);
         }
     }];
 }

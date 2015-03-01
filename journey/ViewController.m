@@ -51,9 +51,12 @@
     
     self.locationManager = [[CLLocationManager alloc] init];
     
+    
     self.locationManager.delegate = self;
     
     [self.locationManager requestAlwaysAuthorization];
+    
+    [self.locationManager startUpdatingLocation];
     
     self.mapView.showsUserLocation = YES;
     
@@ -63,6 +66,7 @@
     
     MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(self.locationManager.location.coordinate, 600, 600);
     self.mapView.region = region;
+    
     
     
 //    self.hawaiiTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(checkLocation) userInfo:nil repeats:YES];
