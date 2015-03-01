@@ -10,15 +10,9 @@
 
 @implementation Journey
 
-- (id) initWithDestination:(GMSCameraPosition *)destination {
+- (id) initWithSource:(CLLocationCoordinate2D)source andDestination:(CLLocationCoordinate2D) destination {
+    self.source = source;
     self.destination = destination;
-    
-    return self;
-}
-
-- (id) initWithDestination:(GMSCameraPosition *)destination andTimer:(NSTimer *)timer {
-    self.destination = destination;
-    self.timer = timer;
     
     return self;
 }

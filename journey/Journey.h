@@ -8,14 +8,13 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreLocation/CoreLocation.h>
-#import <GoogleMaps/GoogleMaps.h>
 
 @interface Journey : NSObject
 
-@property (strong, nonatomic) GMSCameraPosition *destination;
-@property (strong, nonatomic) NSTimer *timer;
+@property (nonatomic) CLLocationCoordinate2D source;
+@property (nonatomic) CLLocationCoordinate2D destination;
+@property (nonatomic) int minutesCount;
 
-- (id) initWithDestination:(GMSCameraPosition *)destination;
-- (id) initWithDestination:(GMSCameraPosition *)destination andTimer:(NSTimer *)timer;
+- (id) initWithSource:(CLLocationCoordinate2D)source andDestination:(CLLocationCoordinate2D) destination;
 
 @end

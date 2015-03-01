@@ -7,25 +7,21 @@
 //
 
 #import "ViewController.h"
-<<<<<<< HEAD
-#import "Communication.h"
-=======
 #import "TimerViewController.h"
->>>>>>> origin/master
+#import "Communication.h"
 
 #import <Parse/Parse.h>
 #import <ParseFacebookUtils/PFFacebookUtils.h>
 #import <Foundation/Foundation.h>
 #import <CoreLocation/CoreLocation.h>
+#import <UIKit/UIKit.h>
 
 
 @interface ViewController ()
 
 @end
 
-@implementation ViewController {
-    GMSMapView *mapView_;
-}
+@implementation ViewController
 
 
 - (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
@@ -49,22 +45,33 @@
     
     
     // Map Set-up!
-
-    mapView_.myLocationEnabled = YES;
-    mapView_.settings.myLocationButton = YES;
-    NSLog(@"User's location: %@", mapView_.myLocation);
     
-    self.view.autoresizesSubviews = YES;
 <<<<<<< HEAD
+    
+    self.locationManager = [[CLLocationManager alloc] init];
+    
+    self.locationManager.delegate = self;
+    
+    [self.locationManager requestAlwaysAuthorization];
+    
+    self.mapView.showsUserLocation = YES;
+    
+    WildcardGestureRecognizer *tapInterceptor = [[WildcardGestureRecognizer alloc] init];
+    tapInterceptor.touchesBeganCallback = ^(NSSet * touches, UIEvent * event) {
+        NSLog(@"Touch.");
+    };
+    [self.mapView addGestureRecognizer:tapInterceptor];
+    
+    
+=======
+    self.view.autoresizesSubviews = YES;
     
     [self _loadData];
     if (NO){
         [self contactFriends];
     }
 
-=======
-    [self findFriendAndCellPhone];
->>>>>>> origin/master
+>>>>>>> 0beac14f43f34e91fa28ad79c1e2d0eb9ca46fd7
 }
 
 - (void)contactFriends
@@ -82,13 +89,10 @@
         if (!error) {
             if (objects.count!=0) {
                 for (PFObject *contact in objects) {
-                    NSLog(@"%@", contact[@"name"]);
                     if (textEnabled) {
-                        NSLog(@"HERE",nil);
                         [Communication SendSMS:contact from:current];
                     }
                     if (emailsEnabled) {
-                        NSLog(@"THERE",nil);
                         [Communication SendEmail:contact from:current];
                     }
                 }

@@ -7,6 +7,7 @@
 //
 
 #import "TimerViewController.h"
+#import "CountDownViewController.h"
 
 @interface TimerViewController ()
 {
@@ -19,6 +20,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    NSLog(@"source: <%f, %f>", self.journey.source.latitude, self.journey.source.longitude);
+    NSLog(@"destination: <%f, %f>", self.journey.destination.latitude, self.journey.destination.longitude);
 
     _pickerData = [NSMutableArray array];
     for(int i = 1; i < 61; i++) {
@@ -58,17 +62,24 @@
 }
 */
 
-- (IBAction)startJourneyButton:(UIButton *)sender {
-    NSInteger row = [self.picker selectedRowInComponent:0];
-    NSString *selected = [_pickerData objectAtIndex:row];
-    int time = [selected intValue];
-    [NSTimer scheduledTimerWithTimeInterval:time target:self selector:@selector(timeExpired:) userInfo:nil repeats:NO];
-    
-    
-}
+//[NSTimer scheduledTimerWithTimeInterval:time target:self selector:@selector(timeExpired:) userInfo:nil repeats:NO];
+
 
 - (void)timeExpired:(NSTimer *)timer {
     NSLog(@"Timer expired");
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if([segue.identifier isEqualToString:@"startJourneySegue"]) {
+        CountDownViewController *destinationViewController = segue.destinationViewController;
+        
+        NSInteger row = [self.picker selectedRowInComponent:0];
+        NSString *selected = [_pickerData objectAtIndex:row];
+        int min = [selected intValue];
+        
+        self.journey.minutesCount = min;
+        destinationViewController.journey = self.journey;
+    }
 }
 
 @end

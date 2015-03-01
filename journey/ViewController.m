@@ -20,9 +20,7 @@
 
 @end
 
-@implementation ViewController {
-    GMSMapView *mapView_;
-}
+@implementation ViewController
 
 
 - (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
@@ -35,6 +33,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     // Add logout navigation bar button
     UIBarButtonItem *logoutButton = [[UIBarButtonItem alloc] initWithTitle:@"Log Out"
                                                                      style:UIBarButtonItemStyleBordered
@@ -46,18 +45,39 @@
     
     
     // Map Set-up!
-
-    mapView_.myLocationEnabled = YES;
-    mapView_.settings.myLocationButton = YES;
-    NSLog(@"User's location: %@", mapView_.myLocation);
     
-    self.view.autoresizesSubviews = YES;
     
-    [self _loadData];
-    if (YES){
-        [self contactFriends];
-    }
-
+    self.locationManager = [[CLLocationManager alloc] init];
+    
+    self.locationManager.delegate = self;
+    
+    [self.locationManager requestAlwaysAuthorization];
+    
+    self.mapView.showsUserLocation = YES;
+    
+    
+//    UIPanGestureRecognizer* panRec = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(didDragMap:)];
+//    [panRec setDelegate:self];
+//    [self.mapView addGestureRecognizer:panRec];
+//    
+    
+    WildcardGestureRecognizer *tapInterceptor = [[WildcardGestureRecognizer alloc] init];
+    tapInterceptor.touchesBeganCallback = ^(NSSet * touches, UIEvent * event) {
+        NSArray *array = [touches allObjects];
+        if (array.count == 1) {
+            UITouch *touch = array.lastObject;
+            if (touch.tapCount == 2) {
+                // NSLog(@"DOUBLE");
+                CLLocationCoordinate2D srcCoord = [[CLLocation alloc] initWithLatitude:12 longitude:12].coordinate;
+                CLLocationCoordinate2D dstCoord = [self.mapView convertPoint:[touch locationInView:self.mapView] toCoordinateFromView:self.view];
+                self.journey = [[Journey alloc] initWithSource:srcCoord andDestination:dstCoord];
+                [self performSegueWithIdentifier:@"toTimerViewControllerSegue" sender:self];
+            }
+        }
+    };
+    [self.mapView addGestureRecognizer:tapInterceptor];
+    
+    
 }
 
 - (void)contactFriends //pass in destination, source loc, and time
@@ -174,9 +194,8 @@
 
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if([segue.identifier isEqualToString:@"selectDestinationSegue"]) {
+    if([segue.identifier isEqualToString:@"toTimerViewControllerSegue"]) {
         TimerViewController *destinationViewController = segue.destinationViewController;
-        self.journey = [[Journey alloc] init];
         destinationViewController.journey = self.journey;
     }
 }
