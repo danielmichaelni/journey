@@ -26,10 +26,6 @@
                                     <action selector="loginButtonTouchHandler:" destination="yph-Tx-7PE" eventType="touchUpInside" id="7E4-mo-UrN"/>
                                 </connections>
                             </button>
-                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="j3G-64-gkm">
-                                <rect key="frame" x="150" y="393" width="20" height="20"/>
-                                <color key="tintColor" red="0.10613306660000001" green="0.16214250690000001" blue="0.5" alpha="1" colorSpace="calibratedRGB"/>
-                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -39,7 +35,6 @@
                     <navigationItem key="navigationItem" id="kYW-uq-BOh"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
-                        <outlet property="activityIndicator" destination="j3G-64-gkm" id="a8x-ic-OCV"/>
                         <segue destination="HOC-Xt-Ehw" kind="show" identifier="loginPhone" id="T4m-ma-hGZ"/>
                         <segue destination="BYZ-38-t0r" kind="show" identifier="loggedIn" id="SC6-A3-BbI"/>
                     </connections>
@@ -147,8 +142,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4VP-eD-1an">
-                                <rect key="frame" x="139" y="141" width="42" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4VP-eD-1an">
+                                <rect key="frame" x="16" y="141" width="288" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -159,10 +154,13 @@
                     <navigationItem key="navigationItem" title="Cell Phone" id="IGg-kp-gor">
                         <barButtonItem key="rightBarButtonItem" title="Save" id="mB1-X2-JcM">
                             <connections>
-                                <segue destination="6g5-KE-ffc" kind="show" id="3K3-gH-lLi"/>
+                                <segue destination="6g5-KE-ffc" kind="show" identifier="gotCellPhone" id="3K3-gH-lLi"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="cellPhone" destination="4VP-eD-1an" id="wRD-N1-nJN"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sFP-s2-A5n" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -173,6 +171,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="keg-Ds-ike" sceneMemberID="viewController">
                     <toolbarItems/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="NEX-j5-FA0">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -188,6 +187,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="ouR-62-e0i"/>
+        <segue reference="SC6-A3-BbI"/>
     </inferredMetricsTieBreakers>
 </document>

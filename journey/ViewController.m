@@ -59,22 +59,24 @@
 {
     NSMutableArray *contacts = [[NSMutableArray alloc] init];
     contacts = [[PFUser currentUser] objectForKey:@"contactList"];
-    
-    PFQuery *query = [PFUser query];
-    [query whereKey:@"facebookId" containedIn:contacts];
-    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-        if (!error) {
-            if (objects.count!=0) {
-                for (PFObject *object in objects) {
-                    //NSLog(@"%@", object.objectId);
-                    NSLog(@"%@", object[@"cellPhone"]);
+    if([contacts count] > 0)
+    {
+        PFQuery *query = [PFUser query];
+        [query whereKey:@"facebookId" containedIn:contacts];
+        [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+            if (!error) {
+                if (objects.count!=0) {
+                    for (PFObject *object in objects) {
+                        //NSLog(@"%@", object.objectId);
+                        NSLog(@"%@", object[@"cellPhone"]);
+                    }
                 }
+            } else {
+                NSLog(@"Error: %@ %@", error, [error userInfo]);
             }
-        } else {
-            NSLog(@"Error: %@ %@", error, [error userInfo]);
-        }
-        
-    }];
+            
+        }];
+    }
 }
 
 - (void)didReceiveMemoryWarning {

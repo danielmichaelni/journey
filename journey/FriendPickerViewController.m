@@ -116,9 +116,11 @@
         [text appendString:user.name];
         [contacts addObject:user.objectID];
     }
-    
-    [[PFUser currentUser] setObject:contacts forKey:@"contactList"];
-    [[PFUser currentUser] saveInBackground];
+    if([contacts count] > 0)
+    {
+        [[PFUser currentUser] setObject:contacts forKey:@"contactList"];
+        [[PFUser currentUser] saveInBackground];
+    }
     
     
     self.selectedFriendsView.text = text;
@@ -180,24 +182,6 @@
 - (BOOL)friendPickerViewController:(FBFriendPickerViewController *)friendPicker
                  shouldIncludeUser:(id<FBGraphUser>)user
 {
-    /*
-    // If there is a search query, filter the friend list based on this.
-    if (self.searchText && ![self.searchText isEqualToString:@""]) {
-        NSRange result = [user.name
-                          rangeOfString:self.searchText
-                          options:NSCaseInsensitiveSearch];
-        if (result.location != NSNotFound) {
-            // If friend name matches partially, show the friend
-            return YES;
-        } else {
-            // If no match, do not show the friend
-            return NO;
-        }
-    } else {
-        // If there is no search query, show all friends.
-        return YES;
-    }
-    */
     return YES;
 }
 
