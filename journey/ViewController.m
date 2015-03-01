@@ -65,7 +65,7 @@
     self.mapView.region = region;
     
     
-    self.hawaiiTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(checkLocation) userInfo:nil repeats:YES];
+//    self.hawaiiTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(checkLocation) userInfo:nil repeats:YES];
     
     
     
@@ -175,8 +175,8 @@
         MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(self.locationManager.location.coordinate, 600, 600);
         self.mapView.region = region;
         
-        [self.hawaiiTimer invalidate];
-        self.hawaiiTimer = nil;
+//        [self.hawaiiTimer invalidate];
+//        self.hawaiiTimer = nil;
     }
 }
 
