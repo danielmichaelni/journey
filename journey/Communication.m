@@ -96,6 +96,45 @@
     }
 }
 
++ (void) makeCall:(NSString*) message
+                  toNumber:(NSString*)number
+{
+    [self makeCallAndPlayTts:message toNumber:number withAppId:@"479435" withAppKey:@"ed6d08fe0ee069d0d0f89a52f3"];
+}
+
+
+
++(void) makeCallAndPlayTts:(NSString*) message
+                  toNumber:(NSString*)number
+                 withAppId:(NSString*)appId
+                withAppKey:(NSString*)appKey
+{
+    NSError* error = nil;
+    NSURL *restURL =
+    [NSURL URLWithString:
+     [NSString stringWithFormat:@"http://hackathonapi.inin.com/api/%@/call/callandplaytts", appId]];
+    
+    
+    
+    NSMutableURLRequest *restRequest = [NSMutableURLRequest requestWithURL:restURL];
+    
+    [restRequest setValue:appKey forHTTPHeaderField:@"Api-Key"];
+    NSDictionary *data = @{ @"number" : number,
+                            @"message" : message };
+    
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:data
+                                                       options:NSJSONWritingPrettyPrinted
+                                                         error:&error];
+    
+    [restRequest setHTTPBody:jsonData];
+    [restRequest setHTTPMethod:@"POST"];
+    
+    
+    NSHTTPURLResponse* response;
+    
+    [NSURLConnection sendSynchronousRequest:restRequest  returningResponse:&response error:&error];
+}
+
 
 @end
 

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="keg-Ds-ike">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="keg-Ds-ike">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -17,11 +17,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yYg-G0-D7h">
-                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
-                            </imageView>
-                            <button opaque="NO" alpha="0.80000000000000004" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bU8-hq-4RU">
-                                <rect key="frame" x="-39" y="418" width="398" height="39"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="journey" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CEv-t5-RBb">
+                                <rect key="frame" x="81" y="208" width="158" height="44"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" alpha="0.80000000000000004" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bU8-hq-4RU">
+                                <rect key="frame" x="35" y="340" width="250" height="46"/>
+                                <color key="backgroundColor" red="0.52941176470588236" green="0.52941176470588236" blue="0.52941176470588236" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                 <state key="normal" image="fb_login_button.jpg">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -34,16 +38,15 @@
                         </subviews>
                         <color key="backgroundColor" red="0.12156862745098039" green="0.015686274509803921" blue="0.32941176470588235" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="centerX" secondItem="bU8-hq-4RU" secondAttribute="centerX" id="AhW-IA-O1x"/>
-                            <constraint firstAttribute="centerX" secondItem="yYg-G0-D7h" secondAttribute="centerX" id="pdt-4A-gEQ"/>
-                            <constraint firstAttribute="centerY" secondItem="yYg-G0-D7h" secondAttribute="centerY" constant="101" id="sST-qR-K7V"/>
+                            <constraint firstAttribute="centerX" secondItem="CEv-t5-RBb" secondAttribute="centerX" id="Gey-pR-DXv"/>
+                            <constraint firstAttribute="centerY" secondItem="CEv-t5-RBb" secondAttribute="centerY" constant="73" id="SGx-2t-Jau"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="kYW-uq-BOh"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="loginWithFacebook" destination="bU8-hq-4RU" id="Nsy-VS-bRg"/>
-                        <outlet property="textLogoImageView" destination="yYg-G0-D7h" id="6ol-uk-U0u"/>
+                        <outlet property="logoLabel" destination="CEv-t5-RBb" id="NiT-FH-82U"/>
                         <segue destination="HOC-Xt-Ehw" kind="show" identifier="loginPhone" id="T4m-ma-hGZ"/>
                         <segue destination="BYZ-38-t0r" kind="show" identifier="loggedIn" id="SC6-A3-BbI"/>
                     </connections>
@@ -64,10 +67,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E2h-Vc-hcx">
-                                <rect key="frame" x="50" y="156" width="220" height="63"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E2h-Vc-hcx">
+                                <rect key="frame" x="16" y="142" width="288" height="33"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                <state key="normal" title="PICK CONTACTS">
+                                <state key="normal" title="SELECT FACEBOOK CONTACTS">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -75,17 +78,30 @@
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="yCO-sJ-ZIu">
-                                <rect key="frame" x="16" y="265" width="288" height="128"/>
+                                <rect key="frame" x="16" y="493" width="288" height="46"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="i5Y-Cu-Psr">
+                                <rect key="frame" x="16" y="285" width="288" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="phone" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="O4M-V1-4VT">
+                                <rect key="frame" x="16" y="323" width="288" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ADD ADDITIONAL CONTACT" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EVG-jW-hR9">
+                                <rect key="frame" x="43" y="256" width="224" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="E2h-Vc-hcx" secondAttribute="trailing" constant="34" id="5oy-gb-0Fv"/>
-                            <constraint firstItem="E2h-Vc-hcx" firstAttribute="leading" secondItem="L8Q-A1-LsN" secondAttribute="leadingMargin" constant="34" id="HJs-kt-a5A"/>
-                            <constraint firstItem="E2h-Vc-hcx" firstAttribute="top" secondItem="ds3-iB-sOp" secondAttribute="bottom" constant="92" id="HwK-Sr-aVC"/>
                             <constraint firstItem="yCO-sJ-ZIu" firstAttribute="leading" secondItem="L8Q-A1-LsN" secondAttribute="leadingMargin" id="qHX-eW-6UR"/>
                             <constraint firstItem="yCO-sJ-ZIu" firstAttribute="trailing" secondItem="L8Q-A1-LsN" secondAttribute="trailingMargin" id="xqm-av-hrU"/>
                         </constraints>
@@ -99,6 +115,8 @@
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
+                        <outlet property="addEmailTextField" destination="i5Y-Cu-Psr" id="HLz-ui-8gK"/>
+                        <outlet property="addPhoneTextField" destination="O4M-V1-4VT" id="ZU1-ob-rTz"/>
                         <outlet property="friendPickerButton" destination="E2h-Vc-hcx" id="IyQ-Ju-rOW"/>
                         <outlet property="selectedFriendsView" destination="yCO-sJ-ZIu" id="rCL-u9-5zG"/>
                     </connections>
@@ -107,7 +125,7 @@
             </objects>
             <point key="canvasLocation" x="1774" y="-589"/>
         </scene>
-        <!--Tap destination-->
+        <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
@@ -122,16 +140,24 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="qOY-8W-nnE">
                                 <rect key="frame" x="0.0" y="64" width="320" height="513"/>
                             </mapView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Double Tap Destination" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Os-iI-YFP">
+                                <rect key="frame" x="0.0" y="458" width="320" height="110"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="qOY-8W-nnE" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="0zE-TV-ayq"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="5Os-iI-YFP" secondAttribute="bottom" id="8BN-C1-G4O"/>
                             <constraint firstItem="qOY-8W-nnE" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="bKb-0d-oKC"/>
                             <constraint firstAttribute="trailingMargin" secondItem="qOY-8W-nnE" secondAttribute="trailing" constant="-16" id="l5y-JI-qu3"/>
                             <constraint firstAttribute="bottomMargin" secondItem="qOY-8W-nnE" secondAttribute="bottom" constant="-9" id="osP-J5-zgL"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Tap destination" id="pZo-eZ-wtm">
+                    <navigationItem key="navigationItem" id="pZo-eZ-wtm">
                         <barButtonItem key="rightBarButtonItem" title="Settings" id="GqP-gM-esv">
                             <inset key="imageInsets" minX="-16" minY="0.0" maxX="0.0" maxY="0.0"/>
                             <connections>
@@ -141,6 +167,7 @@
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
+                        <outlet property="instructionLabel" destination="5Os-iI-YFP" id="z8C-A9-iAv"/>
                         <outlet property="mapView" destination="qOY-8W-nnE" id="gek-Ug-8s6"/>
                         <segue destination="Jz7-1h-IVC" kind="show" identifier="toTimerViewControllerSegue" id="uGS-2z-UgQ"/>
                     </connections>
@@ -174,6 +201,12 @@
                                     <segue destination="olK-Iz-5Ub" kind="show" identifier="startJourneySegue" id="Dln-xx-MYO"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Adjust Time Estimate" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fv6-RZ-Bit">
+                                <rect key="frame" x="16" y="72" width="288" height="51"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -296,6 +329,9 @@
                                 <rect key="frame" x="16" y="440" width="288" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <state key="normal" title="CHANGE FRIENDS"/>
+                                <connections>
+                                    <action selector="changeFriends:" destination="7qZ-d3-6cW" eventType="touchUpInside" id="jQg-HB-nYI"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -405,7 +441,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="fb_login_button.jpg" width="210" height="39"/>
+        <image name="fb_login_button.jpg" width="3921" height="720"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="ouR-62-e0i"/>
