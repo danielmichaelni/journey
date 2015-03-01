@@ -24,7 +24,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" alpha="0.80000000000000004" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bU8-hq-4RU">
-                                <rect key="frame" x="35" y="340" width="250" height="46"/>
+                                <rect key="frame" x="68" y="353" width="185" height="38"/>
                                 <color key="backgroundColor" red="0.52941176470588236" green="0.52941176470588236" blue="0.52941176470588236" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                 <state key="normal" image="fb_login_button.jpg">
@@ -191,14 +191,15 @@
                             <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zMA-aT-pT3">
                                 <rect key="frame" x="0.0" y="176" width="320" height="216"/>
                             </pickerView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tRr-Ma-Vwb">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tRr-Ma-Vwb">
                                 <rect key="frame" x="67" y="478" width="187" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <state key="normal" title="Start Journey">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="olK-Iz-5Ub" kind="show" identifier="startJourneySegue" id="Dln-xx-MYO"/>
+                                    <action selector="startJourneyButton:" destination="Jz7-1h-IVC" eventType="touchUpInside" id="KMn-bN-36q"/>
+                                    <segue destination="olK-Iz-5Ub" kind="showDetail" identifier="toCountDownViewControllerSegue" id="6fz-57-gW3"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Adjust Time Estimate" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fv6-RZ-Bit">
@@ -209,10 +210,16 @@
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="tRr-Ma-Vwb" secondAttribute="centerX" id="KR9-YP-DLr"/>
+                            <constraint firstItem="DEd-VO-y3D" firstAttribute="top" secondItem="tRr-Ma-Vwb" secondAttribute="bottom" constant="60" id="iCx-dy-avJ"/>
+                        </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="picker" destination="zMA-aT-pT3" id="dl9-WS-6Zv"/>
+                        <outlet property="startJourneyOutlet" destination="tRr-Ma-Vwb" id="47e-ul-NKy"/>
+                        <outlet property="timeInstructionLabel" destination="fv6-RZ-Bit" id="3U6-EQ-UJE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nww-3N-jc3" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -231,13 +238,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3qr-PS-M6n">
-                                <rect key="frame" x="83" y="202" width="153" height="73"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="50"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gm6-vs-Vhi">
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gm6-vs-Vhi">
                                 <rect key="frame" x="67" y="475" width="187" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <state key="normal" title="Finish Journey">
@@ -247,11 +248,23 @@
                                     <action selector="finishJourneyButton:" destination="olK-Iz-5Ub" eventType="touchUpInside" id="UFF-RB-F6m"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3qr-PS-M6n">
+                                <rect key="frame" x="16" y="164" width="288" height="127"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="50"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerY" secondItem="3qr-PS-M6n" secondAttribute="centerY" constant="56.5" id="C0X-bW-UBl"/>
+                            <constraint firstAttribute="centerX" secondItem="3qr-PS-M6n" secondAttribute="centerX" id="RUS-E5-jNr"/>
+                            <constraint firstItem="2BQ-MI-6fS" firstAttribute="top" secondItem="Gm6-vs-Vhi" secondAttribute="bottom" constant="60" id="oWC-jp-AkK"/>
+                        </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
+                        <outlet property="finishJourneyOutlet" destination="Gm6-vs-Vhi" id="eA8-EH-xuy"/>
                         <outlet property="timeLabel" destination="3qr-PS-M6n" id="gEU-dH-oG0"/>
                     </connections>
                 </viewController>
@@ -444,7 +457,7 @@
         <image name="fb_login_button.jpg" width="3921" height="720"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ouR-62-e0i"/>
+        <segue reference="SC6-A3-BbI"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.10613306660000001" green="0.16214250690000001" blue="0.5" alpha="1" colorSpace="calibratedRGB"/>
 </document>

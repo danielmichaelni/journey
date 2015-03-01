@@ -13,6 +13,8 @@
 @interface TimerViewController : UIViewController <UIPickerViewDataSource, UIPickerViewDelegate>
 
 @property (strong, nonatomic) IBOutlet UIPickerView *picker;
+@property (strong, nonatomic) IBOutlet UILabel *timeInstructionLabel;
+@property (strong, nonatomic) IBOutlet UIButton *startJourneyOutlet;
 
 @property (strong, nonatomic) Journey *journey;
 
