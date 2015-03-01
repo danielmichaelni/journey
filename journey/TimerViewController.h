@@ -18,6 +18,5 @@
 
 @property (strong, nonatomic) Journey *journey;
 
-- (IBAction)startJourneyButton:(UIButton *)sender;
 
 @end
