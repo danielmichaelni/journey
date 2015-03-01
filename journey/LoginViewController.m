@@ -73,6 +73,7 @@
 
     // Login PFUser using Facebook
     [PFFacebookUtils logInWithPermissions:permissionsArray block:^(PFUser *user, NSError *error) {
+        [_activityIndicator stopAnimating]; // Hide loading indicator
         if (!user) {
             NSString *errorMessage = nil;
             if (!error) {
@@ -95,6 +96,9 @@
             [self performSegueWithIdentifier:@"loginPhone" sender:self];
         }
     }];
+
+    self.activityIndicator.hidden = false;
+    [_activityIndicator startAnimating]; // Show loading indicator until login is finished
 }
 
 #pragma mark -

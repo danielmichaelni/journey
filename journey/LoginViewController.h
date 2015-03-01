@@ -23,6 +23,7 @@
 
 @interface LoginViewController : UIViewController
 
+@property (nonatomic, strong) IBOutlet UIActivityIndicatorView *activityIndicator;
 @property (strong, nonatomic) IBOutlet UIImageView *textLogoImageView;
 
 - (IBAction)loginButtonTouchHandler:(id)sender;

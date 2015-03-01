@@ -12,7 +12,6 @@
 #import <UIKit/UIKit.h>
 
 @interface CellPhoneViewController : UIViewController
-@property (strong, nonatomic) IBOutlet UILabel *cellPhone;
 
 @end
 

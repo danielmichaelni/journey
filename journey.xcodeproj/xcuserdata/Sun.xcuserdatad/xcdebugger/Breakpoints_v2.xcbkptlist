@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "journey/LoginViewController.m"
-            timestampString = "446853764.273234"
+            timestampString = "446852422.159127"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "92"
-            endingLineNumber = "92"
+            startingLineNumber = "96"
+            endingLineNumber = "96"
             landmarkName = "-_presentUserDetailsViewControllerAnimated:"
             landmarkType = "5">
          </BreakpointContent>
