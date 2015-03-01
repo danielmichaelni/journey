@@ -13,6 +13,8 @@
 
 @interface CellPhoneViewController : UIViewController
 
+@property (strong, nonatomic) IBOutlet UITextField *cellPhoneTextField;
+
 @end
 
 #endif

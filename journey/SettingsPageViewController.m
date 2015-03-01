@@ -152,4 +152,7 @@
 }
 
 
+
+- (IBAction)changeFriends:(id)sender {
+}
 @end
