@@ -54,11 +54,14 @@
     
     self.mapView.showsUserLocation = YES;
     
+    // Set Map to current location.
     
-//    UIPanGestureRecognizer* panRec = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(didDragMap:)];
-//    [panRec setDelegate:self];
-//    [self.mapView addGestureRecognizer:panRec];
-//    
+    MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(self.locationManager.location.coordinate, 600, 600);
+    self.mapView.region = region;
+    
+    
+    
+    // All of this deals in intercepting taps and their consequences.
     
     WildcardGestureRecognizer *tapInterceptor = [[WildcardGestureRecognizer alloc] init];
     tapInterceptor.touchesBeganCallback = ^(NSSet * touches, UIEvent * event) {
@@ -81,10 +84,17 @@
                 
                 // Initialize Locations
                 
-                CLLocation *dstLoc = [[CLLocation alloc] initWithCoordinate:dstCoord altitude:0 horizontalAccuracy:100 verticalAccuracy:100 course:0 speed:0 timestamp:0];//self.locationManager.location; //
+                CLLocation *dstLoc = [[CLLocation alloc] initWithCoordinate:dstCoord altitude:0 horizontalAccuracy:0 verticalAccuracy:100 course:0 speed:0 timestamp:0];//self.locationManager.location; //
                 
-                CLLocation *srcLoc = [[CLLocation alloc] initWithCoordinate:srcCoord altitude:0 horizontalAccuracy:100 verticalAccuracy:100 course:0 speed:0 timestamp:0];
+                CLLocation *srcLoc = [[CLLocation alloc] initWithCoordinate:srcCoord altitude:0 horizontalAccuracy:0 verticalAccuracy:100 course:0 speed:0 timestamp:0];
                 
+                
+                
+                // Directions
+                
+                
+                MKDirectionsRequest *request = [[MKDirectionsRequest alloc] init];
+                [request setSource:[MKMapItem mapItemForCurrentLocation]];
                 
 
                 // Print Locations
@@ -94,22 +104,46 @@
                 [geocoder reverseGeocodeLocation:dstLoc completionHandler:^(NSArray *placemarks, NSError *error) {
                     if (placemarks && placemarks.count > 0) {
                         CLPlacemark *placemark = [placemarks objectAtIndex:0];
-                        NSString *address = [NSString stringWithFormat:@"%@ %@ %@ %@", [placemark subThoroughfare], [placemark thoroughfare], [placemark locality], [placemark administrativeArea]];
+                        NSString *address = [NSString stringWithFormat:@"%@ %@ %@ %@", [placemark subThoroughfare] ? [placemark subThoroughfare] : @"" , [placemark thoroughfare] ? [placemark thoroughfare] : @"", [placemark locality], [placemark administrativeArea]];
                         NSLog(@"Destination: %@",address);
                         self.journey.destinationString = address;
+                        
+                        
+                        // Direction Part
+                        
+                        // This could be a serious problem.
+                        [request setDestination:[[MKMapItem alloc] initWithPlacemark: placemark]];
                     }
                 }];
                 
                 [geocoder2 reverseGeocodeLocation:srcLoc completionHandler:^(NSArray *placemarks, NSError *error) {
                     if (placemarks && placemarks.count > 0) {
                         CLPlacemark *placemark = [placemarks objectAtIndex:0];
-                        NSString *address = [NSString stringWithFormat:@"%@ %@ %@ %@", [placemark subThoroughfare], [placemark thoroughfare], [placemark locality], [placemark administrativeArea]];
-                        NSLog(@"Location: %@",address);
+                        NSString *address = [NSString stringWithFormat:@"%@ %@ %@ %@", [placemark subThoroughfare] ? [placemark subThoroughfare] : @"" , [placemark thoroughfare] ? [placemark thoroughfare] : @"", [placemark locality], [placemark administrativeArea]];
+                        NSLog(@"Location: %@", address);//[address isEqualToString:@"  Urbana IL"] ? @"1251–1487 W Springfield Ave Urbana IL" : address );
                         self.journey.sourceString = address;
+                        
                     }
                 }];
                 
                 
+                // Get and Set Directions
+                
+                [request setTransportType:MKDirectionsTransportTypeWalking];
+                [request setRequestsAlternateRoutes:NO];
+                
+                MKDirections *directions = [[MKDirections alloc] initWithRequest:request];
+                
+                [directions calculateDirectionsWithCompletionHandler:^(MKDirectionsResponse *response, NSError *error) {
+                    if ( ! error && [response routes] > 0) {
+                        MKRoute *route = [[response routes] objectAtIndex:0];
+                        
+                        NSLog(@"Distance: %f; Time: %f", route.distance, route.expectedTravelTime);
+                        
+                    } else {
+                        NSLog(@"Problem with Directions.");
+                    }
+                }];
                 
                 
                 // Perform Segue
