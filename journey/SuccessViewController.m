@@ -43,13 +43,4 @@
     [self performSegueWithIdentifier:@"returnHomeSegue" sender:self];
 }
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if([segue.identifier isEqualToString:@"returnHomeSegue"]) {
-        ViewController *destinationViewController = segue.destinationViewController;
-        UINavigationBar *navBar = [[UINavigationBar alloc] init];
-        [destinationViewController.view addSubview:navBar];
-        
-    }
-}
-
 @end
