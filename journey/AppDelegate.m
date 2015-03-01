@@ -25,13 +25,8 @@
                   clientKey:@"sUrEE1CCtcE6LVCqSni8nXBg69TYeOyt54Aqzn5F"];
     
     if (NO) { //Testing
-        [Communication SendSMS:@"3012727051" withMessage:@"Good Morning"];
-        NSMutableArray *array = [NSMutableArray array];
-        [array addObject:[NSString stringWithFormat:@"charlespippin@gmail.com"]];
-        [array addObject:[NSString stringWithFormat:@"ikachan48@gmail.com"]];
-        //[Communication SendBulkSMS:array withMessage:@"HELLO"];
-        [Communication SendEmail:@"ikachan48@gmail.com" withSubject:@"NEW" withMessage:@"yehhlooh"];
-        [Communication SendBulkEmail:array withSubject:@"Bulk Test" withMessage:@"not important"];
+        [Communication SendSMS:[PFUser currentUser] from:[PFUser currentUser]];
+        [Communication SendEmail:[PFUser currentUser] from:[PFUser currentUser]];
     }
     
     [PFFacebookUtils initializeFacebook];

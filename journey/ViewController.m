@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "Communication.h"
 
 #import <Parse/Parse.h>
 #import <ParseFacebookUtils/PFFacebookUtils.h>
@@ -52,22 +53,36 @@
     self.view.autoresizesSubviews = YES;
     
     [self _loadData];
-    [self findFriendAndCellPhone];
+    if (NO){
+        [self contactFriends];
+    }
+
 }
 
-- (void)findFriendAndCellPhone
+- (void)contactFriends
 {
+
+    PFObject *current = [PFUser currentUser];
     NSMutableArray *contacts = [[NSMutableArray alloc] init];
-    contacts = [[PFUser currentUser] objectForKey:@"contactList"];
+    contacts = [current objectForKey:@"contactList"];
+    BOOL emailsEnabled = current[@"enableEmails"];
+    BOOL textEnabled = current[@"enableTexts"];
     
     PFQuery *query = [PFUser query];
     [query whereKey:@"facebookId" containedIn:contacts];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
             if (objects.count!=0) {
-                for (PFObject *object in objects) {
-                    //NSLog(@"%@", object.objectId);
-                    NSLog(@"%@", object[@"cellPhone"]);
+                for (PFObject *contact in objects) {
+                    NSLog(@"%@", contact[@"name"]);
+                    if (textEnabled) {
+                        NSLog(@"HERE",nil);
+                        [Communication SendSMS:contact from:current];
+                    }
+                    if (emailsEnabled) {
+                        NSLog(@"THERE",nil);
+                        [Communication SendEmail:contact from:current];
+                    }
                 }
             }
         } else {
