@@ -27,6 +27,7 @@
 		563301B01AA245D2009CF7BF /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 563301AF1AA245D2009CF7BF /* OpenGLES.framework */; };
 		569AB9361AA2C8E500C5FE5B /* wildcard.m in Sources */ = {isa = PBXBuildFile; fileRef = 569AB9351AA2C8E500C5FE5B /* wildcard.m */; };
 		56D3D03C1AA2C5C600B1A851 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56D3D03B1AA2C5C600B1A851 /* MapKit.framework */; };
+		668251631AA2DABB00AD28E3 /* CountDownViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 668251621AA2DABB00AD28E3 /* CountDownViewController.m */; };
 		66BB729C1AA278480033CE70 /* Journey.m in Sources */ = {isa = PBXBuildFile; fileRef = 66BB729B1AA278480033CE70 /* Journey.m */; };
 		66BB729F1AA278520033CE70 /* TimerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 66BB729E1AA278520033CE70 /* TimerViewController.m */; };
 		66BB72AD1AA28BC80033CE70 /* textLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 66BB72AC1AA28BC80033CE70 /* textLogo.png */; };
@@ -94,6 +95,8 @@
 		569AB9341AA2C88800C5FE5B /* wildcard.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = wildcard.h; sourceTree = "<group>"; };
 		569AB9351AA2C8E500C5FE5B /* wildcard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = wildcard.m; sourceTree = "<group>"; };
 		56D3D03B1AA2C5C600B1A851 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		668251611AA2DABB00AD28E3 /* CountDownViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CountDownViewController.h; sourceTree = "<group>"; };
+		668251621AA2DABB00AD28E3 /* CountDownViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CountDownViewController.m; sourceTree = "<group>"; };
 		66BB729A1AA278480033CE70 /* Journey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Journey.h; sourceTree = "<group>"; };
 		66BB729B1AA278480033CE70 /* Journey.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Journey.m; sourceTree = "<group>"; };
 		66BB729D1AA278520033CE70 /* TimerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimerViewController.h; sourceTree = "<group>"; };
@@ -217,6 +220,8 @@
 				562A9CF11AA17D7800BDEBA6 /* Main.storyboard */,
 				A40A64941AA293C000A91BC4 /* SettingsPageViewController.h */,
 				A40A64951AA293D500A91BC4 /* SettingsPageViewController.m */,
+				668251611AA2DABB00AD28E3 /* CountDownViewController.h */,
+				668251621AA2DABB00AD28E3 /* CountDownViewController.m */,
 				562A9CF41AA17D7800BDEBA6 /* Images.xcassets */,
 				562A9CF61AA17D7800BDEBA6 /* LaunchScreen.xib */,
 				562A9CE71AA17D7800BDEBA6 /* Supporting Files */,
@@ -415,6 +420,7 @@
 				66BB729F1AA278520033CE70 /* TimerViewController.m in Sources */,
 				562A9CF01AA17D7800BDEBA6 /* ViewController.m in Sources */,
 				A4465D0B1AA2316C0066FFE8 /* FriendPickerViewController.m in Sources */,
+				668251631AA2DABB00AD28E3 /* CountDownViewController.m in Sources */,
 				A4465D011AA223E20066FFE8 /* CellPhoneViewController.m in Sources */,
 				562A9CED1AA17D7800BDEBA6 /* AppDelegate.m in Sources */,
 				562A9CEA1AA17D7800BDEBA6 /* main.m in Sources */,

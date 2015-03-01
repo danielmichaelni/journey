@@ -108,25 +108,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J6h-04-GA2">
-                                <rect key="frame" x="62" y="518" width="197" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                <state key="normal" title="Select Destination">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="Jz7-1h-IVC" kind="show" identifier="selectDestinationSegue" id="seO-eb-umv"/>
-                                </connections>
-                            </button>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="qOY-8W-nnE">
                                 <rect key="frame" x="0.0" y="193" width="320" height="309"/>
                             </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstAttribute="centerX" secondItem="J6h-04-GA2" secondAttribute="centerX" id="VGx-pC-CpQ"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="J6h-04-GA2" secondAttribute="bottom" constant="20" id="yLw-nD-bNF"/>
-                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="pZo-eZ-wtm">
                         <barButtonItem key="rightBarButtonItem" title="Settings" id="GqP-gM-esv">
@@ -138,6 +124,7 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="mapView" destination="qOY-8W-nnE" id="gek-Ug-8s6"/>
+                        <segue destination="Jz7-1h-IVC" kind="show" identifier="toTimerViewControllerSegue" id="uGS-2z-UgQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -166,7 +153,6 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="startJourneyButton:" destination="Jz7-1h-IVC" eventType="touchUpInside" id="j5n-p8-k6i"/>
                                     <segue destination="olK-Iz-5Ub" kind="show" identifier="startJourneySegue" id="Dln-xx-MYO"/>
                                 </connections>
                             </button>
@@ -221,6 +207,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kSJ-A3-CdF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2654" y="1005"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="EsY-yJ-6GV">
+            <objects>
+                <viewController id="XuN-dc-dWe" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="4Qf-Fa-hlP"/>
+                        <viewControllerLayoutGuide type="bottom" id="5FZ-GP-qMj"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="0fT-bY-UXr">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2lC-nC-NYE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3128" y="1004"/>
         </scene>
         <!--Title-->
         <scene sceneID="mqW-eY-Ei8">
@@ -374,6 +379,6 @@
         <image name="fb_login_button.jpg" width="210" height="39"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="SC6-A3-BbI"/>
+        <segue reference="ouR-62-e0i"/>
     </inferredMetricsTieBreakers>
 </document>

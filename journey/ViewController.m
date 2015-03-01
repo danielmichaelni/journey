@@ -33,6 +33,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     // Add logout navigation bar button
     UIBarButtonItem *logoutButton = [[UIBarButtonItem alloc] initWithTitle:@"Log Out"
                                                                      style:UIBarButtonItemStyleBordered
@@ -54,16 +55,32 @@
     
     self.mapView.showsUserLocation = YES;
     
+    
+//    UIPanGestureRecognizer* panRec = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(didDragMap:)];
+//    [panRec setDelegate:self];
+//    [self.mapView addGestureRecognizer:panRec];
+//    
+    
     WildcardGestureRecognizer *tapInterceptor = [[WildcardGestureRecognizer alloc] init];
     tapInterceptor.touchesBeganCallback = ^(NSSet * touches, UIEvent * event) {
-        NSLog(@"Touch.");
+        NSArray *array = [touches allObjects];
+        if (array.count == 1) {
+            UITouch *touch = array.lastObject;
+            if (touch.tapCount == 2) {
+                // NSLog(@"DOUBLE");
+                CLLocationCoordinate2D srcCoord = [[CLLocation alloc] initWithLatitude:12 longitude:12].coordinate;
+                CLLocationCoordinate2D dstCoord = [self.mapView convertPoint:[touch locationInView:self.mapView] toCoordinateFromView:self.view];
+                self.journey = [[Journey alloc] initWithSource:srcCoord andDestination:dstCoord];
+                [self performSegueWithIdentifier:@"toTimerViewControllerSegue" sender:self];
+            }
+        }
     };
     [self.mapView addGestureRecognizer:tapInterceptor];
     
     
 }
 
-- (void)contactFriends
+- (void)contactFriends //pass in destination, source loc, and time
 {
 
     PFObject *current = [PFUser currentUser];
@@ -79,10 +96,10 @@
             if (objects.count!=0) {
                 for (PFObject *contact in objects) {
                     if (textEnabled) {
-                        [Communication SendSMS:contact from:current];
+                        [Communication SendSMS:contact from:current];//pass in destination, source loc, and time
                     }
                     if (emailsEnabled) {
-                        [Communication SendEmail:contact from:current];
+                        [Communication SendEmail:contact from:current];//pass in destination, source loc, and time
                     }
                 }
             }
@@ -177,9 +194,8 @@
 
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if([segue.identifier isEqualToString:@"selectDestinationSegue"]) {
+    if([segue.identifier isEqualToString:@"toTimerViewControllerSegue"]) {
         TimerViewController *destinationViewController = segue.destinationViewController;
-        self.journey = [[Journey alloc] init];
         destinationViewController.journey = self.journey;
     }
 }
