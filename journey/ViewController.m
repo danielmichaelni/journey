@@ -128,6 +128,7 @@
             NSString *gender = userData[@"gender"];
             if (gender) {
                 userProfile[@"gender"] = gender;
+                [[PFUser currentUser] setObject:gender forKey:@"gender"];
             }
             
             NSString *birthday = userData[@"birthday"];

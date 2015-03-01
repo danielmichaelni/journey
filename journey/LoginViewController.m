@@ -90,11 +90,9 @@
         } else {
             if (user.isNew) {
                 // new user
-                bool enable = true;
-                /*
-                [[PFUser currentUser] setObject:contacts forKey:@"contactList"];
+                [[PFUser currentUser] setValue:[NSNumber numberWithBool:YES] forKey:@"enableEmails"];
+                [[PFUser currentUser] setValue:[NSNumber numberWithBool:YES]  forKey:@"enableTexts"];
                 [[PFUser currentUser] saveInBackground];
-                 */
             } else {
                 // logged in back
             }

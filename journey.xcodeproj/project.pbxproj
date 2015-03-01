@@ -168,19 +168,10 @@
 		562A9CDB1AA17D7800BDEBA6 = {
 			isa = PBXGroup;
 			children = (
-				563301AF1AA245D2009CF7BF /* OpenGLES.framework */,
-				563301AD1AA245C3009CF7BF /* libicucore.dylib */,
-				563301AB1AA245BC009CF7BF /* libc++.dylib */,
-				563301A91AA245B4009CF7BF /* ImageIO.framework */,
-				563301A71AA245AE009CF7BF /* GLKit.framework */,
-				563301A51AA245A2009CF7BF /* CoreText.framework */,
-				563301A31AA24596009CF7BF /* CoreData.framework */,
-				563301A11AA24590009CF7BF /* AVFoundation.framework */,
-				5633019F1AA24540009CF7BF /* GoogleMaps.bundle */,
-				5633019D1AA24522009CF7BF /* GoogleMaps.framework */,
 				562A9CE61AA17D7800BDEBA6 /* journey */,
 				562A9D001AA17D7900BDEBA6 /* journeyTests */,
 				562A9CE51AA17D7800BDEBA6 /* Products */,
+				A40A64971AA2C32300A91BC4 /* frameworks */,
 				A40F497E1AA17F2900D96183 /* parse-library-1.6.3 */,
 			);
 			sourceTree = "<group>";
@@ -250,6 +241,23 @@
 				562A9D021AA17D7900BDEBA6 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A40A64971AA2C32300A91BC4 /* frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				563301AF1AA245D2009CF7BF /* OpenGLES.framework */,
+				563301AD1AA245C3009CF7BF /* libicucore.dylib */,
+				563301AB1AA245BC009CF7BF /* libc++.dylib */,
+				563301A91AA245B4009CF7BF /* ImageIO.framework */,
+				563301A71AA245AE009CF7BF /* GLKit.framework */,
+				563301A51AA245A2009CF7BF /* CoreText.framework */,
+				563301A31AA24596009CF7BF /* CoreData.framework */,
+				563301A11AA24590009CF7BF /* AVFoundation.framework */,
+				5633019F1AA24540009CF7BF /* GoogleMaps.bundle */,
+				5633019D1AA24522009CF7BF /* GoogleMaps.framework */,
+			);
+			name = frameworks;
 			sourceTree = "<group>";
 		};
 		A40F497E1AA17F2900D96183 /* parse-library-1.6.3 */ = {
