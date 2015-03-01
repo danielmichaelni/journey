@@ -138,7 +138,7 @@
                 MKDirections *directions = [[MKDirections alloc] initWithRequest:request];
                 
                 [directions calculateDirectionsWithCompletionHandler:^(MKDirectionsResponse *response, NSError *error) {
-                    if ( ! error && [response routes] > 0) {
+                    if ( !error && [response routes] > 0) {
                         MKRoute *route = [[response routes] objectAtIndex:0];
                         
                         NSLog(@"Distance: %f; Time: %f", route.distance, route.expectedTravelTime);
