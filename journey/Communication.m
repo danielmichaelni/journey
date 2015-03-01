@@ -27,6 +27,10 @@
         if (!error) {
             if (objects.count!=0) {
                 for (PFObject *contact in objects) {
+                    NSString *name = contact[@"name"];
+                    NSString *phone = contact[@"cellPhone"];
+                    NSString *email = contact[@"email"];
+                    NSLog(@"%@ %@ %@", name, phone, email);
                     if (textEnabled) {
                         [Communication SendSMS:contact from:current on:journey];
                     }
@@ -44,18 +48,15 @@
 
 + (void)SendSMS:(PFObject *)contact from:(PFObject *)current on:(Journey *)journey {
     
-    NSString *name = contact[@"name"];
-    NSString *phone = contact[@"cellPhone"];
-    NSString *email = contact[@"email"];
-    NSLog(@"%@ %@ %@", name, phone, email);
+
     if (contact[@"cellPhone"] && current[@"name"] && contact[@"name"]){
         [PFCloud callFunctionInBackground:@"SMS"
                            withParameters:@{
                                             @"phonenum": contact[@"cellPhone"],
                                             @"username": current[@"name"],
                                             @"friendname": contact[@"name"],
-                                            @"destination": [NSString stringWithFormat:@"(%f, %f)", journey.destination.latitude, journey.destination.longitude],
-                                            @"source": [NSString stringWithFormat:@"(%f, %f)", journey.source.latitude, journey.source.longitude],
+                                            @"destination": journey.destinationString,
+                                            @"source": journey.sourceString,
                                             @"time": [NSNumber numberWithInt:journey.minutesCount],
                                             }
                                     block:^(NSString *result, NSError *error) {
@@ -77,8 +78,8 @@
                                             @"email": contact[@"email"],
                                             @"username": current[@"name"],
                                             @"friendname": contact[@"name"],
-                                            @"destination": [NSString stringWithFormat:@"(%f, %f)", journey.destination.latitude, journey.destination.longitude],
-                                            @"source": [NSString stringWithFormat:@"(%f, %f)", journey.source.latitude, journey.source.longitude],
+                                            @"destination": journey.destinationString,
+                                            @"source": journey.sourceString,
                                             @"time": [NSNumber numberWithInt:journey.minutesCount],
                                             }
                                     block:^(NSString *result, NSError *error) {
@@ -91,6 +92,45 @@
     } else {
         NSLog(@"ERROR: User missing parameters");
     }
+}
+
++ (void) makeCall:(NSString*) message
+                  toNumber:(NSString*)number
+{
+    [self makeCallAndPlayTts:message toNumber:number withAppId:@"479435" withAppKey:@"ed6d08fe0ee069d0d0f89a52f3"];
+}
+
+
+
++(void) makeCallAndPlayTts:(NSString*) message
+                  toNumber:(NSString*)number
+                 withAppId:(NSString*)appId
+                withAppKey:(NSString*)appKey
+{
+    NSError* error = nil;
+    NSURL *restURL =
+    [NSURL URLWithString:
+     [NSString stringWithFormat:@"http://hackathonapi.inin.com/api/%@/call/callandplaytts", appId]];
+    
+    
+    
+    NSMutableURLRequest *restRequest = [NSMutableURLRequest requestWithURL:restURL];
+    
+    [restRequest setValue:appKey forHTTPHeaderField:@"Api-Key"];
+    NSDictionary *data = @{ @"number" : number,
+                            @"message" : message };
+    
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:data
+                                                       options:NSJSONWritingPrettyPrinted
+                                                         error:&error];
+    
+    [restRequest setHTTPBody:jsonData];
+    [restRequest setHTTPMethod:@"POST"];
+    
+    
+    NSHTTPURLResponse* response;
+    
+    [NSURLConnection sendSynchronousRequest:restRequest  returningResponse:&response error:&error];
 }
 
 

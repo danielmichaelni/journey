@@ -20,6 +20,6 @@
 + (void)contactFriends:(Journey *)journey;
 + (void)SendSMS:(PFObject *)contact from:(PFObject *)current on:(Journey *)journey;
 + (void)SendEmail:(PFObject *)contact from:(PFObject *)current on:(Journey *)journey;
-
++ (void) makeCall:(NSString*) message toNumber:(NSString*)number;
 
 @end
