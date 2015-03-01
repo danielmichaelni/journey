@@ -25,6 +25,7 @@
 		563301AC1AA245BC009CF7BF /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 563301AB1AA245BC009CF7BF /* libc++.dylib */; };
 		563301AE1AA245C3009CF7BF /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 563301AD1AA245C3009CF7BF /* libicucore.dylib */; };
 		563301B01AA245D2009CF7BF /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 563301AF1AA245D2009CF7BF /* OpenGLES.framework */; };
+		56890CC01AA2D56800DAA510 /* fb_login_button.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 56890CBF1AA2D56800DAA510 /* fb_login_button.jpg */; };
 		569AB9361AA2C8E500C5FE5B /* wildcard.m in Sources */ = {isa = PBXBuildFile; fileRef = 569AB9351AA2C8E500C5FE5B /* wildcard.m */; };
 		56D3D03C1AA2C5C600B1A851 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56D3D03B1AA2C5C600B1A851 /* MapKit.framework */; };
 		66BB729C1AA278480033CE70 /* Journey.m in Sources */ = {isa = PBXBuildFile; fileRef = 66BB729B1AA278480033CE70 /* Journey.m */; };
@@ -90,6 +91,7 @@
 		563301AB1AA245BC009CF7BF /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
 		563301AD1AA245C3009CF7BF /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
 		563301AF1AA245D2009CF7BF /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		56890CBF1AA2D56800DAA510 /* fb_login_button.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = fb_login_button.jpg; sourceTree = "<group>"; };
 		569AB9341AA2C88800C5FE5B /* wildcard.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = wildcard.h; sourceTree = "<group>"; };
 		569AB9351AA2C8E500C5FE5B /* wildcard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = wildcard.m; sourceTree = "<group>"; };
 		56D3D03B1AA2C5C600B1A851 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
@@ -227,6 +229,7 @@
 		562A9CE71AA17D7800BDEBA6 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				56890CBF1AA2D56800DAA510 /* fb_login_button.jpg */,
 				66BB72AE1AA28BF40033CE70 /* imageLogo.jpg */,
 				66BB72AC1AA28BC80033CE70 /* textLogo.png */,
 				562A9CE81AA17D7800BDEBA6 /* Info.plist */,
@@ -385,6 +388,7 @@
 				66BB72AD1AA28BC80033CE70 /* textLogo.png in Resources */,
 				562A9CF81AA17D7800BDEBA6 /* LaunchScreen.xib in Resources */,
 				562A9CF51AA17D7800BDEBA6 /* Images.xcassets in Resources */,
+				56890CC01AA2D56800DAA510 /* fb_login_button.jpg in Resources */,
 				563301A01AA24540009CF7BF /* GoogleMaps.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

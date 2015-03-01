@@ -54,14 +54,29 @@
     
     self.mapView.showsUserLocation = YES;
     
+    
+//    UIPanGestureRecognizer* panRec = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(didDragMap:)];
+//    [panRec setDelegate:self];
+//    [self.mapView addGestureRecognizer:panRec];
+//    
+    
     WildcardGestureRecognizer *tapInterceptor = [[WildcardGestureRecognizer alloc] init];
     tapInterceptor.touchesBeganCallback = ^(NSSet * touches, UIEvent * event) {
-        NSLog(@"Touch.");
+        NSArray *array = [touches allObjects];
+        if (array.count == 1) {
+            UITouch *touch = array.lastObject;
+            if (touch.tapCount == 2) {
+                // NSLog(@"DOUBLE");
+                CLLocationCoordinate2D coord = [self.mapView convertPoint:[touch locationInView:self.mapView] toCoordinateFromView:self.view];
+                NSLog(@"%f, %f", coord.latitude, coord.longitude);
+            }
+        }
     };
     [self.mapView addGestureRecognizer:tapInterceptor];
     
     
 }
+
 
 - (void)contactFriends
 {
