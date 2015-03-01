@@ -134,7 +134,7 @@ static BOOL is_cancelled;
             [alert show];
         } else {
             NSLog(@"Inside of radius.");
-            [self performSegueWithIdentifier:@"success" sender:self];
+            [self performSegueWithIdentifier:@"toSuccessViewControllerSegue" sender:self];
         }
   
         NSLog(@"time expired");
@@ -155,7 +155,7 @@ static BOOL is_cancelled;
     if (buttonIndex == 0) {
         // cancel button
         NSLog(@"Cancelled!");
-        [self performSegueWithIdentifier:@"success" sender:self];
+        [self performSegueWithIdentifier:@"toSuccessViewControllerSegue" sender:self];
     } else if (buttonIndex == 1) {
         // Yes
         NSLog(@"send messages!");
