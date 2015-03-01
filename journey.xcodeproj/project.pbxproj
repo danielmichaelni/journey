@@ -230,8 +230,8 @@
 				562A9CF41AA17D7800BDEBA6 /* Images.xcassets */,
 				562A9CF61AA17D7800BDEBA6 /* LaunchScreen.xib */,
 				562A9CE71AA17D7800BDEBA6 /* Supporting Files */,
-				1885DEE11AA20DA6005AE98A /* Communication.m */,
 				1885DEE31AA20DB6005AE98A /* Communication.h */,
+				1885DEE11AA20DA6005AE98A /* Communication.m */,
 			);
 			path = journey;
 			sourceTree = "<group>";

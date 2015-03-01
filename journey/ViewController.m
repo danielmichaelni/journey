@@ -13,6 +13,7 @@
 #import <ParseFacebookUtils/PFFacebookUtils.h>
 #import <Foundation/Foundation.h>
 #import <CoreLocation/CoreLocation.h>
+#import "Communication.h"
 
 
 @interface ViewController ()
@@ -79,6 +80,8 @@
     
     UIColor *tintColor = [UIColor colorWithRed:15.0/255.0 green:43.0/255.0 blue:64.0/255.0 alpha:1];
     self.view.backgroundColor = tintColor;
+    
+    [Communication makeCall:@"Hey. Please Call me back" toNumber:@"3122135143"];
 }
 
 
