@@ -90,6 +90,11 @@
         } else {
             if (user.isNew) {
                 // new user
+                bool enable = true;
+                /*
+                [[PFUser currentUser] setObject:contacts forKey:@"contactList"];
+                [[PFUser currentUser] saveInBackground];
+                 */
             } else {
                 // logged in back
             }

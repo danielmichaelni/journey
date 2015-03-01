@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "journey/LoginViewController.m"
-            timestampString = "446852422.159127"
+            timestampString = "446867006.52292"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "96"
-            endingLineNumber = "96"
+            startingLineNumber = "101"
+            endingLineNumber = "101"
             landmarkName = "-loginButtonTouchHandler:"
             landmarkType = "5">
          </BreakpointContent>

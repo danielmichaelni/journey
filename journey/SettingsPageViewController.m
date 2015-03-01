@@ -21,7 +21,11 @@
 @implementation SettingsPageViewController
 
 
-
+-(void)viewDidLoad
+{
+    [super viewDidLoad];
+    [self _updateProfileData];
+}
 
 
 // Set received values if they are not nil and reload the table
@@ -50,6 +54,8 @@
 }
 
 
-- (IBAction)saveChanges:(id)sender {
+- (IBAction)saveChanges:(id)sender
+{
+    //self.enableEmails
 }
 @end
