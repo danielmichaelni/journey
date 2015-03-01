@@ -19,7 +19,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.hidesBackButton = YES;
-    // Do any additional setup after loading the view.
+    self.finishJourneyOutlet.font = [UIFont fontWithName:@"Hero-Light" size:20];
     
     self.secondsCount = self.journey.minutesCount * 60;
     
@@ -28,7 +28,7 @@
     
     NSString *timerOutput = [NSString stringWithFormat:@"%2d:%02d", minutes, seconds];
     self.timeLabel.text = timerOutput;
-    self.timeLabel.font = [UIFont fontWithName:@"Hero-Light" size:50];
+    self.timeLabel.font = [UIFont fontWithName:@"Hero-Light" size:80];
     
     self.countDownTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(timerRun) userInfo:nil repeats:YES];
     

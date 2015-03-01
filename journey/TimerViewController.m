@@ -24,6 +24,9 @@
     NSLog(@"source: <%f, %f>", self.journey.source.latitude, self.journey.source.longitude);
     NSLog(@"destination: <%f, %f>", self.journey.destination.latitude, self.journey.destination.longitude);
 
+    self.timeInstructionLabel.font = [UIFont fontWithName:@"Hero-Light" size:20];
+    self.startJourneyOutlet.font = [UIFont fontWithName:@"Hero-Light" size:20];
+    
     _pickerData = [NSMutableArray array];
     for(int i = 1; i < 61; i++) {
         [_pickerData addObject:[NSString stringWithFormat:@"%d",i]];
@@ -65,12 +68,12 @@
 //[NSTimer scheduledTimerWithTimeInterval:time target:self selector:@selector(timeExpired:) userInfo:nil repeats:NO];
 
 
-- (void)timeExpired:(NSTimer *)timer {
-    NSLog(@"Timer expired");
+- (IBAction)startJourneyButton:(UIButton *)sender {
+    [self performSegueWithIdentifier:@"toCountDownViewControllerSegue" sender:self];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if([segue.identifier isEqualToString:@"startJourneySegue"]) {
+    if([segue.identifier isEqualToString:@"toCountDownViewControllerSegue"]) {
         CountDownViewController *destinationViewController = segue.destinationViewController;
         
         NSInteger row = [self.picker selectedRowInComponent:0];
