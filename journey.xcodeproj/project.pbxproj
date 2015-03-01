@@ -25,14 +25,15 @@
 		563301AC1AA245BC009CF7BF /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 563301AB1AA245BC009CF7BF /* libc++.dylib */; };
 		563301AE1AA245C3009CF7BF /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 563301AD1AA245C3009CF7BF /* libicucore.dylib */; };
 		563301B01AA245D2009CF7BF /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 563301AF1AA245D2009CF7BF /* OpenGLES.framework */; };
-		56890CC01AA2D56800DAA510 /* fb_login_button.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 56890CBF1AA2D56800DAA510 /* fb_login_button.jpg */; };
 		569AB9361AA2C8E500C5FE5B /* wildcard.m in Sources */ = {isa = PBXBuildFile; fileRef = 569AB9351AA2C8E500C5FE5B /* wildcard.m */; };
 		56D3D03C1AA2C5C600B1A851 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56D3D03B1AA2C5C600B1A851 /* MapKit.framework */; };
+		668251631AA2DABB00AD28E3 /* CountDownViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 668251621AA2DABB00AD28E3 /* CountDownViewController.m */; };
 		66BB729C1AA278480033CE70 /* Journey.m in Sources */ = {isa = PBXBuildFile; fileRef = 66BB729B1AA278480033CE70 /* Journey.m */; };
 		66BB729F1AA278520033CE70 /* TimerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 66BB729E1AA278520033CE70 /* TimerViewController.m */; };
 		66BB72AD1AA28BC80033CE70 /* textLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 66BB72AC1AA28BC80033CE70 /* textLogo.png */; };
 		66BB72AF1AA28BF40033CE70 /* imageLogo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 66BB72AE1AA28BF40033CE70 /* imageLogo.jpg */; };
 		A40A64961AA293D500A91BC4 /* SettingsPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A40A64951AA293D500A91BC4 /* SettingsPageViewController.m */; };
+		A40A64991AA2CC2900A91BC4 /* fb_login_button.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A40A64981AA2CC2900A91BC4 /* fb_login_button.jpg */; };
 		A40F49841AA17F2900D96183 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A40F497F1AA17F2900D96183 /* Bolts.framework */; };
 		A40F49851AA17F2900D96183 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A40F49801AA17F2900D96183 /* Parse.framework */; };
 		A40F49861AA17F2900D96183 /* ParseCrashReporting.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A40F49811AA17F2900D96183 /* ParseCrashReporting.framework */; };
@@ -91,10 +92,11 @@
 		563301AB1AA245BC009CF7BF /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
 		563301AD1AA245C3009CF7BF /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
 		563301AF1AA245D2009CF7BF /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
-		56890CBF1AA2D56800DAA510 /* fb_login_button.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = fb_login_button.jpg; sourceTree = "<group>"; };
 		569AB9341AA2C88800C5FE5B /* wildcard.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = wildcard.h; sourceTree = "<group>"; };
 		569AB9351AA2C8E500C5FE5B /* wildcard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = wildcard.m; sourceTree = "<group>"; };
 		56D3D03B1AA2C5C600B1A851 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		668251611AA2DABB00AD28E3 /* CountDownViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CountDownViewController.h; sourceTree = "<group>"; };
+		668251621AA2DABB00AD28E3 /* CountDownViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CountDownViewController.m; sourceTree = "<group>"; };
 		66BB729A1AA278480033CE70 /* Journey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Journey.h; sourceTree = "<group>"; };
 		66BB729B1AA278480033CE70 /* Journey.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Journey.m; sourceTree = "<group>"; };
 		66BB729D1AA278520033CE70 /* TimerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimerViewController.h; sourceTree = "<group>"; };
@@ -103,6 +105,7 @@
 		66BB72AE1AA28BF40033CE70 /* imageLogo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = imageLogo.jpg; sourceTree = "<group>"; };
 		A40A64941AA293C000A91BC4 /* SettingsPageViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SettingsPageViewController.h; sourceTree = "<group>"; };
 		A40A64951AA293D500A91BC4 /* SettingsPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsPageViewController.m; sourceTree = "<group>"; };
+		A40A64981AA2CC2900A91BC4 /* fb_login_button.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = fb_login_button.jpg; sourceTree = "<group>"; };
 		A40F497F1AA17F2900D96183 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		A40F49801AA17F2900D96183 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		A40F49811AA17F2900D96183 /* ParseCrashReporting.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseCrashReporting.framework; sourceTree = "<group>"; };
@@ -217,6 +220,8 @@
 				562A9CF11AA17D7800BDEBA6 /* Main.storyboard */,
 				A40A64941AA293C000A91BC4 /* SettingsPageViewController.h */,
 				A40A64951AA293D500A91BC4 /* SettingsPageViewController.m */,
+				668251611AA2DABB00AD28E3 /* CountDownViewController.h */,
+				668251621AA2DABB00AD28E3 /* CountDownViewController.m */,
 				562A9CF41AA17D7800BDEBA6 /* Images.xcassets */,
 				562A9CF61AA17D7800BDEBA6 /* LaunchScreen.xib */,
 				562A9CE71AA17D7800BDEBA6 /* Supporting Files */,
@@ -229,7 +234,7 @@
 		562A9CE71AA17D7800BDEBA6 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				56890CBF1AA2D56800DAA510 /* fb_login_button.jpg */,
+				A40A64981AA2CC2900A91BC4 /* fb_login_button.jpg */,
 				66BB72AE1AA28BF40033CE70 /* imageLogo.jpg */,
 				66BB72AC1AA28BC80033CE70 /* textLogo.png */,
 				562A9CE81AA17D7800BDEBA6 /* Info.plist */,
@@ -388,7 +393,7 @@
 				66BB72AD1AA28BC80033CE70 /* textLogo.png in Resources */,
 				562A9CF81AA17D7800BDEBA6 /* LaunchScreen.xib in Resources */,
 				562A9CF51AA17D7800BDEBA6 /* Images.xcassets in Resources */,
-				56890CC01AA2D56800DAA510 /* fb_login_button.jpg in Resources */,
+				A40A64991AA2CC2900A91BC4 /* fb_login_button.jpg in Resources */,
 				563301A01AA24540009CF7BF /* GoogleMaps.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -415,6 +420,7 @@
 				66BB729F1AA278520033CE70 /* TimerViewController.m in Sources */,
 				562A9CF01AA17D7800BDEBA6 /* ViewController.m in Sources */,
 				A4465D0B1AA2316C0066FFE8 /* FriendPickerViewController.m in Sources */,
+				668251631AA2DABB00AD28E3 /* CountDownViewController.m in Sources */,
 				A4465D011AA223E20066FFE8 /* CellPhoneViewController.m in Sources */,
 				562A9CED1AA17D7800BDEBA6 /* AppDelegate.m in Sources */,
 				562A9CEA1AA17D7800BDEBA6 /* main.m in Sources */,

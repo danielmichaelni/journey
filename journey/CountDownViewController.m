@@ -17,11 +17,36 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.secondsCount = self.journey.minutesCount * 60;
+    
+    int minutes = self.secondsCount / 60;
+    int seconds = self.secondsCount % 60;
+    
+    NSString *timerOutput = [NSString stringWithFormat:@"%2d:%02d", minutes, seconds];
+    self.timeLabel.text = timerOutput;
+    
+    self.countDownTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(timerRun) userInfo:nil repeats:YES];
+    
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)timerRun {
+    self.secondsCount -= 1;
+    int minutes = self.secondsCount / 60;
+    int seconds = self.secondsCount % 60;
+    
+    NSString *timerOutput = [NSString stringWithFormat:@"%2d:%2d", minutes, seconds];
+    self.timeLabel.text = timerOutput;
+    
+    if(self.secondsCount == 0) {
+        [self.countDownTimer invalidate];
+        self.countDownTimer = nil;
+        NSLog(@"time expired");
+    }
 }
 
 /*
@@ -34,4 +59,9 @@
 }
 */
 
+- (IBAction)finishJourneyButton:(UIButton *)sender {
+    [self.countDownTimer invalidate];
+    self.countDownTimer = nil;
+    NSLog(@"cancelled timer");
+}
 @end

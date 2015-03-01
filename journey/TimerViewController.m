@@ -7,6 +7,7 @@
 //
 
 #import "TimerViewController.h"
+#import "CountDownViewController.h"
 
 @interface TimerViewController ()
 {
@@ -58,17 +59,24 @@
 }
 */
 
-- (IBAction)startJourneyButton:(UIButton *)sender {
-    NSInteger row = [self.picker selectedRowInComponent:0];
-    NSString *selected = [_pickerData objectAtIndex:row];
-    int time = [selected intValue];
-    [NSTimer scheduledTimerWithTimeInterval:time target:self selector:@selector(timeExpired:) userInfo:nil repeats:NO];
-    
-    
-}
+//[NSTimer scheduledTimerWithTimeInterval:time target:self selector:@selector(timeExpired:) userInfo:nil repeats:NO];
+
 
 - (void)timeExpired:(NSTimer *)timer {
     NSLog(@"Timer expired");
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if([segue.identifier isEqualToString:@"startJourneySegue"]) {
+        CountDownViewController *destinationViewController = segue.destinationViewController;
+        
+        NSInteger row = [self.picker selectedRowInComponent:0];
+        NSString *selected = [_pickerData objectAtIndex:row];
+        int min = [selected intValue];
+        
+        self.journey.minutesCount = min;
+        destinationViewController.journey = self.journey;
+    }
 }
 
 @end

@@ -6,8 +6,17 @@
 //  Copyright (c) 2015 charles. All rights reserved.
 //
 
+#import "Journey.h"
 #import <UIKit/UIKit.h>
 
 @interface CountDownViewController : UIViewController
+
+@property (strong, nonatomic) IBOutlet UILabel *timeLabel;
+
+@property (strong, nonatomic) Journey *journey;
+@property (strong, nonatomic) NSTimer *countDownTimer;
+@property (nonatomic) int secondsCount;
+
+- (IBAction)finishJourneyButton:(UIButton *)sender;
 
 @end

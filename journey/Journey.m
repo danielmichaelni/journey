@@ -16,11 +16,4 @@
     return self;
 }
 
-- (id) initWithDestination:(GMSCameraPosition *)destination andTimer:(NSTimer *)timer {
-    self.destination = destination;
-    self.timer = timer;
-    
-    return self;
-}
-
 @end
