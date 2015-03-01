@@ -6,6 +6,8 @@
 //  Copyright (c) 2015 charles. All rights reserved.
 //
 
+#import <Parse/Parse.h>
+
 #ifndef journey_Communication_h
 #define journey_Communication_h
 
@@ -14,11 +16,8 @@
 
 @interface Communication : NSObject
 
-+ (void)SendSMS:(NSString *)phone withMessage:(NSString *)message;
-+ (void)SendBulkSMS: (NSMutableArray *)phones withMessage:(NSString *)message;
-+ (void)SendEmail:(NSString *)email withSubject:(NSString *)subject withMessage:(NSString *)message;
-+ (void)SendBulkEmail:(NSMutableArray *)emails withSubject:(NSString *)subject withMessage:(NSString *)message;
-
++ (void)SendSMS:(PFObject *)contact from:(PFObject *)current;
++ (void)SendEmail:(PFObject *)contact from:(PFObject *)current;
 
 
 @end

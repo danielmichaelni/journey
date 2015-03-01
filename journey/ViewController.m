@@ -8,12 +8,12 @@
 
 #import "ViewController.h"
 #import "TimerViewController.h"
+#import "Communication.h"
 
 #import <Parse/Parse.h>
 #import <ParseFacebookUtils/PFFacebookUtils.h>
 #import <Foundation/Foundation.h>
 #import <CoreLocation/CoreLocation.h>
-#import <UIKit/UIKit.h>
 
 
 @interface ViewController ()
@@ -63,19 +63,27 @@
     
 }
 
-- (void)findFriendAndCellPhone
+- (void)contactFriends
 {
+
+    PFObject *current = [PFUser currentUser];
     NSMutableArray *contacts = [[NSMutableArray alloc] init];
-    contacts = [[PFUser currentUser] objectForKey:@"contactList"];
+    contacts = [current objectForKey:@"contactList"];
+    BOOL emailsEnabled = current[@"enableEmails"];
+    BOOL textEnabled = current[@"enableTexts"];
     
     PFQuery *query = [PFUser query];
     [query whereKey:@"facebookId" containedIn:contacts];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
             if (objects.count!=0) {
-                for (PFObject *object in objects) {
-                    //NSLog(@"%@", object.objectId);
-                    NSLog(@"%@", object[@"cellPhone"]);
+                for (PFObject *contact in objects) {
+                    if (textEnabled) {
+                        [Communication SendSMS:contact from:current];
+                    }
+                    if (emailsEnabled) {
+                        [Communication SendEmail:contact from:current];
+                    }
                 }
             }
         } else {
