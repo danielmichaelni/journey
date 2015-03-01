@@ -19,43 +19,49 @@
     NSString *phone = contact[@"cellPhone"];
     NSString *email = contact[@"email"];
     NSLog(@"%@ %@ %@", name, phone, email);
-    
-    [PFCloud callFunctionInBackground:@"SMS"
-                       withParameters:@{
-                                        @"phonenum": contact[@"cellPhone"],
-                                        @"email": contact[@"email"],
-                                        @"username": current[@"name"],
-                                        @"friendname": contact[@"name"],
-                                        @"destination": @"",
-                                        @"source": @"",
-                                        @"time": @"",
+    if (contact[@"cellPhone"] && current[@"name"] && contact[@"name"]){
+        [PFCloud callFunctionInBackground:@"SMS"
+                           withParameters:@{
+                                            @"phonenum": contact[@"cellPhone"],
+                                            @"username": current[@"name"],
+                                            @"friendname": contact[@"name"],
+                                            @"destination": @"",
+                                            @"source": @"",
+                                            @"time": @"",
+                                            }
+                                    block:^(NSString *result, NSError *error) {
+                                        if (error) {
+                                            NSLog(@"ERROR: %@",error);
+                                        } else {
+                                            NSLog(@"%@ [%@]", result, contact[@"cellPhone"]);
                                         }
-                                block:^(NSString *result, NSError *error) {
-                                    if (error) {
-                                        NSLog(@"ERROR: %@",error);
-                                    } else {
-                                        NSLog(@"%@ [%@]", result, contact[@"cellPhone"]);
-                                    }
-                                }];
+                                    }];
+    } else {
+        NSLog(@"ERROR: User missing parameters");
+    }
+
 }
 + (void)SendEmail:(PFObject *)contact from:(PFObject *)current {
-    [PFCloud callFunctionInBackground:@"Email"
-                       withParameters:@{
-                                        @"phonenum": contact[@"cellPhone"],
-                                        @"email": contact[@"email"],
-                                        @"username": current[@"name"],
-                                        @"friendname": contact[@"name"],
-                                        @"destination": @"",
-                                        @"source": @"",
-                                        @"time": @"",
+    if (contact[@"email"] && current[@"name"] && contact[@"name"]){
+        [PFCloud callFunctionInBackground:@"Email"
+                           withParameters:@{
+                                            @"email": contact[@"email"],
+                                            @"username": current[@"name"],
+                                            @"friendname": contact[@"name"],
+                                            @"destination": @"",
+                                            @"source": @"",
+                                            @"time": @"",
+                                            }
+                                    block:^(NSString *result, NSError *error) {
+                                        if (error) {
+                                            NSLog(@"ERROR: %@",error);
+                                        } else {
+                                            NSLog(@"%@ [%@]", result, contact[@"email"]);
                                         }
-                                block:^(NSString *result, NSError *error) {
-                                    if (error) {
-                                        NSLog(@"ERROR: %@",error);
-                                    } else {
-                                        NSLog(@"%@ [%@]", result, contact[@"email"]);
-                                    }
-                                }];
+                                    }];
+    } else {
+        NSLog(@"ERROR: User missing parameters");
+    }
 }
 
 

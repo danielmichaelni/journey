@@ -54,13 +54,13 @@
     self.view.autoresizesSubviews = YES;
     
     [self _loadData];
-    if (NO){
+    if (YES){
         [self contactFriends];
     }
 
 }
 
-- (void)contactFriends
+- (void)contactFriends //pass in destination, source loc, and time
 {
 
     PFObject *current = [PFUser currentUser];
@@ -76,10 +76,10 @@
             if (objects.count!=0) {
                 for (PFObject *contact in objects) {
                     if (textEnabled) {
-                        [Communication SendSMS:contact from:current];
+                        [Communication SendSMS:contact from:current];//pass in destination, source loc, and time
                     }
                     if (emailsEnabled) {
-                        [Communication SendEmail:contact from:current];
+                        [Communication SendEmail:contact from:current];//pass in destination, source loc, and time
                     }
                 }
             }
