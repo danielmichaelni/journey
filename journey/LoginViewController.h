@@ -22,9 +22,8 @@
 #import <UIKit/UIKit.h>
 
 @interface LoginViewController : UIViewController
+@property (strong, nonatomic) IBOutlet UILabel *logoLabel;
 @property (strong, nonatomic) IBOutlet UIButton *loginWithFacebook;
-
-@property (strong, nonatomic) IBOutlet UIImageView *textLogoImageView;
 
 - (IBAction)loginButtonTouchHandler:(id)sender;
 

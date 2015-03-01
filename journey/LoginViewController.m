@@ -31,17 +31,11 @@
 @implementation LoginViewController
 
 - (void)viewDidLoad {
-    
-    for (NSString* family in [UIFont familyNames])
-    {
-        NSLog(@"%@", family);
-        
-        for (NSString* name in [UIFont fontNamesForFamilyName: family])
-        {
-            NSLog(@"  %@", name);
-        }
-    }
     [super viewDidLoad];
+    
+    self.logoLabel.font = [UIFont fontWithName:@"Hero-Light" size:30.0];
+    
+    
     /*
     UIImage *textLogoImage = [UIImage imageNamed:@"textLogo.png"];
     CGFloat width = [[UIScreen mainScreen] bounds].size.width;

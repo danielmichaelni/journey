@@ -30,12 +30,10 @@
 		668251631AA2DABB00AD28E3 /* CountDownViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 668251621AA2DABB00AD28E3 /* CountDownViewController.m */; };
 		668251661AA2F3D100AD28E3 /* nevis.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 668251651AA2F3D100AD28E3 /* nevis.ttf */; };
 		668251681AA2FAA900AD28E3 /* Hero Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 668251671AA2FA6600AD28E3 /* Hero Light.otf */; };
+		6682516A1AA30C9300AD28E3 /* fb_login_button.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 668251691AA30C9300AD28E3 /* fb_login_button.jpg */; };
 		66BB729C1AA278480033CE70 /* Journey.m in Sources */ = {isa = PBXBuildFile; fileRef = 66BB729B1AA278480033CE70 /* Journey.m */; };
 		66BB729F1AA278520033CE70 /* TimerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 66BB729E1AA278520033CE70 /* TimerViewController.m */; };
-		66BB72AD1AA28BC80033CE70 /* textLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 66BB72AC1AA28BC80033CE70 /* textLogo.png */; };
-		66BB72AF1AA28BF40033CE70 /* imageLogo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 66BB72AE1AA28BF40033CE70 /* imageLogo.jpg */; };
 		A40A64961AA293D500A91BC4 /* SettingsPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A40A64951AA293D500A91BC4 /* SettingsPageViewController.m */; };
-		A40A64991AA2CC2900A91BC4 /* fb_login_button.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A40A64981AA2CC2900A91BC4 /* fb_login_button.jpg */; };
 		A40F49841AA17F2900D96183 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A40F497F1AA17F2900D96183 /* Bolts.framework */; };
 		A40F49851AA17F2900D96183 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A40F49801AA17F2900D96183 /* Parse.framework */; };
 		A40F49861AA17F2900D96183 /* ParseCrashReporting.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A40F49811AA17F2900D96183 /* ParseCrashReporting.framework */; };
@@ -101,15 +99,13 @@
 		668251621AA2DABB00AD28E3 /* CountDownViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CountDownViewController.m; sourceTree = "<group>"; };
 		668251651AA2F3D100AD28E3 /* nevis.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = nevis.ttf; sourceTree = "<group>"; };
 		668251671AA2FA6600AD28E3 /* Hero Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Hero Light.otf"; sourceTree = "<group>"; };
+		668251691AA30C9300AD28E3 /* fb_login_button.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = fb_login_button.jpg; sourceTree = "<group>"; };
 		66BB729A1AA278480033CE70 /* Journey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Journey.h; sourceTree = "<group>"; };
 		66BB729B1AA278480033CE70 /* Journey.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Journey.m; sourceTree = "<group>"; };
 		66BB729D1AA278520033CE70 /* TimerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimerViewController.h; sourceTree = "<group>"; };
 		66BB729E1AA278520033CE70 /* TimerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimerViewController.m; sourceTree = "<group>"; };
-		66BB72AC1AA28BC80033CE70 /* textLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = textLogo.png; sourceTree = "<group>"; };
-		66BB72AE1AA28BF40033CE70 /* imageLogo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = imageLogo.jpg; sourceTree = "<group>"; };
 		A40A64941AA293C000A91BC4 /* SettingsPageViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SettingsPageViewController.h; sourceTree = "<group>"; };
 		A40A64951AA293D500A91BC4 /* SettingsPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsPageViewController.m; sourceTree = "<group>"; };
-		A40A64981AA2CC2900A91BC4 /* fb_login_button.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = fb_login_button.jpg; sourceTree = "<group>"; };
 		A40F497F1AA17F2900D96183 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		A40F49801AA17F2900D96183 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		A40F49811AA17F2900D96183 /* ParseCrashReporting.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseCrashReporting.framework; sourceTree = "<group>"; };
@@ -239,9 +235,7 @@
 		562A9CE71AA17D7800BDEBA6 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				A40A64981AA2CC2900A91BC4 /* fb_login_button.jpg */,
-				66BB72AE1AA28BF40033CE70 /* imageLogo.jpg */,
-				66BB72AC1AA28BC80033CE70 /* textLogo.png */,
+				668251691AA30C9300AD28E3 /* fb_login_button.jpg */,
 				562A9CE81AA17D7800BDEBA6 /* Info.plist */,
 				562A9CE91AA17D7800BDEBA6 /* main.m */,
 			);
@@ -402,14 +396,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				66BB72AF1AA28BF40033CE70 /* imageLogo.jpg in Resources */,
 				562A9CF31AA17D7800BDEBA6 /* Main.storyboard in Resources */,
 				668251661AA2F3D100AD28E3 /* nevis.ttf in Resources */,
 				668251681AA2FAA900AD28E3 /* Hero Light.otf in Resources */,
-				66BB72AD1AA28BC80033CE70 /* textLogo.png in Resources */,
 				562A9CF81AA17D7800BDEBA6 /* LaunchScreen.xib in Resources */,
 				562A9CF51AA17D7800BDEBA6 /* Images.xcassets in Resources */,
-				A40A64991AA2CC2900A91BC4 /* fb_login_button.jpg in Resources */,
+				6682516A1AA30C9300AD28E3 /* fb_login_button.jpg in Resources */,
 				563301A01AA24540009CF7BF /* GoogleMaps.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
