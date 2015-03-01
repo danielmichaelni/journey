@@ -24,7 +24,6 @@
     [Parse setApplicationId:@"ZpuXzvuAPi4SChpYQEMaMZGFo4VtF9eMZtvBoGzv"
                   clientKey:@"sUrEE1CCtcE6LVCqSni8nXBg69TYeOyt54Aqzn5F"];
     
-    
     [PFFacebookUtils initializeFacebook];
     
     [GMSServices provideAPIKey:@"AIzaSyA967lZf-JIWj8xFX1YqOUQGtW8jqOQu0A"];
