@@ -10,7 +10,7 @@
 #define journey_SettingsPageViewController_h
 #import <UIKit/UIKit.h>
 
-@interface SettingsPageViewController :UIViewController
+@interface SettingsPageViewController :UIViewController <FBFriendPickerDelegate, UISearchBarDelegate>
 @property (strong, nonatomic) IBOutlet UIImageView *profilePhoto;
 
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *saveChanges;

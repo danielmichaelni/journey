@@ -92,10 +92,11 @@
                 [[PFUser currentUser] setValue:[NSNumber numberWithBool:YES] forKey:@"enableEmails"];
                 [[PFUser currentUser] setValue:[NSNumber numberWithBool:YES]  forKey:@"enableTexts"];
                 [[PFUser currentUser] saveInBackground];
+                [self performSegueWithIdentifier:@"loginPhone" sender:self];
             } else {
                 // logged in back
+                [self performSegueWithIdentifier:@"loggedIn" sender:self];
             }
-            [self performSegueWithIdentifier:@"loginPhone" sender:self];
         }
     }];
 }
@@ -103,11 +104,9 @@
 #pragma mark -
 #pragma mark UserDetailsViewController
 
-- (void)_presentUserDetailsViewControllerAnimated:(BOOL)animated {
-    //[self.navigationController pushViewController:initialViewController animated:animated];
-    //[self.navigationController presentViewController:initialViewController animated:false completion:nil];
+- (void)_presentUserDetailsViewControllerAnimated:(BOOL)animated
+{
     [self performSegueWithIdentifier:@"loggedIn" sender:self];
-    
 }
 
 @end
