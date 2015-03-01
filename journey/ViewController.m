@@ -75,13 +75,10 @@
         if (!error) {
             if (objects.count!=0) {
                 for (PFObject *contact in objects) {
-                    NSLog(@"%@", contact[@"name"]);
                     if (textEnabled) {
-                        NSLog(@"HERE",nil);
                         [Communication SendSMS:contact from:current];
                     }
                     if (emailsEnabled) {
-                        NSLog(@"THERE",nil);
                         [Communication SendEmail:contact from:current];
                     }
                 }
