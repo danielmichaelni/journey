@@ -40,6 +40,13 @@
     self.textLogoImageView.contentMode = UIViewContentModeScaleAspectFit;
     [self.view addSubview:self.textLogoImageView];
     [self.textLogoImageView.superview sendSubviewToBack:self.textLogoImageView];
+    
+    
+    UIColor *tintColor = [UIColor colorWithRed:25.0/255.0 green:74.0/255.0 blue:99.0/255.0 alpha:1];
+    [self.navigationController.navigationBar setBarStyle:UIBarStyleDefault];
+    [self.navigationController.navigationBar setBarTintColor:tintColor];
+    [self.navigationController.navigationBar setTranslucent:NO];
+    self.navigationController.navigationBar.tintColor = [UIColor colorWithRed:255.0/255.0 green:255.0/255.0 blue:255.0/255.0 alpha:1];
 }
 
 #pragma mark -
