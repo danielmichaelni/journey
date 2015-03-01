@@ -63,7 +63,6 @@ static BOOL is_cancelled;
     double distance = [loc_a getDistanceFrom:loc_b];
     
     NSLog(@"%f", distance);
-    NSLog(@"%d", self.cancelled);
     
     
 //    NSLog(@"Destination: %f %f\nCurrent: %f %f", self.journey.destination.latitude, self.journey.destination.longitude, locationManager.location.coordinate.latitude, locationManager.location.coordinate.longitude);
