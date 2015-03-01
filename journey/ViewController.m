@@ -34,6 +34,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.instructionLabel.font = [UIFont fontWithName:@"Hero-Light" size:20.0];
+    
     // Add logout navigation bar button
     UIBarButtonItem *logoutButton = [[UIBarButtonItem alloc] initWithTitle:@"Log Out"
                                                                      style:UIBarButtonItemStyleBordered
@@ -68,9 +70,52 @@
             UITouch *touch = array.lastObject;
             if (touch.tapCount == 2) {
                 // NSLog(@"DOUBLE");
-                CLLocationCoordinate2D srcCoord = [[CLLocation alloc] initWithLatitude:12 longitude:12].coordinate;
+                CLLocationCoordinate2D srcCoord = self.locationManager.location.coordinate;
+                
                 CLLocationCoordinate2D dstCoord = [self.mapView convertPoint:[touch locationInView:self.mapView] toCoordinateFromView:self.view];
                 self.journey = [[Journey alloc] initWithSource:srcCoord andDestination:dstCoord];
+                
+                
+                // Convert Coordinate to Address
+                
+                CLGeocoder *geocoder = [[CLGeocoder alloc] init];
+                CLGeocoder *geocoder2 = [[CLGeocoder alloc] init];
+                
+                
+                // Initialize Locations
+                
+                CLLocation *dstLoc = [[CLLocation alloc] initWithCoordinate:dstCoord altitude:0 horizontalAccuracy:100 verticalAccuracy:100 course:0 speed:0 timestamp:0];//self.locationManager.location; //
+                
+                CLLocation *srcLoc = [[CLLocation alloc] initWithCoordinate:srcCoord altitude:0 horizontalAccuracy:100 verticalAccuracy:100 course:0 speed:0 timestamp:0];
+                
+                
+
+                // Print Locations
+                
+
+                
+                [geocoder reverseGeocodeLocation:dstLoc completionHandler:^(NSArray *placemarks, NSError *error) {
+                    if (placemarks && placemarks.count > 0) {
+                        CLPlacemark *placemark = [placemarks objectAtIndex:0];
+                        NSString *address = [NSString stringWithFormat:@"%@ %@ %@ %@", [placemark subThoroughfare], [placemark thoroughfare], [placemark locality], [placemark administrativeArea]];
+                        NSLog(@"Destination: %@",address);
+                        self.journey.destinationString = address;
+                    }
+                }];
+                
+                [geocoder2 reverseGeocodeLocation:srcLoc completionHandler:^(NSArray *placemarks, NSError *error) {
+                    if (placemarks && placemarks.count > 0) {
+                        CLPlacemark *placemark = [placemarks objectAtIndex:0];
+                        NSString *address = [NSString stringWithFormat:@"%@ %@ %@ %@", [placemark subThoroughfare], [placemark thoroughfare], [placemark locality], [placemark administrativeArea]];
+                        NSLog(@"Location: %@",address);
+                        self.journey.sourceString = address;
+                    }
+                }];
+                
+                
+                
+                
+                // Perform Segue
                 [self performSegueWithIdentifier:@"toTimerViewControllerSegue" sender:self];
             }
         }
