@@ -8,6 +8,7 @@
 
 #import "CountDownViewController.h"
 #import "Communication.h"
+#import <math.h>
 
 @interface CountDownViewController ()
 
@@ -43,6 +44,15 @@
     int minutes = self.secondsCount / 60;
     int seconds = self.secondsCount % 60;
     
+    
+    
+
+//    NSLog(@"%f",[[[CLLocation alloc] initWithCoordinate:self.journey.destination altitude:0 horizontalAccuracy:0 verticalAccuracy:100 course:0 speed:0 timestamp:0]  distanceFromLocation:self.journey.locationManager.location]);
+
+
+    
+    
+    
     NSString *timerOutput = [NSString stringWithFormat:@"%2d:%02d", minutes, seconds];
     self.timeLabel.text = timerOutput;
     
@@ -50,8 +60,19 @@
         [self.countDownTimer invalidate];
         self.countDownTimer = nil;
         
-        if (YES){ //TODO: check GEOLOCATION
+        double distancex = pow((self.journey.destination.latitude - self.journey.locationManager.location.coordinate.latitude), 2);
+        double distancey = pow((self.journey.destination.latitude - self.journey.locationManager.location.coordinate.latitude), 2);
+        
+        double distance = sqrt((distancex + distancey));
+        
+        NSLog(@"Dist:%f", distance);
+        
+        if (distance > 75) {
+            NSLog(@"Outside of radius.");
+            
             [Communication contactFriends:self.journey];
+        } else {
+            NSLog(@"Inside of radius.");
         }
   
         NSLog(@"time expired");

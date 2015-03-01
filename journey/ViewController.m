@@ -57,6 +57,8 @@
     
     self.mapView.showsUserLocation = YES;
     
+    self.journey.locationManager = self.locationManager;
+    
     // Set Map to current location.
     
     MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(self.locationManager.location.coordinate, 600, 600);
