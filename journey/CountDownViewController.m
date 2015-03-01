@@ -45,13 +45,46 @@
     int seconds = self.secondsCount % 60;
     
     
+    
+    // DON"T FORGET THIS PARRT!!!!!
+    
+    CLLocationManager *locationManager = [[CLLocationManager alloc] init];
+    
+    locationManager.delegate = self;
+    
+    [locationManager requestAlwaysAuthorization];
+    
+    
+    CLLocation *loc_a = [[CLLocation alloc] initWithLatitude:self.journey.destination.latitude longitude:self.journey.destination.longitude];
+    CLLocation *loc_b = [[CLLocation alloc] initWithLatitude:locationManager.location.coordinate.latitude longitude:locationManager.location.coordinate.longitude];
+    
+    
+    double distance = [loc_a getDistanceFrom:loc_b];
+    
+    NSLog(@"%f", distance);
+    
+    
+//    NSLog(@"Destination: %f %f\nCurrent: %f %f", self.journey.destination.latitude, self.journey.destination.longitude, locationManager.location.coordinate.latitude, locationManager.location.coordinate.longitude);
+    
+    
+    
+    
+    
+    
+    // CHECKING IF AT HOME
     if (!seconds) {
-        double distancex = pow((self.journey.destination.latitude - self.journey.locationManager.location.coordinate.latitude), 2);
-        double distancey = pow((self.journey.destination.latitude - self.journey.locationManager.location.coordinate.latitude), 2);
+//        double distancex = pow((self.journey.destination.latitude - locationManager.location.coordinate.latitude), 2);
+//        double distancey = pow((self.journey.destination.latitude - locationManager.location.coordinate.latitude), 2);
+//        
+//        double distance = sqrt((distancex + distancey));
         
-        double distance = sqrt((distancex + distancey));
+        CLLocation *loc_a = [[CLLocation alloc] initWithLatitude:self.journey.destination.latitude longitude:self.journey.destination.longitude];
+        CLLocation *loc_b = [[CLLocation alloc] initWithLatitude:locationManager.location.coordinate.latitude longitude:locationManager.location.coordinate.longitude];
         
-        if (distance < 75) {
+        
+        double distance = [loc_a getDistanceFrom:loc_b];
+        
+        if (distance < 550) {
             NSLog(@"You just got home!");
             [self.countDownTimer invalidate];
             self.countDownTimer = nil;
@@ -60,7 +93,7 @@
 
     
     
-    
+    // CHECKING IF LOST
     NSString *timerOutput = [NSString stringWithFormat:@"%2d:%02d", minutes, seconds];
     self.timeLabel.text = timerOutput;
     
@@ -68,14 +101,23 @@
         [self.countDownTimer invalidate];
         self.countDownTimer = nil;
         
-        double distancex = pow((self.journey.destination.latitude - self.journey.locationManager.location.coordinate.latitude), 2);
-        double distancey = pow((self.journey.destination.latitude - self.journey.locationManager.location.coordinate.latitude), 2);
         
-        double distance = sqrt((distancex + distancey));
+//        double distancex = pow((self.journey.destination.latitude - locationManager.location.coordinate.latitude), 2);
+//        double distancey = pow((self.journey.destination.longitude - locationManager.location.coordinate.longitude), 2);
+//        
+//        double distance = sqrt((distancex + distancey));
+//
+        
+        CLLocation *loc_a = [[CLLocation alloc] initWithLatitude:self.journey.destination.latitude longitude:self.journey.destination.longitude];
+        CLLocation *loc_b = [[CLLocation alloc] initWithLatitude:locationManager.location.coordinate.latitude longitude:locationManager.location.coordinate.longitude];
+        
+        
+        double distance = [loc_a getDistanceFrom:loc_b];
+        
         
         NSLog(@"Dist:%f", distance);
         
-        if (distance > 75) {
+        if (distance > 550) {
             NSLog(@"Outside of radius.");
             
             [Communication contactFriends:self.journey];
