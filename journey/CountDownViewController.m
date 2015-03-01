@@ -88,6 +88,8 @@ static BOOL is_cancelled;
                 [self.countDownTimer invalidate];
                 self.countDownTimer = nil;
             }
+            [self performSegueWithIdentifier:@"toSuccessViewControllerSegue" sender:self];
+            return;
         }
     }
 
@@ -96,6 +98,8 @@ static BOOL is_cancelled;
             [self.countDownTimer invalidate];
             self.countDownTimer = nil;
             NSLog(@"timer actually cancelled");
+            [self performSegueWithIdentifier:@"toSuccessViewControllerSegue" sender:self];
+            return;
         }
     }
     
