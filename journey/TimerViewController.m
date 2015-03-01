@@ -35,7 +35,7 @@
     self.picker.dataSource = self;
     self.picker.delegate = self;
     
-    [self.picker selectRow:15 inComponent:0 animated:NO];
+    [self.picker selectRow:14 inComponent:0 animated:NO];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -67,10 +67,6 @@
 
 //[NSTimer scheduledTimerWithTimeInterval:time target:self selector:@selector(timeExpired:) userInfo:nil repeats:NO];
 
-
-- (IBAction)startJourneyButton:(UIButton *)sender {
-    [self performSegueWithIdentifier:@"toCountDownViewControllerSegue" sender:self];
-}
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if([segue.identifier isEqualToString:@"toCountDownViewControllerSegue"]) {

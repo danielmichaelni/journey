@@ -16,8 +16,6 @@
 
 - (IBAction)pickFriendsButtonClick:(id)sender;
 @property (strong, nonatomic) IBOutlet UIButton *friendPickerButton;
-@property (strong, nonatomic) IBOutlet UITextField *addEmailTextField;
-@property (strong, nonatomic) IBOutlet UITextField *addPhoneTextField;
 
 @end
 

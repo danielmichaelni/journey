@@ -90,6 +90,9 @@ static BOOL is_cancelled;
                 self.countDownTimer = nil;
             }
             [self performSegueWithIdentifier:@"toSuccessViewControllerSegue" sender:self];
+            [cancelled_lock lock];
+            is_cancelled = NO;
+            [cancelled_lock unlock];
             return;
         }
     }
@@ -100,6 +103,9 @@ static BOOL is_cancelled;
             self.countDownTimer = nil;
             NSLog(@"timer actually cancelled");
             [self performSegueWithIdentifier:@"toSuccessViewControllerSegue" sender:self];
+            [cancelled_lock lock];
+            is_cancelled = NO;
+            [cancelled_lock unlock];
             return;
         }
     }
@@ -172,10 +178,10 @@ static BOOL is_cancelled;
     [cancelled_lock lock];
     is_cancelled = YES;
     [cancelled_lock unlock];
-    if(self.countDownTimer) {
-        [self.countDownTimer invalidate];
-        self.countDownTimer = nil;
-        NSLog(@"cancelled timer %d");
-    }
+//    if(self.countDownTimer) {
+//        [self.countDownTimer invalidate];
+//        self.countDownTimer = nil;
+//        NSLog(@"cancelled timer %d");
+//    }
 }
 @end
