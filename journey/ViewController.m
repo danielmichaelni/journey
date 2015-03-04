@@ -117,7 +117,7 @@
                 [geocoder reverseGeocodeLocation:dstLoc completionHandler:^(NSArray *placemarks, NSError *error) {
                     if (placemarks && placemarks.count > 0) {
                         CLPlacemark *placemark = [placemarks objectAtIndex:0];
-                        NSString *address = [NSString stringWithFormat:@"%@ %@ %@ %@", [placemark subThoroughfare] ? [placemark subThoroughfare] : @"" , [placemark thoroughfare] ? [placemark thoroughfare] : @"", [placemark locality], [placemark administrativeArea]];
+                        NSString *address = [NSString stringWithFormat:@"%@ %@ %@ %@", [placemark subThoroughfare] ? [placemark subThoroughfare] : @"" , [placemark thoroughfare] ? [placemark thoroughfare] : @"", [placemark locality] ? [placemark locality] : @"", [placemark administrativeArea] ? [placemark administrativeArea] : @"the location"];
                         NSLog(@"Destination: %@",address);
                         self.journey.destinationString = address;
                         
@@ -132,7 +132,7 @@
                 [geocoder2 reverseGeocodeLocation:srcLoc completionHandler:^(NSArray *placemarks, NSError *error) {
                     if (placemarks && placemarks.count > 0) {
                         CLPlacemark *placemark = [placemarks objectAtIndex:0];
-                        NSString *address = [NSString stringWithFormat:@"%@ %@ %@ %@", [placemark subThoroughfare] ? [placemark subThoroughfare] : @"" , [placemark thoroughfare] ? [placemark thoroughfare] : @"", [placemark locality], [placemark administrativeArea]];
+                        NSString *address = [NSString stringWithFormat:@"%@ %@ %@ %@", [placemark subThoroughfare] ? [placemark subThoroughfare] : @"" , [placemark thoroughfare] ? [placemark thoroughfare] : @"", [placemark locality] ? [placemark locality] : @"", [placemark administrativeArea] ? [placemark administrativeArea] : @"the location"];
                         NSLog(@"Location: %@", address);//[address isEqualToString:@"  Urbana IL"] ? @"1251–1487 W Springfield Ave Urbana IL" : address );
                         self.journey.sourceString = address;
                         
