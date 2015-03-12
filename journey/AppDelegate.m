@@ -25,8 +25,18 @@
                   clientKey:@"sUrEE1CCtcE6LVCqSni8nXBg69TYeOyt54Aqzn5F"];
     
     [PFFacebookUtils initializeFacebook];
+
+    [PFConfig getConfigInBackgroundWithBlock:^(PFConfig *config, NSError *error) {
+        if (!error){
+            NSString *maps = config[@"AppleMapsAPI"];
+            [GMSServices provideAPIKey:maps];
+        } else {
+            NSLog(@"Error: Getting AppleMapsAPI %@", error);
+        }
+
+    }];
     
-    [GMSServices provideAPIKey:@"AIzaSyA967lZf-JIWj8xFX1YqOUQGtW8jqOQu0A"];
+    
     
     // Handle launching from a notification
     UILocalNotification *locationNotification = [launchOptions objectForKey:UIApplicationLaunchOptionsLocalNotificationKey];
