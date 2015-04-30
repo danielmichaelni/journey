@@ -1,6 +1,7 @@
 var http = require('http');
 var querystring = require('querystring');
 var Buffer = require('buffer').Buffer;
+var moment = require('cloud/moment');
  
 var twilio_cred = require('cloud/config').keys.twilio;
 var mailjet_cred = require('cloud/config').keys.mailjet;
@@ -138,5 +139,32 @@ Parse.Cloud.define("PhoneCall", function(request, response) {
             console.error('Request failed with response code ' + httpResponse.status);
             response.error('Request failed with response code ' + httpResponse.status);
         }
+    });
+});
+
+Parse.Cloud.job("checkJourneys", function(req, status) {
+    Parse.Cloud.useMasterKey();
+    var Journey = Parse.Object.extend("Journey");
+    var query = new Parse.Query(Journey);
+    query.equalTo("active", true);
+    query.each(function(journey) {
+        var duration = journey.get('duration');
+        var start = journey.get('start');
+        
+        var end = moment(start).add(duration,'s');
+        var end_bound = moment(start).add(duration + 60,'s');
+        var now = moment();
+
+        var between = now.isBetween(end,end_bound);
+        //if between == true
+        //push notification to user device
+        //if no response, contact people
+
+        console.log(journey.id + ' - ' + end.format() + ' - ' + end_bound.format() + ' - ' + now.format() + ' - ' + between);
+
+    }).then(function() {
+        status.success("Checked Journeys successfully.");
+    }, function(error) {
+        status.error("Error: " + error.code + " " + error.message);
     });
 });
