@@ -47,7 +47,6 @@
     [self.textLogoImageView.superview sendSubviewToBack:self.textLogoImageView];
     */
     
-    
     UIColor *tintColor = [UIColor colorWithRed:15.0/255.0 green:43.0/255.0 blue:64.0/255.0 alpha:1];
     self.view.backgroundColor = tintColor;
     
