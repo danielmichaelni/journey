@@ -39,6 +39,10 @@ var addGender = function (params) {
 };
    
    
+///////////////////////////
+///// PARSE FUNCTIONS /////
+///////////////////////////
+
 Parse.Cloud.define("SMS", function(request, response) {
     var params = addGender(request.params);
     var phone_num = request.params.phonenum;
@@ -141,33 +145,7 @@ Parse.Cloud.define("PhoneCall", function(request, response) {
         }
     });
 });
-  
-Parse.Cloud.job("checkJourneys", function(req, status) {
-    Parse.Cloud.useMasterKey();
-    var Journey = Parse.Object.extend("Journey");
-    var query = new Parse.Query(Journey);
-    query.equalTo("active", true);
-    query.each(function(journey) {
-        var duration = journey.get('duration');
-        var start = journey.get('start');
-          
-        var end = moment(start).add(duration,'s');
-        var end_bound = moment(start).add(duration + 60,'s');
-        var now = moment();
-  
-        var between = now.isBetween(end,end_bound);
-        //if between == true
-        //push notification to user device
-        //if no response, contact people
-  
-        console.log(journey.id + ' - ' + end.format() + ' - ' + end_bound.format() + ' - ' + now.format() + ' - ' + between);
-  
-    }).then(function() {
-        status.success("Checked Journeys successfully.");
-    }, function(error) {
-        status.error("Error: " + error.code + " " + error.message);
-    });
-});
+
 /*
 Parse.Cloud.define("mailgun", function(request, response) {
     var Mailgun = require('mailgun');
@@ -190,7 +168,6 @@ Parse.Cloud.define("mailgun", function(request, response) {
     });
 });
 */
- 
  
 Parse.Cloud.define("MailGunEmail", function(request, response) {
     var params = request.params;
@@ -230,9 +207,58 @@ Parse.Cloud.define("MailGunEmail", function(request, response) {
     
     }
 });
- 
-  
-Parse.Cloud.define("hello", function(request, response) {
-  response.success("Hello world!");
+
+//Makes Journey.active = false
+Parse.Cloud.define("endJourney", function(request, response) {
+    Parse.Cloud.useMasterKey();
+    var Journey = Parse.Object.extend("Journey");
+    var query = new Parse.Query(Journey);
+
+    query.get(request.params.journeyId, { //Pass in the objectId of the journey
+      success: function(journey) {
+        journey.set("active", false);
+        journey.save(null, {
+            success: function (journey) { response.success("Successfully recorded inactive journey."); },
+            error: function (journey, error) {
+                response.error("Error: " + error.code + " " + error.message);
+            }
+        });
+      },
+      error: function(journey, error) {
+        response.error("Error: " + error.code + " " + error.message);
+      }
+    });
+
+
 });
-   
+
+//////////////////////
+///// PARSE JOBS /////
+//////////////////////
+  
+Parse.Cloud.job("checkJourneys", function(request, repsonse) {
+    Parse.Cloud.useMasterKey();
+    var Journey = Parse.Object.extend("Journey");
+    var query = new Parse.Query(Journey);
+    query.equalTo("active", true);
+    query.each(function(journey) {
+        var duration = journey.get('duration');
+        var start = journey.get('start');
+          
+        var end = moment(start).add(duration,'s');
+        var end_bound = moment(start).add(duration + 60,'s');
+        var now = moment();
+  
+        var between = now.isBetween(end,end_bound);
+        //if between == true
+        //push notification to user device
+        //if no response, contact people
+  
+        console.log(journey.id + ' - ' + end.format() + ' - ' + end_bound.format() + ' - ' + now.format() + ' - ' + between);
+  
+    }).then(function() {
+        repsonse.success("Checked Journeys successfully.");
+    }, function(error) {
+        repsonse.error("Error: " + error.code + " " + error.message);
+    });
+});
