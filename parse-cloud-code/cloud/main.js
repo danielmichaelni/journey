@@ -228,7 +228,27 @@ Parse.Cloud.define("endJourney", function(request, response) {
         response.error("Error: " + error.code + " " + error.message);
       }
     });
+});
 
+Parse.Cloud.define("newJourney", function(request, response) {
+    Parse.Cloud.useMasterKey();
+    var Journey = Parse.Object.extend("Journey");
+    var journey = new Journey();
+
+    journey.set("userID", request.params.user);
+    journey.set("duration", request.params.durations);
+    journey.set("start_location", request.params.start_location);
+    journey.set("destination", request.params.destination);
+
+    journey.set("start", moment());
+    journey.set("active", true);
+
+    journey.save(null, {
+        success: function (journey) { response.success("Successfully recorded journey."); },
+        error: function (journey, error) {
+            response.error("Error: " + error.code + " " + error.message);
+        }
+    });
 
 });
 
