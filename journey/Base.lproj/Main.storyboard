@@ -196,6 +196,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
+                                    <action selector="startJourneyButtonPressed:" destination="Jz7-1h-IVC" eventType="touchUpInside" id="AZ8-jb-PDg"/>
                                     <segue destination="olK-Iz-5Ub" kind="show" identifier="toCountDownViewControllerSegue" id="iL2-h2-5mN"/>
                                 </connections>
                             </button>
