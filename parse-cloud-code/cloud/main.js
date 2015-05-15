@@ -236,7 +236,7 @@ Parse.Cloud.define("newJourney", function(request, response) {
     var journey = new Journey();
 
     journey.set("userID", request.params.user);
-    journey.set("duration", request.params.durations);
+    journey.set("duration", request.params.duration);
     journey.set("start_location", request.params.start_location);
     journey.set("destination", request.params.destination);
 
