@@ -8,6 +8,8 @@
 
 #import "TimerViewController.h"
 #import "CountDownViewController.h"
+#import <Parse/Parse.h>
+#import <ParseFacebookUtils/PFFacebookUtils.h>
 
 @interface TimerViewController ()
 {
@@ -71,14 +73,39 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if([segue.identifier isEqualToString:@"toCountDownViewControllerSegue"]) {
         CountDownViewController *destinationViewController = segue.destinationViewController;
-        
+        /*
         NSInteger row = [self.picker selectedRowInComponent:0];
         NSString *selected = [_pickerData objectAtIndex:row];
         int min = [selected intValue];
         
         self.journey.minutesCount = min;
+        */
         destinationViewController.journey = self.journey;
     }
+}
+
+- (IBAction)startJourneyButtonPressed:(UIButton *)sender {
+    NSLog(@"start journey button pressed");
+    NSInteger row = [self.picker selectedRowInComponent:0];
+    NSString *selected = [_pickerData objectAtIndex:row];
+    int min = [selected intValue];
+    
+    self.journey.minutesCount = min;
+    
+    PFUser *user = [PFUser currentUser];
+
+    [PFCloud callFunctionInBackground:@"newJourney"
+                       withParameters:@{ @"user": user,
+                                         @"duration": [NSNumber numberWithInt:min*60],
+                                         @"start_location": self.journey.sourceString,
+                                         @"destination": self.journey.destinationString }
+                                block:^(id object, NSError *error) {
+                                    if (error) {
+                                        NSLog(@"ERROR calling newJourney: %@", error);
+                                    } else {
+                                        NSLog(@"succeeded in calling newJourney function");
+                                    }
+                                }];
 }
 
 @end
