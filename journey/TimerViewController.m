@@ -93,9 +93,8 @@
     self.journey.minutesCount = min;
     
     PFUser *user = [PFUser currentUser];
-
     [PFCloud callFunctionInBackground:@"newJourney"
-                       withParameters:@{ @"user": user,
+                       withParameters:@{ @"user": [user objectId],
                                          @"duration": [NSNumber numberWithInt:min*60],
                                          @"start_location": self.journey.sourceString,
                                          @"destination": self.journey.destinationString }
