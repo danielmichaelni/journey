@@ -48,7 +48,6 @@
     
     // Map Set-up!
     
-    
     self.locationManager = [[CLLocationManager alloc] init];
     
     
@@ -57,9 +56,9 @@
     [self.locationManager requestAlwaysAuthorization];
     
     [self.locationManager startUpdatingLocation];
-    
+
     self.mapView.showsUserLocation = YES;
-    
+    usleep(50000);
     self.journey.locationManager = self.locationManager;
     
     // Set Map to current location.
