@@ -2,17 +2,17 @@ var http = require('http');
 var querystring = require('querystring');
 var Buffer = require('buffer').Buffer;
 var moment = require('cloud/moment');
- 
+   
 var twilio_cred = require('cloud/config').keys.twilio;
 var mailjet_cred = require('cloud/config').keys.mailjet;
 var InteractiveIntel_cred = require('cloud/config').keys.InteractiveIntelligence;
- 
+   
 var emailTemp = require('cloud/assets').email;
 var smsTemp = require('cloud/assets').SMS;
 var phoneTemp = require('cloud/assets').Phone;
- 
+   
 var client = require('twilio')(twilio_cred.AccountSID, twilio_cred.AuthToken);
- 
+   
 var fillTemp = function (temp, params) {
     var arr = temp.split('||');
     var new_arr = arr.map(function (chunk) {
@@ -20,7 +20,7 @@ var fillTemp = function (temp, params) {
     });
     return new_arr.join('');
 };
- 
+   
 var addGender = function (params) {
     if (params.gender == 'male'){
         params['they'] = 'he';
@@ -37,8 +37,12 @@ var addGender = function (params) {
     }
     return params;
 };
- 
- 
+   
+   
+///////////////////////////
+///// PARSE FUNCTIONS /////
+///////////////////////////
+
 Parse.Cloud.define("SMS", function(request, response) {
     var params = addGender(request.params);
     var phone_num = request.params.phonenum;
@@ -67,24 +71,24 @@ Parse.Cloud.define("SMS", function(request, response) {
             }
         );
     }
- 
+   
 });
- 
+   
 Parse.Cloud.define("Email", function(request, response) {
     var params = request.params;
     var authorization = new Buffer(mailjet_cred.APIKey + ':' + mailjet_cred.SecretKey, 'utf8').toString('base64');
     var email = request.params.email;
     var subject = fillTemp(emailTemp.subject, params);
- 
+   
     //Use First names for the body
     params.username = params.username.split(' ')[0];
     params.friendname = params.friendname.split(' ')[0];
     params.time = params.time + (params.time == 1 ? ' minute' : ' minutes');
- 
+   
     params = addGender(params);
     var message = fillTemp(emailTemp.body, params);
- 
- 
+   
+   
     if (!email || !subject || !message){
         response.error("Missing neccessary params");
     } else {
@@ -111,18 +115,18 @@ Parse.Cloud.define("Email", function(request, response) {
                 response.error('Request failed with response code ' + httpResponse.status);
             }
         });
- 
+   
     }
 });
- 
+   
 Parse.Cloud.define("PhoneCall", function(request, response) {
     var params = addGender(request.params);
     params.time = params.time + (params.time == 1 ? ' minute' : ' minutes');
     var message = fillTemp(phoneTemp, params);
- 
+   
     var data= {"number":request.params.phonenum, "message":message};
     console.log(data);
- 
+   
     Parse.Cloud.httpRequest({
         method: 'POST',
         url:  "http://hackathonapi.inin.com/api" + InteractiveIntel_cred.AppID +"/call/callandplaytts",
@@ -142,7 +146,117 @@ Parse.Cloud.define("PhoneCall", function(request, response) {
     });
 });
 
-Parse.Cloud.job("checkJourneys", function(req, status) {
+/*
+Parse.Cloud.define("mailgun", function(request, response) {
+    var Mailgun = require('mailgun');
+    Mailgun.initialize('sandbox1d7324b883a04f6c9a3ed6df1e3da325.mailgun.org', 'key-22605f9f2f2dafb41700875eccf3ceff');
+ 
+    Mailgun.sendEmail({
+      to: "aubakirova.m.m@gmail.com",
+      from: "Journey <mailgun@journey-hackillinois.parse.com>",
+      subject: "Hello from Cloud Code!",
+      text: "Using Parse and Mailgun is great!"
+    }, {
+      success: function(httpResponse) {
+        console.log(httpResponse);
+        response.success("Email sent!");
+      },
+      error: function(httpResponse) {
+        console.error(httpResponse);
+        response.error("Uh oh, something went wrong");
+      }
+    });
+});
+*/
+ 
+Parse.Cloud.define("MailGunEmail", function(request, response) {
+    var params = request.params;
+    var email = request.params.email;
+    var subject = fillTemp(emailTemp.subject, params);
+    
+    //Use First names for the body
+    params.username = params.username.split(' ')[0];
+    params.friendname = params.friendname.split(' ')[0];
+    params.time = params.time + (params.time == 1 ? ' minute' : ' minutes');
+    
+    params = addGender(params);
+    var message = fillTemp(emailTemp.body, params);
+    
+    
+    if (!email || !subject || !message){
+        response.error("Missing neccessary params");
+    } else {
+        var Mailgun = require('mailgun');
+        Mailgun.initialize('sandbox1d7324b883a04f6c9a3ed6df1e3da325.mailgun.org', 'key-22605f9f2f2dafb41700875eccf3ceff');
+ 
+        Mailgun.sendEmail({
+          to: email,
+          from: "Journey <mailgun@journey-hackillinois.parse.com>",
+          subject: subject,
+          html: message
+        }, {
+          success: function(httpResponse) {
+            console.log(httpResponse);
+            response.success("Email sent!");
+          },
+          error: function(httpResponse) {
+            console.error(httpResponse);
+            response.error("Uh oh, something went wrong");
+          }
+        });
+    
+    }
+});
+
+//Makes Journey.active = false
+Parse.Cloud.define("endJourney", function(request, response) {
+    Parse.Cloud.useMasterKey();
+    var Journey = Parse.Object.extend("Journey");
+    var query = new Parse.Query(Journey);
+
+    query.get(request.params.journeyId, { //Pass in the objectId of the journey
+      success: function(journey) {
+        journey.set("active", false);
+        journey.save(null, {
+            success: function (journey) { response.success("Successfully recorded inactive journey."); },
+            error: function (journey, error) {
+                response.error("Error: " + error.code + " " + error.message);
+            }
+        });
+      },
+      error: function(journey, error) {
+        response.error("Error: " + error.code + " " + error.message);
+      }
+    });
+});
+
+Parse.Cloud.define("newJourney", function(request, response) {
+    Parse.Cloud.useMasterKey();
+    var Journey = Parse.Object.extend("Journey");
+    var journey = new Journey();
+
+    journey.set("userID", request.params.user);
+    journey.set("duration", request.params.duration);
+    journey.set("start_location", request.params.start_location);
+    journey.set("destination", request.params.destination);
+
+    journey.set("start", moment());
+    journey.set("active", true);
+
+    journey.save(null, {
+        success: function (journey) { response.success("Successfully recorded journey."); },
+        error: function (journey, error) {
+            response.error("Error: " + error.code + " " + error.message);
+        }
+    });
+
+});
+
+//////////////////////
+///// PARSE JOBS /////
+//////////////////////
+  
+Parse.Cloud.job("checkJourneys", function(request, repsonse) {
     Parse.Cloud.useMasterKey();
     var Journey = Parse.Object.extend("Journey");
     var query = new Parse.Query(Journey);
@@ -150,21 +264,21 @@ Parse.Cloud.job("checkJourneys", function(req, status) {
     query.each(function(journey) {
         var duration = journey.get('duration');
         var start = journey.get('start');
-        
+          
         var end = moment(start).add(duration,'s');
         var end_bound = moment(start).add(duration + 60,'s');
         var now = moment();
-
+  
         var between = now.isBetween(end,end_bound);
         //if between == true
         //push notification to user device
         //if no response, contact people
-
+  
         console.log(journey.id + ' - ' + end.format() + ' - ' + end_bound.format() + ' - ' + now.format() + ' - ' + between);
-
+  
     }).then(function() {
-        status.success("Checked Journeys successfully.");
+        repsonse.success("Checked Journeys successfully.");
     }, function(error) {
-        status.error("Error: " + error.code + " " + error.message);
+        repsonse.error("Error: " + error.code + " " + error.message);
     });
 });

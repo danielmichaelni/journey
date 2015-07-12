@@ -34,6 +34,7 @@
 		6682516A1AA30C9300AD28E3 /* fb_login_button.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 668251691AA30C9300AD28E3 /* fb_login_button.jpg */; };
 		6682516F1AA3281D00AD28E3 /* SuccessViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6682516E1AA3281D00AD28E3 /* SuccessViewController.m */; };
 		668251721AA3578600AD28E3 /* FailureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 668251711AA3578600AD28E3 /* FailureViewController.m */; };
+		668AC0D41AFC49C100F62E30 /* NoAnimationSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 668AC0D31AFC49C100F62E30 /* NoAnimationSegue.m */; };
 		66BB729C1AA278480033CE70 /* Journey.m in Sources */ = {isa = PBXBuildFile; fileRef = 66BB729B1AA278480033CE70 /* Journey.m */; };
 		66BB729F1AA278520033CE70 /* TimerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 66BB729E1AA278520033CE70 /* TimerViewController.m */; };
 		A40A64961AA293D500A91BC4 /* SettingsPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A40A64951AA293D500A91BC4 /* SettingsPageViewController.m */; };
@@ -120,6 +121,8 @@
 		6682516E1AA3281D00AD28E3 /* SuccessViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SuccessViewController.m; sourceTree = "<group>"; };
 		668251701AA3578600AD28E3 /* FailureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FailureViewController.h; sourceTree = "<group>"; };
 		668251711AA3578600AD28E3 /* FailureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FailureViewController.m; sourceTree = "<group>"; };
+		668AC0D21AFC49C100F62E30 /* NoAnimationSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoAnimationSegue.h; sourceTree = "<group>"; };
+		668AC0D31AFC49C100F62E30 /* NoAnimationSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoAnimationSegue.m; sourceTree = "<group>"; };
 		66BB729A1AA278480033CE70 /* Journey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Journey.h; sourceTree = "<group>"; };
 		66BB729B1AA278480033CE70 /* Journey.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Journey.m; sourceTree = "<group>"; };
 		66BB729D1AA278520033CE70 /* TimerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimerViewController.h; sourceTree = "<group>"; };
@@ -259,6 +262,8 @@
 				A40A64951AA293D500A91BC4 /* SettingsPageViewController.m */,
 				668251611AA2DABB00AD28E3 /* CountDownViewController.h */,
 				668251621AA2DABB00AD28E3 /* CountDownViewController.m */,
+				668AC0D21AFC49C100F62E30 /* NoAnimationSegue.h */,
+				668AC0D31AFC49C100F62E30 /* NoAnimationSegue.m */,
 				A4B073531AA33D320049C489 /* icon */,
 				A4B0736C1AA33F0A0049C489 /* New Group */,
 				562A9CF61AA17D7800BDEBA6 /* LaunchScreen.xib */,
@@ -502,6 +507,7 @@
 				A4B3A93A1AA187C20068CDE0 /* LoginViewController.m in Sources */,
 				569AB9361AA2C8E500C5FE5B /* wildcard.m in Sources */,
 				A40A64961AA293D500A91BC4 /* SettingsPageViewController.m in Sources */,
+				668AC0D41AFC49C100F62E30 /* NoAnimationSegue.m in Sources */,
 				1885DEE21AA20DA6005AE98A /* Communication.m in Sources */,
 				66BB729F1AA278520033CE70 /* TimerViewController.m in Sources */,
 				562A9CF01AA17D7800BDEBA6 /* ViewController.m in Sources */,

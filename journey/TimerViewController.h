@@ -16,6 +16,8 @@
 @property (strong, nonatomic) IBOutlet UILabel *timeInstructionLabel;
 @property (strong, nonatomic) IBOutlet UIButton *startJourneyOutlet;
 
+- (IBAction)startJourneyButtonPressed:(UIButton *)sender;
+
 @property (strong, nonatomic) Journey *journey;
 
 
