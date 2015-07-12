@@ -31,7 +31,7 @@
                     NSString *name = contact[@"name"];
                     NSString *phone = contact[@"cellPhone"];
                     NSString *email = contact[@"email"];
-                    NSLog(@"%@ %@ %@", name, phone, email);
+                    
                     if (textEnabled == true) {
                         [Communication SendSMS:contact from:current on:journey];
                     }

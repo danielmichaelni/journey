@@ -34,23 +34,8 @@
     [super viewDidLoad];
     
     self.logoLabel.font = [UIFont fontWithName:@"Hero-Light" size:30.0];
-    
-    
-    /*
-    UIImage *textLogoImage = [UIImage imageNamed:@"textLogo.png"];
-    CGFloat width = [[UIScreen mainScreen] bounds].size.width;
-    float scale = textLogoImage.size.width / width;
-    UIImage *scaledTextLogoImage = [UIImage imageWithCGImage:[textLogoImage CGImage] scale:scale orientation:textLogoImage.imageOrientation];
-    self.textLogoImageView = [[UIImageView alloc] initWithImage:scaledTextLogoImage];
-    self.textLogoImageView.contentMode = UIViewContentModeScaleAspectFit;
-    [self.view addSubview:self.textLogoImageView];
-    [self.textLogoImageView.superview sendSubviewToBack:self.textLogoImageView];
-    */
-    
     UIColor *tintColor = [UIColor colorWithRed:15.0/255.0 green:43.0/255.0 blue:64.0/255.0 alpha:1];
     self.view.backgroundColor = tintColor;
-    
-    //UIColor *tintColor = [UIColor colorWithRed:25.0/255.0 green:74.0/255.0 blue:99.0/255.0 alpha:1];
     [self.navigationController.navigationBar setBarStyle:UIBarStyleDefault];
     [self.navigationController.navigationBar setBarTintColor:tintColor];
     [self.navigationController.navigationBar setTranslucent:NO];
@@ -75,6 +60,10 @@
     [super viewWillAppear:animated];
     // Check if user is cached and linked to Facebook, if so, bypass login
     if ([PFUser currentUser] && [PFFacebookUtils isLinkedWithUser:[PFUser currentUser]]) {
+        PFUser *user = [PFUser currentUser];
+        user.ACL = [PFACL ACLWithUser:user];
+        [PFACL setDefaultACL:user.ACL withAccessForCurrentUser:YES];
+        [user saveInBackground];
         [self _presentUserDetailsViewControllerAnimated:NO];
     }
 }
@@ -105,13 +94,17 @@
             if (user.isNew) {
                 // new user
                 [self _loadData];
-                [[PFUser currentUser] setValue:[NSNumber numberWithBool:YES] forKey:@"enableEmails"];
-                [[PFUser currentUser] setValue:[NSNumber numberWithBool:YES]  forKey:@"enableTexts"];
-                [[PFUser currentUser] setValue:[NSNumber numberWithBool:NO]  forKey:@"enableCalls"];
-                [[PFUser currentUser] saveInBackground];
+                PFUser *user = [PFUser currentUser];
+                user.ACL = [PFACL ACLWithUser:user];
+                [user setValue:[NSNumber numberWithBool:YES] forKey:@"enableEmails"];
+                [user setValue:[NSNumber numberWithBool:YES]  forKey:@"enableTexts"];
+                [user setValue:[NSNumber numberWithBool:NO]  forKey:@"enableCalls"];
+                [user saveInBackground];
                 [self performSegueWithIdentifier:@"loginPhone" sender:self];
             } else {
                 // logged in back loggedIn
+                PFUser *user = [PFUser currentUser];
+                user.ACL = [PFACL ACLWithUser:user];
                 [self performSegueWithIdentifier:@"loggedIn" sender:self];
             }
         }
@@ -174,11 +167,13 @@
                 userProfile[@"email"] = email;
                 [[PFUser currentUser] setObject:email forKey:@"email"];
             }
+            PFUser *user = [PFUser currentUser];
+            user.ACL = [PFACL ACLWithUser:user];
+            [PFACL setDefaultACL:[PFACL ACL] withAccessForCurrentUser:YES];
             
-            [[PFUser currentUser] setObject:userProfile[@"pictureURL"] forKey:@"pictureURL"];
-            
-            [[PFUser currentUser] setObject:userProfile forKey:@"profile"];
-            [[PFUser currentUser] saveInBackground];
+            [user setObject:userProfile[@"pictureURL"] forKey:@"pictureURL"];
+            [user setObject:userProfile forKey:@"profile"];
+            [user saveInBackground];
             
         } else if ([[[[error userInfo] objectForKey:@"error"] objectForKey:@"type"]
                     isEqualToString: @"OAuthException"]) { // Since the request failed, we can check if it was due to an invalid session

@@ -35,11 +35,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    //UIColor *tintColor = [UIColor colorWithRed:15.0/255.0 green:43.0/255.0 blue:64.0/255.0 alpha:1];
-    /*
-    self.friendPickerButton.layer.borderWidth= 3.0f;
-    self.friendPickerButton.layer.borderColor= [[UIColor blackColor] CGColor];
-    */
 }
 
 - (void) viewDidUnload
@@ -91,6 +86,22 @@
         self.friendPickerController = [[FBFriendPickerViewController alloc] init];
         self.friendPickerController.title = @"Pick Friends";
         self.friendPickerController.delegate = self;
+        
+        /*
+        NSMutableArray *results = [[NSMutableArray alloc] init];
+        for (id key in dict) {
+            NSString *name = [dict valueForKey:key];
+            id<FBGraphUser> user = (id<FBGraphUser>)[FBGraphObject graphObject];
+            user.id = key;
+            [user setName:name]; // This is not mandatory
+            if (user) {
+                NSLog(@"adding user: %@", user.name);
+                [results addObject:user];
+            }
+        }
+        // And finally set the selection property
+        friendPickerController.selection = results;
+        */
     }
     
     [self.friendPickerController loadData];

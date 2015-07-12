@@ -227,6 +227,21 @@
     
     [self.friendPickerController loadData];
     [self.friendPickerController clearSelection];
+    
+    NSMutableArray *results = [[NSMutableArray alloc] init];
+    NSMutableArray *selectedFriends = [[PFUser currentUser] objectForKey:@"contactList"];
+    for (id key in selectedFriends) {
+        id<FBGraphUser> user = (id<FBGraphUser>)[FBGraphObject graphObject];
+        user.objectID = key;
+        //[self friendPickerViewController: self.friendPickerController shouldIncludeUser:user];
+        if (user) {
+            [results addObject:user];
+        }
+    }
+    // And finally set the selection property
+    self.friendPickerController.selection = results;
+    NSLog(@"Friends should be selected");
+    
     self.friendPickerController.allowsMultipleSelection = TRUE;
     self.friendPickerController.delegate = self;
     
@@ -247,13 +262,13 @@
         }
         [text appendString:user.name];
         [contacts addObject:user.objectID];
+        NSLog(@"%@", user.objectID);
     }
+    
+    NSLog(@"selected %@", self.friendPickerController.selection);
     
     [[PFUser currentUser] setObject:contacts forKey:@"contactList"];
     [[PFUser currentUser] saveInBackground];
-    
-    
-    // self.selectedFriendsView.text = text;
     
     [self.navigationController popViewControllerAnimated:YES];
 }
@@ -309,6 +324,11 @@
                  shouldIncludeUser:(id<FBGraphUser>)user
 {
     return YES;
+}
+
+- (void) friendPickerViewControllerSelectionDidChange:(FBFriendPickerViewController *)friendPicker;
+{
+    NSLog(@"it changed! %@", self.friendPickerController.selection);
 }
 
 
