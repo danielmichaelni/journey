@@ -53,6 +53,8 @@
     return self;
 }
 
+
+
 #pragma mark -
 #pragma mark UIViewController
 
@@ -74,14 +76,15 @@
 
 - (IBAction)loginButtonTouchHandler:(id)sender  {
     // Set permissions required from the facebook user account
-    NSArray *permissionsArray = @[ @"user_about_me", @"user_relationships", @"user_birthday", @"user_location", @"email", @"user_friends", @"email"];
+    NSArray *permissionsArray = @[ @"user_about_me", /* @"user_birthday", */ @"user_location", @"user_friends", @"email"];
 
     // Login PFUser using Facebook
     [PFFacebookUtils logInWithPermissions:permissionsArray block:^(PFUser *user, NSError *error) {
+        NSLog(@"Permissions");
         if (!user) {
             NSString *errorMessage = nil;
             if (!error) {
-                errorMessage = @"Uh oh. The user cancelled the Facebook login.";
+                errorMessage = @"The user cancelled the Facebook login.";
             } else {
                 errorMessage = [error localizedDescription];
             }
@@ -91,6 +94,7 @@
                                                   cancelButtonTitle:nil
                                                   otherButtonTitles:@"Dismiss", nil];
             [alert show];
+            NSLog(@"Permissions error");
         } else {
             if (user.isNew) {
                 // new user
@@ -106,7 +110,8 @@
                 // logged in back loggedIn
                 PFUser *user = [PFUser currentUser];
                 user.ACL = [PFACL ACLWithUser:user];
-                [self performSegueWithIdentifier:@"loggedIn" sender:self];
+                //[self performSegueWithIdentifier:@"loggedIn" sender:self];
+                [self performSegueWithIdentifier:@"loginPhone" sender:self];
             }
         }
     }];
@@ -144,21 +149,16 @@
                 [[PFUser currentUser] setObject:location forKey:@"location"];
             }
             
-            NSString *gender = userData[@"gender"];
-            if (gender) {
-                userProfile[@"gender"] = gender;
-                [[PFUser currentUser] setObject:gender forKey:@"gender"];
-            }
-            
-            NSString *birthday = userData[@"birthday"];
-            if (birthday) {
-                userProfile[@"birthday"] = birthday;
-            }
-            
-            NSString *relationshipStatus = userData[@"relationship_status"];
-            if (relationshipStatus) {
-                userProfile[@"relationship"] = relationshipStatus;
-            }
+//            NSString *gender = userData[@"gender"];
+//            if (gender) {
+//                userProfile[@"gender"] = gender;
+//                [[PFUser currentUser] setObject:gender forKey:@"gender"];
+//            }
+//            
+//            NSString *birthday = userData[@"birthday"];
+//            if (birthday) {
+//                userProfile[@"birthday"] = birthday;
+//            }
             
             userProfile[@"pictureURL"] = [NSString stringWithFormat:@"https://graph.facebook.com/%@/picture?type=large&return_ssl_resources=1", facebookID];
             

@@ -11,6 +11,7 @@
 #import <ParseFacebookUtils/PFFacebookUtils.h>
 #import <FacebookSDK/FacebookSDK.h>
 #import <Foundation/Foundation.h>
+#import <QuartzCore/QuartzCore.h>
 #import "SettingsPageViewController.h"
 
 @interface SettingsPageViewController ()
@@ -49,6 +50,9 @@
     
     self.updatePhone.delegate = self;
     self.updateEmail.delegate = self;
+    
+    self.changeFriendsList.layer.cornerRadius = 5; // this value vary as per your desire
+    self.changeFriendsList.clipsToBounds = YES;
     
     /*
     UILocalNotification* localNotification = [[UILocalNotification alloc] init];
